@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:calendarview="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="p"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+
+        <variable
+            name="pre"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+
+        <variable
+            name="preleft"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+
+        <variable
+            name="preright"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.wangyang.tinnerwangyang.Activity.WeightActivity">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dialog_title_textcolor">
+
+            <ImageView
+                android:id="@+id/image_back_knowledges"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->p.click()}"
+                android:src="@drawable/btn_back" />
+
+            <TextView
+                android:id="@+id/text_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d120"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d50"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="@dimen/d20"
+                android:layout_height="@dimen/d20"
+                android:layout_marginLeft="@dimen/d80"
+                android:layout_marginTop="@dimen/d15"
+                android:background="@drawable/left_date"
+                android:onClick="@{()->preleft.click()}" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/d15"
+                android:textColor="@color/black_38"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="@dimen/d20"
+                android:layout_height="@dimen/d20"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/d80"
+                android:layout_marginTop="@dimen/d15"
+                android:background="@drawable/right_date"
+                android:onClick="@{()->preright.click()}" />
+
+        </RelativeLayout>
+
+        <com.example.wangyang.tinnerwangyang.Calendarview.WeekView
+            android:layout_width="match_parent"
+            android:layout_height="35dp" />
+
+        <com.example.wangyang.tinnerwangyang.Calendarview.CalendarView
+            android:id="@+id/calendar"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            calendarview:choose_type="single"
+            calendarview:show_holiday="false"
+            calendarview:show_lunar="true"
+            calendarview:show_term="false"
+            calendarview:switch_choose="false" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d40"
+            android:gravity="center">
+
+            <TextView
+                android:layout_marginRight="@dimen/d10"
+                android:layout_marginLeft="@dimen/d10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_bg"
+                android:gravity="center"
+                android:onClick="@{()->pre.click()}"
+                android:text="添加体重"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/choose_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+</layout>

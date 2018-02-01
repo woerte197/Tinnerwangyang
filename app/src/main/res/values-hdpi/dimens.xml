@@ -1,0 +1,5 @@
+<resources>
+
+    <dimen name="topbar_left_button_height">30dp</dimen>
+
+</resources>

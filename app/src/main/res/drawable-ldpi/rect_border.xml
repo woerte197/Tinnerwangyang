@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- layout background -->
+    <item>
+        <!-- show rectangle area -->
+        <shape android:shape="rectangle"  >
+            <size android:height="@dimen/d8" />
+            <solid android:color="#E6E6E6" />
+        </shape>
+    </item>
+    <!-- layout foreground -->
+    <item
+        android:bottom="1dp"
+        android:top="1dp">
+        <!-- show rectangle area -->
+        <shape android:shape="rectangle" >
+            <size android:height="@dimen/d8" />
+            <solid android:color="@color/publish_tools_bg" />
+        </shape>
+    </item>
+</layer-list>

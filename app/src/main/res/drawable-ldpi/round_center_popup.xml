@@ -1,0 +1,16 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <solid android:color="@color/popup_bg_color" />
+
+    <corners
+        android:topLeftRadius="@dimen/common_round_istop_r"
+        android:topRightRadius="@dimen/common_round_istop_r"
+        android:bottomLeftRadius="@dimen/common_round_istop_r"
+        android:bottomRightRadius="@dimen/common_round_istop_r"
+  />
+    <stroke android:width="0.5dp"
+        android:color="@color/home_block_name_color"/>
+
+</shape>
+
+

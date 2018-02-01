@@ -1,0 +1,57 @@
+<layout>
+    <data>
+
+    </data>
+
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.wangyang.tinnerwangyang.fragement.BaseFragment">
+
+    <RelativeLayout
+        android:id="@+id/f_base_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <com.lib.view.TitleBarView
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/titlebar_bg"
+            android:orientation="horizontal"
+            android:visibility="gone"/>
+        <RelativeLayout
+            android:id="@+id/mybody"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_below="@id/topBar"
+            android:background="@color/white"
+            android:orientation="vertical"/>
+
+        <LinearLayout
+            android:id="@+id/status_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/topBar"
+            android:orientation="vertical">
+
+            <!--<com.lib.view.StatusView-->
+                <!--android:id="@+id/statusView"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center"-->
+                <!--android:visibility="gone"/>-->
+
+            <View
+                android:id="@+id/block"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d180"/>
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>
+</layout>

@@ -1,0 +1,19 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_focused="true"><shape>
+            <gradient android:angle="90" android:endColor="@color/white" android:startColor="@color/white" />
+
+            <corners android:radius="@dimen/d2" />
+
+            <stroke android:width="@dimen/d05" android:color="@color/edit_reply_color" />
+        </shape></item>
+    <item><shape>
+            <gradient android:angle="90" android:endColor="@color/white" android:startColor="@color/white" />
+
+            <corners android:radius="@dimen/d2" />
+            <corners android:bottomLeftRadius="@dimen/tab_round_width" android:bottomRightRadius="@dimen/tab_round_width" android:topLeftRadius="@dimen/tab_round_width" android:topRightRadius="@dimen/tab_round_width" />
+
+            <stroke android:width="@dimen/d05" android:color="@color/edit_reply_color" />
+        </shape></item>
+
+</selector>

@@ -1,0 +1,4 @@
+<resources>
+
+    <dimen name="live_dialog_height">165dp</dimen>
+</resources>

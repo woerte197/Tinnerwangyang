@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:my="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.wangyang.tinnerwangyang.TabBean" />
+
+        <variable
+            name="tabs"
+            type="java.util.List&lt;TabBean&gt;" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="context"
+            type="android.content.Context"></variable>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/tab_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d54"
+            android:adjustViewBounds="false"
+            android:background="@color/white"
+            android:minHeight="@dimen/d54"
+            android:scaleType="centerCrop"
+            my:layout_constraintBottom_toBottomOf="parent" />
+
+
+        <FrameLayout
+            android:id="@+id/fragmentContainer"
+            android:layout_width="@dimen/d0"
+            android:layout_height="@dimen/d0"
+            my:layout_constraintBottom_toTopOf="@id/tab_image"
+            my:layout_constraintLeft_toLeftOf="parent"
+            my:layout_constraintRight_toRightOf="parent"
+            my:layout_constraintTop_toTopOf="parent"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d10"
+            android:background="@drawable/bottom_shadow_bg_shape"
+            my:layout_constraintBottom_toTopOf="@id/tab_image"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/v_line_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            my:layout_constraintGuide_percent="0.33333333333333"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/v_line_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            my:layout_constraintGuide_percent="0.66666666666666"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d10"
+            android:background="@drawable/bottom_shadow_bg_shape"
+            my:layout_constraintBottom_toTopOf="@id/tab_image"/>
+        <com.lib.view.TabBar
+            android:id="@+id/tab0"
+            android:layout_width="@dimen/d0"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->tabs.get(0).presenter.click()}"
+            my:imgHead="@{context.getResources().getDrawable(tabs.get(0).imageRes)}"
+            my:layout_constraintBottom_toBottomOf="parent"
+            my:layout_constraintLeft_toLeftOf="parent"
+            my:layout_constraintRight_toRightOf="@id/v_line_0"
+            my:select="@{tabs.get(0).selected}"
+            my:showPop="@{tabs.get(0).showCircle}"
+            my:textValue="@string/tab_find"
+            />
+
+        <com.lib.view.TabBar
+            android:id="@+id/tab1"
+            android:layout_width="@dimen/d0"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->tabs.get(1).presenter.click()}"
+            my:imgHead="@{context.getResources().getDrawable(tabs.get(1).imageRes)}"
+            my:layout_constraintBottom_toBottomOf="parent"
+            my:layout_constraintLeft_toLeftOf="@id/v_line_0"
+            my:layout_constraintRight_toRightOf="@id/v_line_1"
+            my:select="@{tabs.get(1).selected}"
+            my:showPop="@{tabs.get(1).showCircle}"
+            my:textValue="@string/tab_sport" />
+
+
+        <com.lib.view.TabBar
+            android:id="@+id/tab2"
+            android:layout_width="@dimen/d0"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->tabs.get(2).presenter.click()}"
+            my:imgHead="@{context.getResources().getDrawable(tabs.get(2).imageRes)}"
+            my:layout_constraintBottom_toBottomOf="parent"
+            my:layout_constraintLeft_toLeftOf="@id/v_line_1"
+            my:layout_constraintRight_toRightOf="parent"
+            my:select="@{tabs.get(2).selected}"
+            my:showPop="@{tabs.get(2).showCircle}"
+            my:textValue="@string/tab_my"
+          />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</layout>

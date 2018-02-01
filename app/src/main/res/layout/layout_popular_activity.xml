@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="hotevent"
+            type="com.example.wangyang.tinnerwangyang.Bean.HotEventsBean" />
+
+        <variable
+            name="presenter"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+
+        <variable
+            name="p"
+            type="Integer" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d13"
+                android:visibility="@{p.equals(0) ? View.VISIBLE :View.GONE}" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->presenter.click()}"
+                android:paddingBottom="@dimen/d13"
+                android:paddingLeft="@dimen/d13"
+                android:paddingRight="@dimen/d13">
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d130"
+                    android:scaleType="fitXY"
+                    app:imageUrl="@{hotevent.Banner_url}" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+</layout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 连框颜色值 -->
+    <item>
+        <shape> 
+            <solid android:color="@color/tab_selected_color" />
+        </shape>
+    </item>
+    <!-- 主体背景颜色值 -->
+    <item
+        android:top="@dimen/d3" >
+        <shape>
+            <solid android:color="@color/tab_selected_color" />
+
+            <padding
+                android:bottom="@dimen/d2"
+                android:left="@dimen/d5"
+                android:right="@dimen/d5"
+                android:top="@dimen/d5" />
+        </shape>
+    </item>
+
+</layer-list>

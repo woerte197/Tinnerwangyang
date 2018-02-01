@@ -1,0 +1,11 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <solid android:color="@color/android_round_bg" />
+
+    <corners
+        android:bottomLeftRadius="@dimen/common_round_istop_r"
+        android:bottomRightRadius="@dimen/common_round_istop_r"
+        android:topLeftRadius="@dimen/common_round_istop_r"
+        android:topRightRadius="@dimen/common_round_istop_r" />
+
+</shape>

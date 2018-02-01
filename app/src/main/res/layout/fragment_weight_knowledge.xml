@@ -1,0 +1,26 @@
+<layout>
+    <data>
+
+    </data>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.wangyang.tinnerwangyang.fragement.ChoiceFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+   <com.example.wangyang.tinnerwangyang.common.TinnerSwipeRefreshlayout
+       android:id="@+id/refresh_knowledges"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <android.support.v7.widget.RecyclerView
+           android:id="@+id/recycle_knowledges"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+       </android.support.v7.widget.RecyclerView>
+   </com.example.wangyang.tinnerwangyang.common.TinnerSwipeRefreshlayout>
+
+</FrameLayout>
+</layout>

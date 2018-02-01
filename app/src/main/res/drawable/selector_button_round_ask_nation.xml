@@ -1,0 +1,18 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+
+        <shape>
+            <corners android:bottomLeftRadius="@dimen/d3" android:bottomRightRadius="@dimen/d3" android:topLeftRadius="@dimen/d3" android:topRightRadius="@dimen/d3" />
+            <gradient android:endColor="@color/colorNationPrimary" android:startColor="@color/colorNationPrimary" />
+        </shape>
+    </item>
+    <item>
+
+        <shape>
+            <corners android:bottomLeftRadius="@dimen/d3" android:bottomRightRadius="@dimen/d3" android:topLeftRadius="@dimen/d3" android:topRightRadius="@dimen/d3" />
+            <stroke android:width="@dimen/d05" android:color="@color/colorNationTextUnselectedPrimary" />
+            <gradient android:endColor="@color/transparent" android:startColor="@color/transparent" />
+        </shape>
+    </item>
+
+</selector>

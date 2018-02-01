@@ -1,0 +1,71 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d50"
+                    android:background="@drawable/common_line_shape">
+                    <!--<com.youth.banner.Banner-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"></com.youth.banner.Banner>-->
+
+                    <com.lib.view.TopSearchView
+                        android:id="@+id/topsearch_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_scrollFlags="scroll|enterAlways">
+
+                    </com.lib.view.TopSearchView>
+                </android.support.constraint.ConstraintLayout>
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d40">
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tablayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d40"
+                    android:background="@drawable/common_line_shape"
+                    app:tabIndicatorColor="@color/color_007aff"
+                    app:tabMode="fixed"
+                    app:tabSelectedTextColor="@color/color_007aff"
+                    app:tabTextAppearance="@style/TabLayoutTextStyle1"
+                    app:tabTextColor="@color/dialog_message_text_color" />
+
+            </RelativeLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+            />
+
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

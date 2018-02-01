@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="userbean"
+            type="com.example.wangyang.tinnerwangyang.Bean.UserBean" />
+
+        <variable
+            name="posts"
+            type="com.example.wangyang.tinnerwangyang.Bean.PostsBean" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d60"
+            android:orientation="horizontal">
+
+            <com.lib.view.CircleImageView
+                android:layout_width="@dimen/d50"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/d10"
+                app:imageUrl="@{userbean.Avatar_url}" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/d10">
+
+                <TextView
+                    android:textSize="13sp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@{userbean.nickname}" />
+
+                <TextView
+                    android:id="@+id/text_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/d10"
+                    android:gravity="center_vertical" />
+            </RelativeLayout>
+
+        </LinearLayout>
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="@dimen/d10"-->
+        <!--android:layout_marginRight="@dimen/d10"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<ImageView-->
+        <!--android:visibility="@{TextUtils.isEmpty(photos0.Big_url) ? View.GONE :View.VISIBLE}"-->
+        <!--app:imageUrl="@{photos0.Small_url}"-->
+        <!--android:layout_width="@dimen/d0"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_weight="1" />-->
+
+        <!--<ImageView-->
+        <!--android:visibility="@{TextUtils.isEmpty(photos1.Small_url) ? View.GONE :View.VISIBLE}"-->
+        <!--app:imageUrl="@{photos1.Small_url}"-->
+        <!--android:layout_width="@dimen/d0"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_weight="1" />-->
+
+        <!--<ImageView-->
+        <!--android:visibility="@{TextUtils.isEmpty(photos2.Small_url) ? View.GONE :View.VISIBLE}"-->
+        <!--app:imageUrl="@{photos2.Small_url}"-->
+        <!--android:layout_width="@dimen/d0"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_weight="1" />-->
+
+
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="@dimen/d10"-->
+        <!--android:layout_marginRight="@dimen/d10"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<ImageView-->
+        <!--android:visibility="@{TextUtils.isEmpty(photos3.Small_url) ? View.GONE :View.VISIBLE}"-->
+        <!--app:imageUrl="@{photos3.Small_url}"-->
+        <!--android:layout_width="@dimen/d0"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_weight="1" />-->
+
+        <!--<ImageView-->
+        <!--android:visibility="@{TextUtils.isEmpty(photos4.Small_url) ? View.GONE :View.VISIBLE}"-->
+        <!--app:imageUrl="@{photos4.Small_url}"-->
+        <!--android:layout_width="@dimen/d0"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_weight="1" />-->
+
+        <!--<ImageView-->
+        <!--android:visibility="@{TextUtils.isEmpty(photos5.Small_url) ? View.GONE :View.VISIBLE}"-->
+        <!--app:imageUrl="@{photos5.Small_url}"-->
+        <!--android:layout_width="@dimen/d0"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_weight="1" />-->
+
+
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="@dimen/d10"-->
+        <!--android:layout_marginRight="@dimen/d10"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<ImageView-->
+        <!--android:visibility="@{TextUtils.isEmpty(photos6.Small_url) ? View.GONE :View.VISIBLE}"-->
+        <!--app:imageUrl="@{photos6.Small_url}"-->
+        <!--android:layout_width="@dimen/d0"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_weight="1" />-->
+
+        <!--<ImageView-->
+        <!--android:visibility="@{TextUtils.isEmpty(photos7.Small_url) ? View.GONE :View.VISIBLE}"-->
+        <!--app:imageUrl="@{photos7.Small_url}"-->
+        <!--android:layout_width="@dimen/d0"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_weight="1" />-->
+
+        <!--<ImageView-->
+        <!--android:visibility="@{TextUtils.isEmpty(photos8.Small_url) ? View.GONE :View.VISIBLE}"-->
+        <!--app:imageUrl="@{photos8.Small_url}"-->
+        <!--android:layout_width="@dimen/d0"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_weight="1" />-->
+
+
+        <!--</LinearLayout>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d10"
+            android:layout_marginRight="@dimen/d10"
+            android:layout_marginTop="@dimen/d10">
+
+            <TextView
+                android:lineSpacingExtra="@dimen/d4"
+                android:textColor="@color/blacka"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{posts.body}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d10"
+            android:layout_marginRight="@dimen/d7"
+            android:layout_marginTop="@dimen/d10">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycle_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d5"
+            android:background="@color/shadow_commem_serch_hint_color" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="imageUrl"
+            type="android.databinding.ObservableField&lt;String&gt;" />
+
+        <variable
+            name="presenter"
+            type="com.example.wangyang.tinnerwangyang.PresenterByView" />
+
+    </data>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d53"
+        android:background="@color/colorAccent">
+
+        <ImageView
+            android:id="@+id/image_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:scaleType="fitXY" />
+
+        <!--<ImageView-->
+        <!--android:id="@+id/imageNation"-->
+        <!--android:layout_width="@dimen/d30"-->
+        <!--android:layout_height="@dimen/d30"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_marginLeft="@dimen/d15"-->
+        <!--android:background="@drawable/home_image_choice"-->
+        <!--android:onClick="@{(theView)->presenter.click(theView)}"-->
+        <!--android:padding="@dimen/d2"-->
+        <!--android:src="@mipmap/icon_test"-->
+        <!--app:smallUrl="@{imageUrl.get()}"/>-->
+
+        <RelativeLayout
+            android:id="@+id/search_rel"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d30"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/d13"
+            android:layout_marginRight="@dimen/d50"
+            android:layout_toLeftOf="@+id/layout_collect"
+            android:background="@drawable/top_search_bg"
+            android:gravity="center_vertical"
+            android:onClick="@{(theView)->presenter.click(theView)}">
+
+
+            <ImageView
+                android:id="@+id/image_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/d10"
+                android:src="@drawable/icon_nav_sousuo" />
+
+            <EditText
+                android:id="@+id/exit_query"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/d5"
+                android:layout_marginRight="@dimen/d40"
+                android:layout_toRightOf="@id/image_search"
+                android:background="@null"
+                android:hint="@string/msg_please_input_school_name"
+                android:textColor="@color/common_big_text_color"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_query"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:onClick="@{(theView)->presenter.click(theView)}">
+
+            <TextView
+                android:id="@+id/query_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/d15"
+                android:gravity="center_vertical"
+                android:text="@string/collect_school"
+                android:textColor="@color/common_big_text_color"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>

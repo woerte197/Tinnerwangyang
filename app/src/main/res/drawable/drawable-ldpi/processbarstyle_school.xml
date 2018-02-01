@@ -1,0 +1,56 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:id="@android:id/background">
+
+        <shape>
+
+            <corners android:radius="@dimen/d8" />
+
+            <gradient
+                android:angle="0"
+                android:centerColor="@color/processbar_bgcolor"
+                android:centerY="0.75"
+                android:endColor="@color/processbar_bgcolor"
+                android:startColor="@color/processbar_bgcolor" />
+            <stroke android:width="0.5dp" android:color="@color/listview_item_common_selbg" />
+        </shape>
+    </item>
+
+    <item android:id="@android:id/secondaryProgress">
+
+        <clip>
+
+            <shape>
+
+                <corners android:radius="@dimen/d8" />
+
+                <gradient
+                    android:angle="0"
+                    android:centerColor="@color/processbar_bgcolor"
+                    android:centerY="0.75"
+                    android:endColor="@color/processbar_bgcolor"
+                    android:startColor="@color/processbar_bgcolor" />
+            </shape>
+        </clip>
+    </item>
+
+    <item android:id="@android:id/progress">
+
+        <!--<clip>-->
+
+            <!--<shape>-->
+
+                <!--<corners android:radius="@dimen/d8" />-->
+                <!--<solid android:color="@color/color_007aff"/>-->
+
+                <!--&lt;!&ndash;<gradient&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:angle="0"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:endColor="@color/color_007aff"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:startColor="@color/color_007aff" />&ndash;&gt;-->
+            <!--</shape>-->
+        <!--</clip>-->
+        <scale android:scaleWidth="100%"
+            android:drawable="@drawable/progress_bar_ct"/>
+    </item>
+
+</layer-list>

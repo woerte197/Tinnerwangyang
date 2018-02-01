@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/action_articledetail_more"
+        android:icon="@drawable/selector_more_buttom"
+        android:title="@string/msg_dialog_share_item_fav"
+        app:showAsAction="always"/>
+</menu>

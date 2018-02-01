@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="p"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+
+        <variable
+            name="pre"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+
+        <variable
+            name="peye"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="@dimen/d100"
+
+            android:layout_height="wrap_content"
+            android:src="@drawable/welcome"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                style="@style/style_edit_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.lib.view.FocusEditText
+                    android:id="@+id/edit_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/telephone_number"
+                    android:hint="@string/msg_hint_input_phone"
+                    android:textCursorDrawable="@drawable/color_edittext"
+                    android:theme="@style/MyEditText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/pass_layout"
+                style="@style/style_edit_layout"
+                android:gravity="center"
+                android:paddingRight="@dimen/d10">
+
+                <com.lib.view.FocusEditText
+                    android:id="@+id/edit_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d20"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/password_ico"
+                    android:hint="@string/msg_hint_input_login_pass"
+                    android:textCursorDrawable="@drawable/color_edittext"
+                    android:theme="@style/login_password" />
+
+                <ImageView
+                    android:id="@+id/imgEye"
+                    android:layout_width="@dimen/d20"
+                    android:layout_height="@dimen/d20"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/d20"
+                    android:onClick="@{()->peye.click()}"
+                    android:src="@drawable/icon_eye_hide" />
+            </LinearLayout>
+
+            <Button
+                android:layout_marginLeft="@dimen/d10"
+                android:layout_marginRight="@dimen/d10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d30"
+                android:background="@drawable/login_btn"
+                android:onClick="@{()->pre.click()}"
+                android:text="@string/msg_label_login_text"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="@dimen/d200"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/d20"
+            android:gravity="center"
+            android:onClick="@{()->p.click()}"
+            android:text="没有账号？点击注册"
+            android:textColor="@color/color_007aff"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

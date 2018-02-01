@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@+id/lvDialog"
+        style="@style/dialog_listview_style"
+        
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/d1"
+        android:background="@drawable/aera_list_item_divider"
+        android:visibility="gone" />
+
+</LinearLayout>

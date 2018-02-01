@@ -1,0 +1,15 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <corners
+        android:bottomLeftRadius="@dimen/d14"
+        android:bottomRightRadius="@dimen/d14"
+        android:topLeftRadius="@dimen/d14"
+        android:topRightRadius="@dimen/d14" />
+
+    <stroke
+        android:width="@dimen/d1"
+        android:color="@color/block_border_color" />
+    <gradient
+        android:startColor="@color/transparent"
+        android:endColor="@color/transparent" />
+</shape>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns="http://schemas.android.com/apk/res/android"
+    android:insetLeft="@dimen/d16"
+    android:insetRight="@dimen/d15"
+    android:drawable="@color/common_line_color"
+  >
+
+
+</inset>

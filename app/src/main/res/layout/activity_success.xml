@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+<variable
+    name="p"
+    type="com.example.wangyang.tinnerwangyang.PresenterNomal"/>
+    </data>
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.wangyang.tinnerwangyang.Activity.KnowledgesActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dialog_title_textcolor">
+
+        <ImageView
+            android:onClick="@{()->p.click()}"
+            android:id="@+id/image_back_success"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_back" />
+
+        <TextView
+            android:layout_marginLeft="@dimen/d120"
+            android:id="@+id/text_success"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </android.support.v7.widget.Toolbar>
+    <com.example.wangyang.tinnerwangyang.common.TinnerSwipeRefreshlayout
+        android:id="@+id/success_refreshlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:layout_alignParentLeft="true"
+            android:id="@+id/recycle_success"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+    </com.example.wangyang.tinnerwangyang.common.TinnerSwipeRefreshlayout>
+</LinearLayout>
+</layout>

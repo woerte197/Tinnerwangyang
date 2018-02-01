@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+          <variable
+              name="p"
+              type="com.example.wangyang.tinnerwangyang.PresenterNomal"/>
+        <variable
+            name="pmorning"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+
+        <variable
+            name="pnoon"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+
+        <variable
+            name="pnight"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.wangyang.tinnerwangyang.Activity.FoodActivity">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_food"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dialog_title_textcolor">
+
+            <ImageView
+                android:id="@+id/image_back_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->p.click()}"
+                android:src="@drawable/btn_back" />
+
+            <TextView
+                android:id="@+id/text_food"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d120"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </android.support.v7.widget.Toolbar>
+        <android.support.v7.widget.RecyclerView
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_food"
+            android:id="@+id/recycle_food"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d5"
+            android:layout_marginBottom="@dimen/d2"
+            android:background="@drawable/bottom_shadow_bg_shape"
+            app:layout_constraintBottom_toTopOf="@+id/food_layout" />
+
+        <LinearLayout
+            android:id="@+id/food_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{()->pmorning.click()}"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/age" />
+
+                <TextView
+                    android:id="@+id/addfoodmorning_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d5"
+                    android:layout_marginTop="@dimen/d5"
+                    android:text="+早餐"
+                    android:textColor="@color/black_38" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{()->pnoon.click()}"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/noon_food" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d5"
+                    android:layout_marginTop="@dimen/d5"
+                    android:text="+午餐"
+                    android:textColor="@color/black_38" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{()->pnight.click()}"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/night_food" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d5"
+                    android:layout_marginTop="@dimen/d5"
+                    android:text="+晚餐"
+                    android:textColor="@color/black_38" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

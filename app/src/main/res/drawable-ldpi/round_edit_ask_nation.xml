@@ -1,0 +1,39 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:bottom="@dimen/d10" android:left="@dimen/d5" android:top="@dimen/d5">
+        <shape>
+            <gradient
+                android:endColor="@color/colorNationPrimary"
+                android:startColor="@color/colorNationPrimary" />
+        </shape>
+
+    </item>
+    <item android:bottom="@dimen/d15" android:right="@dimen/d5">
+
+        <shape>
+            <stroke
+                android:width="@dimen/d2"
+                android:color="@color/colorNationPrimary" />
+
+            <gradient
+                android:endColor="#E9E9E9"
+                android:startColor="#E9E9E9" />
+            <padding
+                android:bottom="@dimen/d5"
+                android:left="@dimen/d5"
+                android:right="@dimen/d5"
+                android:top="@dimen/d5" />
+        </shape>
+    </item>
+    <item android:bottom="@dimen/d15" android:right="@dimen/d5">
+        <shape>
+            <gradient
+                android:endColor="#fff"
+                android:startColor="#fff" />
+            <padding
+                android:bottom="@dimen/d5"
+                android:left="@dimen/d5"
+                android:right="@dimen/d5"
+                android:top="@dimen/d5" />
+        </shape>
+    </item>
+</layer-list>

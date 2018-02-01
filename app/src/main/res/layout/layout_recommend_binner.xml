@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+       <variable
+           name="p"
+           type="com.example.wangyang.tinnerwangyang.PresenterNomal"/>
+        <variable
+            name="pa"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:id="@+id/latout_banner"
+            android:layout_width="@dimen/d0"
+            android:layout_height="@dimen/d0"
+            android:orientation="vertical"
+            app:layout_constraintDimensionRatio="16:5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_loading"
+                app:image_scale_type="fit_xy"
+                app:indicator_drawable_selected="@drawable/banner_red"
+                app:indicator_drawable_unselected="@drawable/banner_grey"
+                app:indicator_height="9dp"
+                app:indicator_margin="3dp"
+                app:indicator_width="9dp"
+                app:is_auto_play="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_success_weight"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d60"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/latout_banner">
+
+            <LinearLayout
+                android:onClick="@{()->p.click()}"
+                android:id="@+id/knowledges_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d12"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/book" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/knowledges_tinner" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:onClick="@{()->pa.click()}"
+                android:id="@+id/success_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d12"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:src="@drawable/success" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/success_tinner" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            app:layout_constraintTop_toBottomOf="@+id/linear_success_weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:background="@color/recommend_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d10"/>
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

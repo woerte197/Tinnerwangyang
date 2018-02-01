@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="footItem"
+            type="com.example.wangyang.tinnerwangyang.FooterItem"/>
+
+        <import type="android.view.View"/>
+    </data>
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/color_FFF6F6F67"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="@{footItem.showFooter ? View.VISIBLE : View.GONE}">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/style_processbar_footer"
+            android:layout_centerVertical="true"
+            android:visibility="@{footItem.msgId == 0 ? View.VISIBLE : View.GONE}"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <View
+                android:layout_width="@dimen/d25"
+                android:layout_height="@dimen/d05"
+                android:background="@color/tab_video_person_color"
+                android:visibility="@{footItem.msgId == 2 ? View.VISIBLE :View.GONE}"
+               />
+
+            <TextView
+                android:id="@+id/tvFooterEmpty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:paddingBottom="@dimen/d15"
+                android:paddingTop="@dimen/d15"
+                android:text="@{footItem.msg}"
+                android:textColor="@color/common_deep_text_color"
+                android:textSize="12sp"/>
+            <View
+                android:layout_width="@dimen/d25"
+                android:layout_height="@dimen/d05"
+                android:visibility="@{footItem.msgId == 2 ? View.VISIBLE :View.GONE}"
+                android:background="@color/tab_video_person_color"
+                android:layout_marginLeft="@dimen/d10"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

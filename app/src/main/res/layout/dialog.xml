@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/dialogContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/d14"
+        android:background="@drawable/round_bg"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/titleLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/d8"
+                android:paddingLeft="@dimen/d6"
+                android:paddingRight="@dimen/d6"
+                android:paddingTop="@dimen/d8">
+
+                <ImageView
+                    android:id="@+id/imgIcon"
+                    android:layout_width="@dimen/d25"
+                    android:layout_height="@dimen/d25"
+                    android:src="@drawable/icon"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/DialogText.Title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tvAppVersion"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d20"
+                android:layout_marginRight="@dimen/d20"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/titleDiv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/dialog_divder_width"
+                    android:background="@color/common_bgnewlight_color"/>
+
+                <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="vertical">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                         <EditText
+                             android:id="@+id/edit_food"
+                             android:visibility="gone"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/message"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/d5"
+                            android:gravity="center_vertical"
+                            android:minHeight="@dimen/d60"
+                            android:textColor="@color/light_black_color"
+                            android:textSize="@dimen/dialog_content_text_size"/>
+
+                        <TextView
+                            android:id="@+id/tvBottomMessage"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/d5"
+                            android:gravity="center"
+                            android:textColor="@color/light_black_color"
+                            android:textSize="@dimen/dialog_content_text_size"/>
+                    </LinearLayout>
+                </ScrollView>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/dialog_divder_width"
+                    android:layout_marginTop="@dimen/d10"
+                    android:background="@color/common_bgnewlight_color"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnBottom"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/negativeButton"
+                        style="@style/dialogLeftButton"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/light_black_color"/>
+
+                    <View
+                        android:id="@+id/buttonSep"
+                        android:layout_width="@dimen/dialog_divder_width"
+                        android:layout_height="match_parent"
+                        android:background="@color/dialog_bottom_divder"
+                        android:visibility="gone"/>
+
+                    <Button
+                        android:id="@+id/positiveButton"
+
+                        style="@style/dialogRightButton"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/color_007aff"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imgClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@null"/>
+    <!--
+             android:background="@drawable/circle"
+        android:src="@drawable/ic_search_cancel_pressed"
+    -->
+
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+     <variable
+         name="grassesbean"
+         type="com.example.wangyang.tinnerwangyang.Bean.GrassesBean"/>
+        <variable
+            name="p"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal"/>
+    </data>
+
+    <LinearLayout
+        android:onClick="@{()->p.click()}"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d80">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d80"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_gravity="center"
+                app:imageUrl="@{grassesbean.Avatar_url}"
+                android:layout_width="@dimen/d70"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/d15"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginTop="@dimen/d10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{grassesbean.name}"
+                    android:textSize="16sp"
+                    android:textColor="@color/blacka"/>
+
+                <TextView
+                    android:layout_marginTop="@dimen/d10"
+                    android:text="@{grassesbean.title}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp" />
+                <View
+                    android:layout_marginTop="@dimen/d11"
+                    android:background="@color/commem_serch_hint_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d1"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

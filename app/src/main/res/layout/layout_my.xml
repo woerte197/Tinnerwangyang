@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+    <variable
+        name="my"
+        type="com.example.wangyang.tinnerwangyang.Bean.MyBean"/>
+        <variable
+            name="p"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal"/>
+    </data>
+
+    <RelativeLayout
+        android:onClick="@{()->p.click()}"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d225">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d225"
+            android:background="@color/dialog_title_textcolor"
+            android:scaleType="centerCrop" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d70"
+                android:clipChildren="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/d15"
+                android:paddingRight="@dimen/d15"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.lib.view.CircleImageView
+                    android:layout_marginLeft="@dimen/d15"
+                    android:id="@+id/my_image"
+                    android:layout_width="@dimen/d60"
+                    android:layout_height="@dimen/d60" />
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d15"
+                    android:text="@{my.name}" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d60"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="1" />
+
+                    <TextView
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/d5"
+                        android:text="动态" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="1" />
+
+                    <TextView
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/d5"
+                        android:text="关注" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="1" />
+
+                    <TextView
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/d5"
+                        android:text="粉丝" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+
+
+        <ImageView
+            android:id="@+id/imgArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/d10"
+            android:src="@drawable/ic_big_arrow" />
+    </RelativeLayout>
+</layout>
