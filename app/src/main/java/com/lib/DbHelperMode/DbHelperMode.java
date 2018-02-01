@@ -4,9 +4,12 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.wangyang.tinnerwangyang.Bean.FoodBean;
 import com.example.wangyang.tinnerwangyang.DBhelper;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by wangyang on 25/1/18.
@@ -18,15 +21,16 @@ public class DbHelperMode {
         ContentValues cValue = new ContentValues();
         cValue.put("Name", name);
         cValue.put("Password", pass);
-        cValue.put("Nickname","s");
-        cValue.put("TelePhone",1111);
+        cValue.put("Nickname", "s");
+        cValue.put("TelePhone", 1111);
         db.insert(DBhelper.TABLE_NAME, null, cValue);
     }
+
     public static void insertFood(SQLiteDatabase db, String name) {
         ContentValues cValue = new ContentValues();
         cValue.put("MorningFoodName", name);
         cValue.put("MorningWeight", 111);
-        cValue.put("MorningCalorie",111);
+        cValue.put("MorningCalorie", 111);
         db.insert(DBhelper.MORNING_TABLE, null, cValue);
     }
 
@@ -52,30 +56,33 @@ public class DbHelperMode {
         db.update("usertable", values, whereClause, whereArgs);
     }
 
-    public void query(SQLiteDatabase db) {
+    public static List<FoodBean> query(SQLiteDatabase db) {
 //查询获得游标
-        Cursor cursor = db.query(DBhelper.TABLE_NAME, null, null, null, null, null, null);
+        Cursor cursor = db.query(DBhelper.MORNING_TABLE, null, null, null, null, null, null);
+        return queryFoodBean(cursor);
+    }
 
-//判断游标是否为空
-        if (cursor.moveToFirst()) {
-//遍历游标
-            for (int i = 0; i < cursor.getCount(); i++) {
-                cursor.move(i);
-//获得ID
-                int id = cursor.getInt(0);
-//获得用户名
-                String username = cursor.getString(1);
-//获得密码
-                String password = cursor.getString(2);
-//输出用户信息 System.out.println(id+":"+sname+":"+snumber);
+    private static List<FoodBean> queryFoodBean(Cursor cursor) {
+        List<FoodBean> foodBeanList = new ArrayList<>();
+        if (cursor != null) {
+            int cnt = cursor.getCount();
+            cursor.moveToFirst();
+            for (int i = 0; i < cnt; i++) {
+                FoodBean foodBean = new FoodBean();
+                foodBean.set_id(cursor.getInt(cursor.getColumnIndex("_id")));
+                foodBean.setMorningFoodName(cursor.getString(cursor.getColumnIndex("MorningFoodName")));
+                foodBean.setMorningWeight(cursor.getInt(cursor.getColumnIndex("MorningWeight")));
+                foodBean.setMorningCalorie(cursor.getInt(cursor.getColumnIndex("MorningCalorie")));
+                foodBeanList.add(foodBean);
+                cursor.moveToNext();
             }
         }
+        return foodBeanList;
     }
-    public static int Quer(SQLiteDatabase db,String pwd,String name) {
+
+    public static int Quer(SQLiteDatabase db, String pwd, String name) {
         HashMap<String, String> hashmap = new HashMap<String, String>();
         Cursor cursor = db.rawQuery(String.format("select * from %s where Name=? ", DBhelper.TABLE_NAME), new String[]{name});
-
-        // hashmap.put("name",db.rawQuery("select * from User where name=?",new String[]{name}).toString());
         if (cursor.getCount() > 0) {
             Cursor pwdcursor = db.rawQuery(String.format("select * from %s where Password=? and Name=?", DBhelper.TABLE_NAME), new String[]{pwd, name});
             if (pwdcursor.getCount() > 0) {
@@ -87,6 +94,7 @@ public class DbHelperMode {
             return 0;
         }
     }
+
     public static String Quera(SQLiteDatabase db) {
         String sql = "select * from " + DBhelper.MORNING_TABLE;
         StringBuffer sb = new StringBuffer();
@@ -98,6 +106,6 @@ public class DbHelperMode {
                     .append("MorningCalorie=").append(cursor.getInt(cursor.getColumnIndex("MorningCalorie")))
                     .append("\n");
         }
-       return String.valueOf(sb);
+        return String.valueOf(sb);
     }
-    }
+}

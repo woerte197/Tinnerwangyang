@@ -6,6 +6,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.wangyang.tinnerwangyang.Bean.FoodBean;
 import com.example.wangyang.tinnerwangyang.DBhelper;
 import com.example.wangyang.tinnerwangyang.R;
 import com.example.wangyang.tinnerwangyang.databinding.ActivityFoodBinding;
@@ -23,6 +24,7 @@ public class FoodActivity extends BaseActivity {
     private static int MORNING_FOOD = 1;
     private static int NOON_FOOD = 2;
     private static int NIGHT_FOOD = 3;
+    private List<FoodBean> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +37,9 @@ public class FoodActivity extends BaseActivity {
         binding.setPnoon(() -> DialogManager.getDialogManager().addfooddialog(this, NOON_FOOD));
         binding.setPnight(() -> DialogManager.getDialogManager().addfooddialog(this, NIGHT_FOOD));
         binding.setP(() -> finish());
-        DBhelper dBhelper=DBhelper.getDBhelper(this);
-        SQLiteDatabase database=dBhelper.getReadableDatabase();
-        String s= DbHelperMode.Quera(database);
-        List<String> list=new ArrayList<>();
-        list.add(s);
+        DBhelper dBhelper = DBhelper.getDBhelper(this);
+        SQLiteDatabase database = dBhelper.getReadableDatabase();
+        list = DbHelperMode.query(database);
         Log.i("sad", String.valueOf(list));
-        Gson gson=new Gson();
-
     }
 }

@@ -2,6 +2,7 @@ package com.example.wangyang.tinnerwangyang;
 
 import android.view.View;
 
+import com.example.wangyang.tinnerwangyang.Bean.FoodBean;
 import com.example.wangyang.tinnerwangyang.Bean.GrassesBean;
 import com.example.wangyang.tinnerwangyang.Bean.HotEventsBean;
 import com.example.wangyang.tinnerwangyang.Bean.ItemsBean;
@@ -140,6 +141,11 @@ public class TypeFactoryList implements TypeFactory {
     @Override
     public int type(TodayItem todayItem) {
         return LAYOUT_TODAY_ITEM;
+    }
+
+    @Override
+    public int type(FoodBean foodBean) {
+        return 0;
     }
 
     @Override
