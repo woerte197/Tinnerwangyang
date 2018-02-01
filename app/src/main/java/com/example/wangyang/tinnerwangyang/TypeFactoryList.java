@@ -94,6 +94,7 @@ public class TypeFactoryList implements TypeFactory {
         if (recommendBean.getSliders() != null) {
             return RECOMMEND_BINNER;
         }
+
         ;
         return RECOMMEND_BINNER;
     }
