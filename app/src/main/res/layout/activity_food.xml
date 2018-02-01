@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-          <variable
-              name="p"
-              type="com.example.wangyang.tinnerwangyang.PresenterNomal"/>
+
+        <variable
+            name="p"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+
         <variable
             name="pmorning"
             type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
@@ -20,39 +22,60 @@
             type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context="com.example.wangyang.tinnerwangyang.Activity.FoodActivity">
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_food"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/dialog_title_textcolor">
 
-            <ImageView
-                android:id="@+id/image_back_food"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="@{()->p.click()}"
-                android:src="@drawable/btn_back" />
+        <LinearLayout
 
-            <TextView
-                android:id="@+id/text_food"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d120"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
-
-        </android.support.v7.widget.Toolbar>
-        <android.support.v7.widget.RecyclerView
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_food"
-            android:id="@+id/recycle_food"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        </android.support.v7.widget.RecyclerView>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_food"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/dialog_title_textcolor">
+
+                <ImageView
+                    android:id="@+id/image_back_food"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->p.click()}"
+                    android:src="@drawable/btn_back" />
+
+                <TextView
+                    android:id="@+id/text_food"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d120"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </android.support.v7.widget.Toolbar>
+        </LinearLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycle_food"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+
+
+        </android.support.constraint.ConstraintLayout>
 
         <View
             android:id="@+id/view"
@@ -67,6 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+
             app:layout_constraintBottom_toBottomOf="parent">
 
             <LinearLayout
@@ -136,5 +160,5 @@
                     android:textColor="@color/black_38" />
             </LinearLayout>
         </LinearLayout>
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 </layout>

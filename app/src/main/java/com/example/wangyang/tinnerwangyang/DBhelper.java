@@ -8,12 +8,10 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by wangyang on 25/1/18.
  */
 public class DBhelper extends SQLiteOpenHelper {
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 3;
     private static final String DB_NAME = "myTest.db";
     public static final String TABLE_NAME = "MyItem";
-    public static final String MORNING_TABLE = "MorningFood";
-    public static final String NOON_TABLE = "NoonFood";
-    public static final String NIGHT_TABLE = "NightFood";
+    public static final String FOOD_TABLE = "Food";;
     private static DBhelper dBhelper = null;
     private static final String FIELD_ID = "id";
 
@@ -38,24 +36,14 @@ public class DBhelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        String sql = "CREATE TABLE " + MORNING_TABLE
+        String sql = "CREATE TABLE " + FOOD_TABLE
                 + "(_id INTEGER PRIMARY KEY,"
                 + " MorningFoodName VARCHAR(30)  NOT NULL,"
                 + " MorningWeight VARCHAR(20),"
-                + " MorningCalorie VARCHAR(30))";
-        String sql1 = "CREATE TABLE " + NOON_TABLE
-                + "(_id INTEGER PRIMARY KEY,"
-                + " NoonFoodName VARCHAR(30)  NOT NULL,"
-                + " NoonWeight VARCHAR(20),"
-                + " NoonCalorie VARCHAR(30))";
-        String sql2 = "CREATE TABLE " + NIGHT_TABLE
-                + "(_id INTEGER PRIMARY KEY,"
-                + " NightFoodName VARCHAR(30)  NOT NULL,"
-                + " NightWeight VARCHAR(20),"
-                + " NightCalorie VARCHAR(30))";
+                + " MorningCalorie VARCHAR(30),"
+                + "Type VARCHAR(20))";
         sqLiteDatabase.execSQL(sql);
-        sqLiteDatabase.execSQL(sql1);
-        sqLiteDatabase.execSQL(sql2);
+
     }
 
 }

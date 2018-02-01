@@ -3,6 +3,7 @@ package com.lib.Intent;
 import android.content.Context;
 import android.content.Intent;
 
+import com.example.wangyang.tinnerwangyang.Activity.AddFoodActivity;
 import com.example.wangyang.tinnerwangyang.Activity.ChooseWeightActivity;
 import com.example.wangyang.tinnerwangyang.Activity.FoodActivity;
 import com.example.wangyang.tinnerwangyang.Activity.HealthHabitsActivity;
@@ -72,14 +73,21 @@ public class Intentclass {
         intent.setClass(context, ChooseWeightActivity.class);
         context.startActivity(intent);
     }
-    public static void IntentFoodaActivity(Context context){
+    public static void IntentFoodaActivity(Context context,int type){
         Intent intent=new Intent();
+        intent.putExtra("typea",type);
         intent.setClass(context, FoodActivity.class);
         context.startActivity(intent);
     }
     public static void IntentSportsActivity(Context context){
         Intent intent=new Intent();
         intent.setClass(context, SportsActivity.class);
+        context.startActivity(intent);
+    }
+    public static void IntentAddFoodActivity(Context context,int type){
+        Intent intent=new Intent();
+        intent.putExtra("type",type);
+        intent.setClass(context,AddFoodActivity.class);
         context.startActivity(intent);
     }
 }

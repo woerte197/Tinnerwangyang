@@ -627,6 +627,12 @@
             <item name="android:phoneNumber">true</item>
             <item name="android:maxLength">11</item>
         </style>
+    <style name="FoodEditText" parent="style_edit_article">
+        <item name="colorControlNormal">@color/color_30000000</item>
+        <item name="colorControlActivated">@color/color_30000000</item>
+        <item name="android:phoneNumber">false</item>
+        <item name="android:maxLength">11</item>
+    </style>
     <style name="login_password" parent="style_login_edit">
         <item name="android:password">true</item>
         <item name="colorControlActivated">@color/color_30000000</item>

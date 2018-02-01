@@ -19,6 +19,7 @@ public class MessageCode {
     public static final int RESULT_INFO_MESSAGE = 8014;                        //消息中心推送
     public static final int RESULT_NEWS_ACTIVIE = 8015;                         //活动提醒推送
     public static final int RESULT_SCHOOL_ORDER = 8016;                         //择校订单推送
+    public static final int ADD_FOOD=8017;                                      //增加食物
     public static final int RESULT_LOCAL_RELOAD = 7001;
     public static final int RESULT_RELOAD_ATTENT_BLOCK = 7002;
 

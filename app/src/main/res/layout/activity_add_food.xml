@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="p"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.wangyang.tinnerwangyang.Activity.AddFoodActivity">
+
+        <LinearLayout
+            android:id="@+id/linear_add_food"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_add_food"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/dialog_title_textcolor">
+
+                <ImageView
+                    android:id="@+id/image_back_addfood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->p.click()}"
+                    android:src="@drawable/btn_back" />
+
+                <TextView
+                    android:id="@+id/text_addfood"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d120"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </android.support.v7.widget.Toolbar>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/linear_add_food">
+
+            <EditText
+                android:id="@+id/edit_food_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/d5"
+                android:background="@null"
+                android:drawableLeft="@drawable/noon_food"
+                android:hint="请输入食物名称"
+                android:textCursorDrawable="@drawable/color_edittext"
+                android:theme="@style/FoodEditText" />
+
+            <com.lib.view.FocusEditText
+                android:id="@+id/edit_food_weight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/d10"
+                android:background="@null"
+                android:drawableLeft="@drawable/noon_food"
+                android:hint="请输入食物重量(单位：克)"
+                android:textCursorDrawable="@drawable/color_edittext"
+                android:theme="@style/MyEditText" />
+
+            <com.lib.view.FocusEditText
+                android:id="@+id/edit_food_kaluli"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/d10"
+                android:background="@null"
+                android:drawableLeft="@drawable/noon_food"
+                android:hint="请输入食物卡路里(单位：千卡)"
+                android:textCursorDrawable="@drawable/color_edittext"
+                android:theme="@style/MyEditText" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d10"
+                android:layout_marginRight="@dimen/d10"
+                android:layout_marginTop="@dimen/d30"
+                android:background="@drawable/login_btn"
+                android:onClick="@{()->p.click()}"
+                android:text="确认添加食物"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

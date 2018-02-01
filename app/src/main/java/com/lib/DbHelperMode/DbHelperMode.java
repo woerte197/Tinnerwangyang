@@ -26,12 +26,13 @@ public class DbHelperMode {
         db.insert(DBhelper.TABLE_NAME, null, cValue);
     }
 
-    public static void insertFood(SQLiteDatabase db, String name) {
+    public static void insertFood(SQLiteDatabase db, String name, int  weight,int  calorie,int type) {
         ContentValues cValue = new ContentValues();
         cValue.put("MorningFoodName", name);
-        cValue.put("MorningWeight", 111);
-        cValue.put("MorningCalorie", 111);
-        db.insert(DBhelper.MORNING_TABLE, null, cValue);
+        cValue.put("MorningWeight", weight);
+        cValue.put("MorningCalorie", calorie);
+        cValue.put("Type", type);
+        db.insert(DBhelper.FOOD_TABLE, null, cValue);
     }
 
     private void delete(SQLiteDatabase db) {
@@ -58,7 +59,7 @@ public class DbHelperMode {
 
     public static List<FoodBean> query(SQLiteDatabase db) {
 //查询获得游标
-        Cursor cursor = db.query(DBhelper.MORNING_TABLE, null, null, null, null, null, null);
+        Cursor cursor = db.query(DBhelper.FOOD_TABLE, null, null, null, null, null, null);
         return queryFoodBean(cursor);
     }
 
@@ -73,11 +74,17 @@ public class DbHelperMode {
                 foodBean.setMorningFoodName(cursor.getString(cursor.getColumnIndex("MorningFoodName")));
                 foodBean.setMorningWeight(cursor.getInt(cursor.getColumnIndex("MorningWeight")));
                 foodBean.setMorningCalorie(cursor.getInt(cursor.getColumnIndex("MorningCalorie")));
+                foodBean.setType(cursor.getInt(cursor.getColumnIndex("Type")));
                 foodBeanList.add(foodBean);
                 cursor.moveToNext();
             }
         }
         return foodBeanList;
+    }
+
+    public static void deleteById(SQLiteDatabase db, int _id) {
+        String[] whereArgs = new String[]{"" + _id};
+        db.delete(DBhelper.FOOD_TABLE, "_id=?", whereArgs);
     }
 
     public static int Quer(SQLiteDatabase db, String pwd, String name) {
@@ -95,17 +102,5 @@ public class DbHelperMode {
         }
     }
 
-    public static String Quera(SQLiteDatabase db) {
-        String sql = "select * from " + DBhelper.MORNING_TABLE;
-        StringBuffer sb = new StringBuffer();
-        Cursor cursor = db.rawQuery(sql, null);
-        while (cursor.moveToNext()) {
-            sb.append("_id=").append(cursor.getString(cursor.getColumnIndex("_id"))).append(" ")
-                    .append("MorningFoodName=").append(cursor.getString(cursor.getColumnIndex("MorningFoodName"))).append(" ")
-                    .append("MorningWeight=").append(cursor.getInt(cursor.getColumnIndex("MorningWeight"))).append(" ")
-                    .append("MorningCalorie=").append(cursor.getInt(cursor.getColumnIndex("MorningCalorie")))
-                    .append("\n");
-        }
-        return String.valueOf(sb);
-    }
+
 }

@@ -3,6 +3,7 @@ package com.example.wangyang.tinnerwangyang;
 import android.view.View;
 
 import com.example.wangyang.tinnerwangyang.Bean.FoodBean;
+import com.example.wangyang.tinnerwangyang.Bean.FoodTitle;
 import com.example.wangyang.tinnerwangyang.Bean.GrassesBean;
 import com.example.wangyang.tinnerwangyang.Bean.HotEventsBean;
 import com.example.wangyang.tinnerwangyang.Bean.ItemsBean;
@@ -24,8 +25,10 @@ import com.example.wangyang.tinnerwangyang.ViewHolder.NewsTitleHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.RecommendBannerHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.RecommendHealthChannelHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.RecommendPopularActivityHolder;
+import com.example.wangyang.tinnerwangyang.ViewHolder.ViewFoodTitleItemHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewImageItemHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewItemBeansHolder;
+import com.example.wangyang.tinnerwangyang.ViewHolder.ViewMorningFoodItemHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewMyBodyItemHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewMyHeaderItemHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewNewHolder;
@@ -48,11 +51,13 @@ public class TypeFactoryList implements TypeFactory {
     private static final int RECOMMEND_POPULAR_ACTIVITY = R.layout.layout_popular_activity;
     private static final int NEWS_TITLE_ITEM = R.layout.news_title_item;
     private static final int LAYOUT_ITEMBEANS = R.layout.layout_itembeans;
-    private static final int LAYOUT_POSTSBEANS=R.layout.layout_postsbean;
-    private static final int LAYOUT_PHOTOS=R.layout.layout_image;
-    private static final int LAYOUT_MY=R.layout.layout_my;
-    private static final int LAYOUT_MY_ITEM=R.layout.layout_my_item;
-    private static final int LAYOUT_TODAY_ITEM=R.layout.layout_today_item;
+    private static final int LAYOUT_POSTSBEANS = R.layout.layout_postsbean;
+    private static final int LAYOUT_PHOTOS = R.layout.layout_image;
+    private static final int LAYOUT_MY = R.layout.layout_my;
+    private static final int LAYOUT_MY_ITEM = R.layout.layout_my_item;
+    private static final int LAYOUT_TODAY_ITEM = R.layout.layout_today_item;
+    private static final int LAYOUT_MORNING_FOOD = R.layout.layout_morningfood;
+    private static final int LAYOUT_FOOD_TITLE = R.layout.layout_foodtitle;
 
     @Override
     public int type(Knowledges knowledges) {
@@ -94,7 +99,6 @@ public class TypeFactoryList implements TypeFactory {
         if (recommendBean.getSliders() != null) {
             return RECOMMEND_BINNER;
         }
-
         ;
         return RECOMMEND_BINNER;
     }
@@ -146,7 +150,12 @@ public class TypeFactoryList implements TypeFactory {
 
     @Override
     public int type(FoodBean foodBean) {
-        return 0;
+        return LAYOUT_MORNING_FOOD;
+    }
+
+    @Override
+    public int type(FoodTitle foodTitle) {
+        return LAYOUT_FOOD_TITLE;
     }
 
     @Override
@@ -178,6 +187,10 @@ public class TypeFactoryList implements TypeFactory {
                 return new ViewMyBodyItemHolder(itemView);
             case LAYOUT_TODAY_ITEM:
                 return new ViewTodayItemHolder(itemView);
+            case LAYOUT_MORNING_FOOD:
+                return new ViewMorningFoodItemHolder(itemView);
+            case LAYOUT_FOOD_TITLE:
+                return new ViewFoodTitleItemHolder(itemView);
             default:
                 return null;
         }

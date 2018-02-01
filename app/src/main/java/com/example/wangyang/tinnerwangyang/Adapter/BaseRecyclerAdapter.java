@@ -51,7 +51,7 @@ public class BaseRecyclerAdapter extends RecyclerView.Adapter<BaseRecyclerHolder
         return this;
     }
 
-    public void showErrorMsg(int msg, Wachter obj) {
+    public void showErrorMsg() {
       //  statusItem.setMsg(mCtx.getString(msg));
      //   statusItem.setObj(obj);
         datas.clear();
