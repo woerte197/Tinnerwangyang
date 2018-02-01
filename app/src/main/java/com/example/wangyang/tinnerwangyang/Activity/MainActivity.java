@@ -58,6 +58,8 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
     private static int textstep;
 
     public boolean handleMessage(Message msg) {
+
+
         switch (msg.what) {
             case Constant.MSG_FROM_SERVER:
                 //    更新界面上的步数
