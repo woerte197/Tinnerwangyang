@@ -43,7 +43,7 @@ public class ChoiceFragment extends BindFragment<FragmentWeightKnowledgeBinding>
 
     private void initdata() {
         adapter=new FootRecyclerAdapter(getBaseActivity());
-        request=new Request(URLSetting.GET_SELECT, Constant.TYPE_RESULT_POSTSBEANS,URLSetting.URL_Recommend);
+        request=new Request(URLSetting.URL_newSelect, Constant.TYPE_RESULT_POSTSBEANS,URLSetting.URL_NewRecommend);
         refreshRecyList=new RefreshRecyList<PostsBean>(adapter,bindView.recycleKnowledges,bindView.refreshKnowledges,request);
         refreshRecyList.setLayoutManager(new GridLayoutManager((BaseActivity)getActivity(), 1))
                 .addButtomListener()

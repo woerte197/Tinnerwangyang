@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-     <variable
-         name="p"
-         type="com.example.wangyang.tinnerwangyang.PresenterNomal"/>
+
+        <variable
+            name="p"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context="com.example.wangyang.tinnerwangyang.Activity.HealthHabitsActivity">
 
         <android.support.v7.widget.Toolbar
@@ -20,20 +22,33 @@
             android:layout_height="wrap_content"
             android:background="@color/dialog_title_textcolor">
 
-        <ImageView
-            android:id="@+id/image_back_health"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{()->p.click()}"
-            android:src="@drawable/btn_back" />
+            <ImageView
+                android:id="@+id/image_back_health"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->p.click()}"
+                android:src="@drawable/btn_back" />
 
-        <TextView
-            android:id="@+id/text_health"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/d120"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/text_health"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d120"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
         </android.support.v7.widget.Toolbar>
-    </android.support.constraint.ConstraintLayout>
+
+        <com.example.wangyang.tinnerwangyang.common.TinnerSwipeRefreshlayout
+            android:id="@+id/refresh_yuanli"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycle_yuanli"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+        </com.example.wangyang.tinnerwangyang.common.TinnerSwipeRefreshlayout>
+    </LinearLayout>
 </layout>

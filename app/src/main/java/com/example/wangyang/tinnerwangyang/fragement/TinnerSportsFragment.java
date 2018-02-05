@@ -38,7 +38,7 @@ public class TinnerSportsFragment extends BindFragment<FragmentTabNewsBinding> i
         initpage();
         adapter = new FootRecyclerAdapter(getActivity());
         recyclerView = bindView.recycleNews;
-        request = new Request(URLSetting.GET_NEWS, Constant.TYPE_RESULT_NEWBEAN,URLSetting.URL_BASE);
+        request = new Request(URLSetting.GET_SPORTS, Constant.TYPE_RESULT_NEWBEAN,URLSetting.URL_BASE);
         newslist = new RefreshRecyList<Knowledges>(adapter, recyclerView, bindView.newsRefreshlayout, request);
         newslist.setLayoutManager(new GridLayoutManager(getActivity(), 1))
                 .addButtomListener()
