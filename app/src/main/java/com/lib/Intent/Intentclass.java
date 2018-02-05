@@ -15,6 +15,7 @@ import com.example.wangyang.tinnerwangyang.Activity.SportsActivity;
 import com.example.wangyang.tinnerwangyang.Activity.TodayStepActivity;
 import com.example.wangyang.tinnerwangyang.Activity.WebActivity;
 import com.example.wangyang.tinnerwangyang.Activity.WeightActivity;
+import com.example.wangyang.tinnerwangyang.Bean.FoodTitle;
 import com.example.wangyang.tinnerwangyang.common.Setting;
 
 /**
@@ -73,7 +74,7 @@ public class Intentclass {
         intent.setClass(context, ChooseWeightActivity.class);
         context.startActivity(intent);
     }
-    public static void IntentFoodaActivity(Context context,int type){
+    public static void IntentFoodaActivity(Context context,FoodTitle type){
         Intent intent=new Intent();
         intent.putExtra("typea",type);
         intent.setClass(context, FoodActivity.class);

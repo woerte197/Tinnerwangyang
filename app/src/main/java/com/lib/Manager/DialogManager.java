@@ -56,7 +56,6 @@ public class DialogManager {
 
     public void addfooddialog(Context context, int a) {
         CustomDialog.Builder customBuilder = new CustomDialog.Builder(context);
-
         customBuilder.setTitle("删除食物记录")
                 .setMessage("你确定要删除此条食物记录吗？")
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {

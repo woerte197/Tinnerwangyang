@@ -14,7 +14,6 @@
 
     <LinearLayout
         android:id="@+id/linear_foodall"
-        android:onClick="@{()->p.click()}"
         android:layout_width="match_parent"
         android:layout_height="@dimen/d60"
         android:orientation="vertical">
@@ -74,8 +73,10 @@
         </android.support.constraint.ConstraintLayout>
 
         <View
+            android:layout_marginLeft="@dimen/d20"
+            android:layout_marginRight="@dimen/d20"
             android:layout_width="match_parent"
             android:layout_height="@dimen/d1"
-            android:background="@color/Grey_400" />
+            android:background="@color/Grey_100" />
     </LinearLayout>
 </layout>

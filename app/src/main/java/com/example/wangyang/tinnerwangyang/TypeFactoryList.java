@@ -2,6 +2,7 @@ package com.example.wangyang.tinnerwangyang;
 
 import android.view.View;
 
+import com.example.wangyang.tinnerwangyang.Bean.Background;
 import com.example.wangyang.tinnerwangyang.Bean.FoodBean;
 import com.example.wangyang.tinnerwangyang.Bean.FoodTitle;
 import com.example.wangyang.tinnerwangyang.Bean.GrassesBean;
@@ -25,6 +26,7 @@ import com.example.wangyang.tinnerwangyang.ViewHolder.NewsTitleHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.RecommendBannerHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.RecommendHealthChannelHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.RecommendPopularActivityHolder;
+import com.example.wangyang.tinnerwangyang.ViewHolder.ViewBackGroundItemHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewFoodTitleItemHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewImageItemHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewItemBeansHolder;
@@ -58,7 +60,7 @@ public class TypeFactoryList implements TypeFactory {
     private static final int LAYOUT_TODAY_ITEM = R.layout.layout_today_item;
     private static final int LAYOUT_MORNING_FOOD = R.layout.layout_morningfood;
     private static final int LAYOUT_FOOD_TITLE = R.layout.layout_foodtitle;
-
+    private static final int LAYOUT_BACKGROUND=R.layout.layout_background;
     @Override
     public int type(Knowledges knowledges) {
         return LAYOUT_NEWS_ITEM;
@@ -159,6 +161,11 @@ public class TypeFactoryList implements TypeFactory {
     }
 
     @Override
+    public int type(Background background) {
+        return LAYOUT_BACKGROUND;
+    }
+
+    @Override
     public BaseRecyclerHolder createViewHolder(int type, View itemView) {
         switch (type) {
             case LAYOUT_NEWS_ITEM:
@@ -191,6 +198,8 @@ public class TypeFactoryList implements TypeFactory {
                 return new ViewMorningFoodItemHolder(itemView);
             case LAYOUT_FOOD_TITLE:
                 return new ViewFoodTitleItemHolder(itemView);
+            case LAYOUT_BACKGROUND:
+                  return new ViewBackGroundItemHolder(itemView);
             default:
                 return null;
         }

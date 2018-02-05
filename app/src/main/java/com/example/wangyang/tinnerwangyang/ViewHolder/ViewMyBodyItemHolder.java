@@ -35,7 +35,7 @@ public class ViewMyBodyItemHolder extends BaseRecyclerHolder<MyItem, LayoutMyIte
                     Intentclass.IntentHealthHabitsActivity(context);
                     break;
                 case 1:
-                    Intentclass.IntentFoodaActivity(context,0);
+                    Intentclass.IntentFoodaActivity(context,null);
                     break;
                 case 2:
                     Intentclass.IntentWeightActivity(context, null, null);

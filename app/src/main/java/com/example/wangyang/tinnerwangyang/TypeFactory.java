@@ -2,6 +2,7 @@ package com.example.wangyang.tinnerwangyang;
 
 import android.view.View;
 
+import com.example.wangyang.tinnerwangyang.Bean.Background;
 import com.example.wangyang.tinnerwangyang.Bean.FoodBean;
 import com.example.wangyang.tinnerwangyang.Bean.FoodTitle;
 import com.example.wangyang.tinnerwangyang.Bean.GrassesBean;
@@ -48,5 +49,6 @@ public interface TypeFactory {
     int type(TodayItem todayItem);
     int type(FoodBean foodBean);
     int type(FoodTitle foodTitle);
+    int type(Background background);
 
 }
