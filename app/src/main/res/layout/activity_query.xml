@@ -59,6 +59,7 @@
                     android:layout_marginRight="@dimen/d40"
                     android:layout_toRightOf="@id/image_search"
                     android:background="@null"
+                    android:textCursorDrawable="@drawable/color_edittext"
                     android:hint="@string/msg_please_input_school_name"
                     android:textColor="@color/common_big_text_color"
                     android:textSize="12sp" />

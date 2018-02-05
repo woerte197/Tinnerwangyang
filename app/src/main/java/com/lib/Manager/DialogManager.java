@@ -54,7 +54,7 @@ public class DialogManager {
         builder.show();
     }
 
-    public void addfooddialog(Context context, int a) {
+    public void addfooddialog(Context context,String table, int a) {
         CustomDialog.Builder customBuilder = new CustomDialog.Builder(context);
         customBuilder.setTitle("删除食物记录")
                 .setMessage("你确定要删除此条食物记录吗？")
@@ -64,8 +64,31 @@ public class DialogManager {
                         dialogInterface.dismiss();
                         DBhelper dBhelper= DBhelper.getDBhelper(context);
                         SQLiteDatabase database = dBhelper.getReadableDatabase();
-                        DbHelperMode.deleteById(database,a);
-                        PageManager.getPageManager().pushAddFood();
+                        DbHelperMode.deleteById(database,table,a);
+                        PageManager.getPageManager().pushDelete();
+                    }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+        CustomDialog builder = customBuilder.create();
+        builder.show();
+    }
+    public void deletesportdialog(Context context,String table,int a) {
+        CustomDialog.Builder customBuilder = new CustomDialog.Builder(context);
+        customBuilder.setTitle("删除运动记录")
+                .setMessage("你确定要删除此条运动记录吗？")
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                        DBhelper dBhelper= DBhelper.getDBhelper(context);
+                        SQLiteDatabase database = dBhelper.getReadableDatabase();
+                        DbHelperMode.deleteById(database,table,a);
+                        PageManager.getPageManager().pushDelete();
                     }
                 })
                 .setNegativeButton("取消", new DialogInterface.OnClickListener() {

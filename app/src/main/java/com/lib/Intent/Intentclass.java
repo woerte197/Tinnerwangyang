@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.example.wangyang.tinnerwangyang.Activity.AddFoodActivity;
+import com.example.wangyang.tinnerwangyang.Activity.AddSportsActivity;
 import com.example.wangyang.tinnerwangyang.Activity.ChooseWeightActivity;
 import com.example.wangyang.tinnerwangyang.Activity.FoodActivity;
 import com.example.wangyang.tinnerwangyang.Activity.HealthHabitsActivity;
@@ -23,72 +24,79 @@ import com.example.wangyang.tinnerwangyang.common.Setting;
  */
 
 public class Intentclass {
+    private static Intent intent = new Intent();
 
     public static void IntentLoginActivity(Context context) {
-        Intent intent = new Intent();
         intent.setClass(context, LoginActivity.class);
         context.startActivity(intent);
     }
-    public static void IntentRegisterActivity(Context context){
-        Intent intent=new Intent();
+
+    public static void IntentRegisterActivity(Context context) {
         intent.setClass(context, RegisterActivity.class);
         context.startActivity(intent);
     }
-    public static void IntentMainActivity(Context context,int value){
-        Intent intent=new Intent();
-        intent.putExtra(Setting.TABUSERFRAGMENT,value);
+
+    public static void IntentMainActivity(Context context, int value) {
+        intent.putExtra(Setting.TABUSERFRAGMENT, value);
         intent.setClass(context, MainActivity.class);
         context.startActivity(intent);
     }
-    public static void IntentQueryActivity(Context context){
-        Intent intent=new Intent();
+
+    public static void IntentQueryActivity(Context context) {
         intent.setClass(context, QueryActivity.class);
         context.startActivity(intent);
     }
-    public static void IntentHealthHabitsActivity(Context context){
-        Intent intent=new Intent();
+
+    public static void IntentHealthHabitsActivity(Context context) {
         intent.setClass(context, HealthHabitsActivity.class);
         context.startActivity(intent);
     }
-    public static void IntentTodayActicity(Context context){
-        Intent intent=new Intent();
+
+    public static void IntentTodayActicity(Context context) {
         intent.setClass(context, TodayStepActivity.class);
         context.startActivity(intent);
     }
-    public static void IntentWebActivity(Context context, String url){
-        Intent intent=new Intent();
-        intent.putExtra("url",url);
+
+    public static void IntentWebActivity(Context context, String url) {
+        intent.putExtra("url", url);
         intent.setClass(context, WebActivity.class);
         context.startActivity(intent);
     }
-    public static void IntentWeightActivity(Context context, String s,String d){
-        Intent intent=new Intent();
-        intent.putExtra("timeback",d);
-        intent.putExtra("weight",s);
+
+    public static void IntentWeightActivity(Context context, String s, String d) {
+        intent.putExtra("timeback", d);
+        intent.putExtra("weight", s);
         intent.setClass(context, WeightActivity.class);
         context.startActivity(intent);
     }
-    public static void IntentChooseWeightActivity(Context context,String d){
-        Intent intent=new Intent();
-        intent.putExtra("time",d);
+
+    public static void IntentChooseWeightActivity(Context context, String d) {
+        intent.putExtra("time", d);
         intent.setClass(context, ChooseWeightActivity.class);
         context.startActivity(intent);
     }
-    public static void IntentFoodaActivity(Context context,FoodTitle type){
-        Intent intent=new Intent();
-        intent.putExtra("typea",type);
+
+    public static void IntentFoodaActivity(Context context, FoodTitle type) {
+        intent.putExtra("typea", type);
         intent.setClass(context, FoodActivity.class);
         context.startActivity(intent);
     }
-    public static void IntentSportsActivity(Context context){
-        Intent intent=new Intent();
+
+    public static void IntentSportsActivity(Context context) {
         intent.setClass(context, SportsActivity.class);
         context.startActivity(intent);
     }
-    public static void IntentAddFoodActivity(Context context,int type){
-        Intent intent=new Intent();
-        intent.putExtra("type",type);
-        intent.setClass(context,AddFoodActivity.class);
+
+    public static void IntentAddFoodActivity(Context context, int type) {
+        intent.putExtra("type", type);
+        intent.setClass(context, AddFoodActivity.class);
         context.startActivity(intent);
     }
+
+    public static void IntentAddSportsActivity(Context context, int type) {
+        intent.putExtra("sporttype",type);
+        intent.setClass(context, AddSportsActivity.class);
+        context.startActivity(intent);
+    }
+
 }

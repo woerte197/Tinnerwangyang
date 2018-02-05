@@ -23,7 +23,7 @@ public class PageManager {
     public void pushLogout(){
     push(MessageCode.RESULT_LOGOUT,null);
     }
-    public void pushAddFood(){
+    public void pushDelete(){
         push(MessageCode.ADD_FOOD,null);
     }
 }

@@ -86,7 +86,8 @@
         <activity android:name=".Activity.ChooseWeightActivity" />
         <activity android:name=".Activity.FoodActivity" />
         <activity android:name=".Activity.SportsActivity" />
-        <activity android:name=".Activity.AddFoodActivity"></activity>
+        <activity android:name=".Activity.AddFoodActivity" />
+        <activity android:name=".Activity.AddSportsActivity"></activity>
     </application>
 
 </manifest>

@@ -4,35 +4,164 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-   <variable
-       name="p"
-       type="com.example.wangyang.tinnerwangyang.PresenterNomal"/>
+
+        <variable
+            name="p"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+
+        <variable
+            name="paerobic"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+
+        <variable
+            name="panaerobic"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+
+        <variable
+            name="pstretching"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.wangyang.tinnerwangyang.Activity.SportsActivity">
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_sport"
+        android:orientation="vertical"
+       >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_sports"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/dialog_title_textcolor">
+
+                <ImageView
+                    android:id="@+id/image_back_sports"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->p.click()}"
+                    android:src="@drawable/btn_back" />
+
+                <TextView
+                    android:id="@+id/text_sports"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d120"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </android.support.v7.widget.Toolbar>
+        </LinearLayout>
+
+
+
+
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/dialog_title_textcolor">
+            android:layout_weight="1">
 
-        <ImageView
-            android:id="@+id/image_back_sport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{()->p.click()}"
-            android:src="@drawable/btn_back" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/text_sport"
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycle_sports"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d5"
+            android:layout_marginBottom="@dimen/d2"
+            android:background="@drawable/bottom_shadow_bg_shape"
+            app:layout_constraintBottom_toTopOf="@+id/food_layout" />
+
+        <LinearLayout
+            android:id="@+id/sports_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/d120"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-        </android.support.v7.widget.Toolbar>
-    </android.support.constraint.ConstraintLayout>
+            android:orientation="horizontal"
+
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{()->paerobic.click()}"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/aerobic" />
+
+                <TextView
+                    android:id="@+id/addsport_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d5"
+                    android:layout_marginTop="@dimen/d5"
+                    android:text="+有氧运动"
+                    android:textColor="@color/black_38" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{()->panaerobic.click()}"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/anaerobic" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d5"
+                    android:layout_marginTop="@dimen/d5"
+                    android:text="+无氧运动"
+                    android:textColor="@color/black_38" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{()->pstretching.click()}"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/stretching" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d5"
+                    android:layout_marginTop="@dimen/d5"
+                    android:text="+拉伸运动"
+                    android:textColor="@color/black_38" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
 </layout>

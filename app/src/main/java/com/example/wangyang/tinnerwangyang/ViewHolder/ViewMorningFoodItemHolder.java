@@ -36,7 +36,7 @@ public class ViewMorningFoodItemHolder extends BaseRecyclerHolder<FoodBean, Layo
         bindView.linearFoodall.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                DialogManager.getDialogManager().addfooddialog(context, model.get_id());
+                DialogManager.getDialogManager().addfooddialog(context,DBhelper.FOOD_TABLE, model.get_id());
                 return false;
             }
         });

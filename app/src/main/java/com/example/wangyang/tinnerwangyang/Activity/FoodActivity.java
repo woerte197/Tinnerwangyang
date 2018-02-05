@@ -35,7 +35,6 @@ public class FoodActivity extends BaseActivity {
     private List<FoodBean> list;
     private BaseRecyclerAdapter adapter;
     private List<Wachter> listwatch;
-    private FoodTitle type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +46,12 @@ public class FoodActivity extends BaseActivity {
     }
 
     private void initpage() {
-        type = (FoodTitle) getIntent().getSerializableExtra("typea");
         setSupportActionBar(binding.toolbarFood);
         getSupportActionBar().setTitle("");
         binding.textFood.setText("饮食记录");
         DBhelper dBhelper = DBhelper.getDBhelper(this);
         SQLiteDatabase database = dBhelper.getReadableDatabase();
-        list = DbHelperMode.query(database);
+        list = DbHelperMode.query(database,DBhelper.FOOD_TABLE);
         listwatch = new ArrayList<>();
         Background background = new Background();
         listwatch.add(background);
@@ -76,10 +74,6 @@ public class FoodActivity extends BaseActivity {
     }
 
     private void initadd() {
-//        if (type == null) {
-//            type = FoodTitle.getFoodTitle();
-//        }
-//        FoodTitle foodTitle = type;
         FoodTitle foodTitlea = new FoodTitle("早餐记得吃哦", "建议：   439~536千卡", "及时记录哦");
         FoodTitle foodTitleb = new FoodTitle("午餐你吃了吗", "建议：   585~715千卡", "及时记录哦");
         FoodTitle foodTitlec = new FoodTitle("晚餐要少吃哦", "建议：   439~536千卡", "及时记录哦");

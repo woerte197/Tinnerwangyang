@@ -18,6 +18,7 @@ import com.example.wangyang.tinnerwangyang.Bean.PostsBean;
 import com.example.wangyang.tinnerwangyang.Bean.RecommendBean;
 import com.example.wangyang.tinnerwangyang.Bean.ShowUsersBean;
 import com.example.wangyang.tinnerwangyang.Bean.SlidersBean;
+import com.example.wangyang.tinnerwangyang.Bean.SportBean;
 import com.example.wangyang.tinnerwangyang.Bean.Success;
 import com.example.wangyang.tinnerwangyang.Bean.TagsBean;
 import com.example.wangyang.tinnerwangyang.Bean.TodayItem;
@@ -36,6 +37,7 @@ import com.example.wangyang.tinnerwangyang.ViewHolder.ViewMyHeaderItemHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewNewHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewNewsHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewPostsBeansItemHolder;
+import com.example.wangyang.tinnerwangyang.ViewHolder.ViewSportItemSportHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewTodayItemHolder;
 
 
@@ -61,6 +63,7 @@ public class TypeFactoryList implements TypeFactory {
     private static final int LAYOUT_MORNING_FOOD = R.layout.layout_morningfood;
     private static final int LAYOUT_FOOD_TITLE = R.layout.layout_foodtitle;
     private static final int LAYOUT_BACKGROUND=R.layout.layout_background;
+    private static final int LAYOUT_SPORT=R.layout.layout_sports;
     @Override
     public int type(Knowledges knowledges) {
         return LAYOUT_NEWS_ITEM;
@@ -166,6 +169,11 @@ public class TypeFactoryList implements TypeFactory {
     }
 
     @Override
+    public int type(SportBean sportBean) {
+        return LAYOUT_SPORT;
+    }
+
+    @Override
     public BaseRecyclerHolder createViewHolder(int type, View itemView) {
         switch (type) {
             case LAYOUT_NEWS_ITEM:
@@ -200,7 +208,10 @@ public class TypeFactoryList implements TypeFactory {
                 return new ViewFoodTitleItemHolder(itemView);
             case LAYOUT_BACKGROUND:
                   return new ViewBackGroundItemHolder(itemView);
+            case LAYOUT_SPORT:
+                return new ViewSportItemSportHolder(itemView);
             default:
+
                 return null;
         }
 

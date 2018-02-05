@@ -18,6 +18,7 @@ import com.example.wangyang.tinnerwangyang.Bean.PostsBean;
 import com.example.wangyang.tinnerwangyang.Bean.RecommendBean;
 import com.example.wangyang.tinnerwangyang.Bean.ShowUsersBean;
 import com.example.wangyang.tinnerwangyang.Bean.SlidersBean;
+import com.example.wangyang.tinnerwangyang.Bean.SportBean;
 import com.example.wangyang.tinnerwangyang.Bean.Success;
 import com.example.wangyang.tinnerwangyang.Bean.TagsBean;
 import com.example.wangyang.tinnerwangyang.Bean.TodayItem;
@@ -50,5 +51,6 @@ public interface TypeFactory {
     int type(FoodBean foodBean);
     int type(FoodTitle foodTitle);
     int type(Background background);
+    int type(SportBean sportBean);
 
 }
