@@ -4,7 +4,6 @@ package com.example.wangyang.tinnerwangyang.fragement;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-
 import com.example.wangyang.tinnerwangyang.Adapter.PageAdapter;
 import com.example.wangyang.tinnerwangyang.Bean.OfferTitle;
 import com.example.wangyang.tinnerwangyang.R;

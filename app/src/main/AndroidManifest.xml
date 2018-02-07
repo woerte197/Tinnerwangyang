@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-feature android:name="android.hardware.sensor.accelerometer" />
 
     <application
@@ -35,7 +34,25 @@
         <activity android:name=".Activity.SuccessActivity" />
         <activity android:name=".Activity.MainActivity" />
         <activity android:name=".Pedometer.PedometerActivity" />
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent222222" />
+                <!--例如 ：  <data android:scheme="tencent123123123" />-->
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
         <service
             android:name=".Pedometer.StepService"
             android:priority="1000"

@@ -62,8 +62,10 @@ public class TypeFactoryList implements TypeFactory {
     private static final int LAYOUT_TODAY_ITEM = R.layout.layout_today_item;
     private static final int LAYOUT_MORNING_FOOD = R.layout.layout_morningfood;
     private static final int LAYOUT_FOOD_TITLE = R.layout.layout_foodtitle;
-    private static final int LAYOUT_BACKGROUND=R.layout.layout_background;
-    private static final int LAYOUT_SPORT=R.layout.layout_sports;
+    private static final int LAYOUT_BACKGROUND = R.layout.layout_background;
+    private static final int LAYOUT_SPORT = R.layout.layout_sports;
+
+
     @Override
     public int type(Knowledges knowledges) {
         return LAYOUT_NEWS_ITEM;
@@ -140,11 +142,13 @@ public class TypeFactoryList implements TypeFactory {
 
     @Override
     public int type(MyBean myBean) {
-        return LAYOUT_MY;
+            return LAYOUT_MY;
+
     }
 
     @Override
     public int type(MyItem myItem) {
+
         return LAYOUT_MY_ITEM;
     }
 
@@ -207,7 +211,7 @@ public class TypeFactoryList implements TypeFactory {
             case LAYOUT_FOOD_TITLE:
                 return new ViewFoodTitleItemHolder(itemView);
             case LAYOUT_BACKGROUND:
-                  return new ViewBackGroundItemHolder(itemView);
+                return new ViewBackGroundItemHolder(itemView);
             case LAYOUT_SPORT:
                 return new ViewSportItemSportHolder(itemView);
             default:

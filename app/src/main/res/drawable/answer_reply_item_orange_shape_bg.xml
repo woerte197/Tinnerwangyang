@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/color_FF9100"/>
-    <corners android:radius="@dimen/d10"/>
-
+    <solid android:color="@color/dialog_title_textcolor" />
+    <corners android:radius="@dimen/d10" />
+    <padding
+        android:bottom="@dimen/d6"
+        android:left="@dimen/d30"
+        android:right="@dimen/d30"
+        android:top="@dimen/d4" />
 </shape>

@@ -55,7 +55,7 @@ public class AddFoodActivity extends BaseActivity {
             int weight = Integer.parseInt(sweight);
             DBhelper dBhelper = DBhelper.getDBhelper(AddFoodActivity.this);
             SQLiteDatabase database = dBhelper.getWritableDatabase();
-            DbHelperMode.insertSport(database, name, weight, kaluli, type);
+            DbHelperMode.insertFood(database, name, weight, kaluli, type);
             finish();
         });
     }

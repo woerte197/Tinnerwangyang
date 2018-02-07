@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.wangyang.tinnerwangyang.Bean.FoodBean;
 import com.example.wangyang.tinnerwangyang.Bean.SportBean;
+import com.example.wangyang.tinnerwangyang.Bean.WeightBean;
 import com.example.wangyang.tinnerwangyang.DBhelper;
 
 import java.util.ArrayList;
@@ -45,6 +46,13 @@ public class DbHelperMode {
         db.insert(DBhelper.SPORT_TABLE, null, cValue);
     }
 
+    public static void insertWeight(SQLiteDatabase db, String name, String map, int type) {
+        ContentValues cValue = new ContentValues();
+        cValue.put("Map", map);
+        cValue.put("Type", type);
+        db.insert(DBhelper.WEIGHT_TABLE, null, cValue);
+    }
+
     public static List<FoodBean> query(SQLiteDatabase db, String table) {
         Cursor cursor = db.query(table, null, null, null, null, null, null);
         return queryFoodBean(cursor);
@@ -53,6 +61,28 @@ public class DbHelperMode {
     public static List<SportBean> querysport(SQLiteDatabase db, String table) {
         Cursor cursor = db.query(table, null, null, null, null, null, null);
         return querySportsBean(cursor);
+    }
+
+    public static List<WeightBean> queryweight(SQLiteDatabase db, String table) {
+        Cursor cursor = db.query(table, null, null, null, null, null, null);
+        return queryWeightBean(cursor);
+    }
+
+    private static List<WeightBean> queryWeightBean(Cursor cursor) {
+        List<WeightBean> weightBeanList = new ArrayList<>();
+        if (cursor != null) {
+            int cnt = cursor.getCount();
+            cursor.moveToFirst();
+            for (int i = 0; i < cnt; i++) {
+                WeightBean weightBean = new WeightBean();
+                weightBean.set_id(cursor.getInt(cursor.getColumnIndex("_id")));
+                weightBean.setMap(cursor.getString(cursor.getColumnIndex("Map")));
+                weightBean.setType(cursor.getInt(cursor.getColumnIndex("Type")));
+                weightBeanList.add(weightBean);
+                cursor.moveToNext();
+            }
+        }
+        return weightBeanList;
     }
 
     private static List<FoodBean> queryFoodBean(Cursor cursor) {
@@ -74,6 +104,7 @@ public class DbHelperMode {
         return foodBeanList;
     }
 
+
     private static List<SportBean> querySportsBean(Cursor cursor) {
         List<SportBean> foodBeanList = new ArrayList<>();
         if (cursor != null) {
@@ -94,7 +125,7 @@ public class DbHelperMode {
     }
 
 
-    public static void deleteById(SQLiteDatabase db,String table, int _id) {
+    public static void deleteById(SQLiteDatabase db, String table, int _id) {
         String[] whereArgs = new String[]{"" + _id};
         db.delete(table, "_id=?", whereArgs);
     }

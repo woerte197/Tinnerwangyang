@@ -48,22 +48,6 @@ public abstract class BaseFragment extends Fragment {
         ViewUtils.showMessage(msg);
     }
 
-   // public void showMsg(int msg) {
-//        context.showMsg(msg);
-//    }
-
-
-//    public void showProcessMsg(int msg) {
-//        context.showProcessMsg(ECKit.getString(msg), true);
-//    }
-//
-//    public void showProcessMsg(int msg, boolean cancelable) {
-//        context.showProcessMsg(ECKit.getString(msg), cancelable);
-//    }
-//
-//    public void dismissProcess() {
-//        context.dismissProcess();
-//    }
 
     @Override
     public void onDestroy() {

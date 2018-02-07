@@ -16,18 +16,42 @@ import com.example.wangyang.tinnerwangyang.common.SharePrefUtils;
 import com.example.wangyang.tinnerwangyang.databinding.ActivityLoginBinding;
 import com.lib.DbHelperMode.DbHelperMode;
 import com.lib.Intent.Intentclass;
+import com.tencent.connect.common.Constants;
+import com.tencent.tauth.IUiListener;
+import com.tencent.tauth.Tencent;
+
+import org.json.JSONObject;
 
 public class LoginActivity extends BaseActivity {
     ActivityLoginBinding binding;
     private String name;
     private String pass;
+    private Tencent tencent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        tencent = Tencent.createInstance("222222", this);
         initpage();
     }
+
+    IUiListener listener = new BaseUiListener() {
+
+        protected void doComplete(JSONObject values) {
+            try {
+                String token = values.getString(Constants.PARAM_ACCESS_TOKEN);
+                String expires = values.getString(Constants.PARAM_EXPIRES_IN);
+                String openId = values.getString(Constants.PARAM_OPEN_ID);
+                if (!TextUtils.isEmpty(token) && !TextUtils.isEmpty(expires)
+                        && !TextUtils.isEmpty(openId)) {
+                    tencent.setAccessToken(token, expires);
+                    tencent.setOpenId(openId);
+                }
+            } catch (Exception e) {
+            }
+        }
+    };
 
     private void initpage() {
         binding.setP(() -> {
@@ -46,6 +70,9 @@ public class LoginActivity extends BaseActivity {
                 binding.imgEye.setImageResource(R.drawable.icon_eye_hide);
             }
             binding.editPass.setSelection(cursorIndex);
+        });
+        binding.setPqq(() -> {
+              tencent.login(this,"all",listener);
         });
     }
 
@@ -73,7 +100,7 @@ public class LoginActivity extends BaseActivity {
         if (a == 1) {
             ViewUtils.showMessage("登录成功");
             SharePrefUtils.getInstance().setLoginUserName(name);
-            Intentclass.IntentMainActivity(this,3);
+            Intentclass.IntentMainActivity(this, 3);
             finish();
         }
     }

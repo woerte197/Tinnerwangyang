@@ -62,11 +62,6 @@ public class TabUserFragment extends BindFragment<FragmentTabUserBinding> {
             list.add(myItem6);
         }else {
             list.add(myBean);
-            list.add(myItem1);
-            list.add(myItem2);
-            list.add(myItem3);
-            list.add(myItem4);
-            list.add(myItem5);
         }
 
     }

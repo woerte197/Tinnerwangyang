@@ -70,6 +70,7 @@ dependencies {
     compile files('libs/eventbus-2.4.0.jar')
     compile files('libs/lite-orm-1.7.0.jar')
     compile project(path: ':LibMarsdaemon')
+    compile files('libs/open_sdk_r5990_lite.jar')
 //    compile project(path: ':LibMarsdaemon')
     //implementation 'cn.gavinliu.android.lib:ShapedImageView:0.8.4'
 }

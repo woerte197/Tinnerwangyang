@@ -2,20 +2,24 @@ package com.example.wangyang.tinnerwangyang.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.wangyang.tinnerwangyang.DBhelper;
 import com.example.wangyang.tinnerwangyang.R;
 import com.example.wangyang.tinnerwangyang.ScaleRuler.DecimalScaleRulerView;
 import com.example.wangyang.tinnerwangyang.ScaleRuler.DrawUtil;
 import com.example.wangyang.tinnerwangyang.databinding.ActivityChooseWeightBinding;
+import com.lib.DbHelperMode.DbHelperMode;
 import com.lib.Intent.Intentclass;
 
 public class ChooseWeightActivity extends BaseActivity {
     ActivityChooseWeightBinding binding;
     private float mWeight = 60.0f;
     private String d;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,7 @@ public class ChooseWeightActivity extends BaseActivity {
     }
 
     private void initpage() {
+
         setSupportActionBar(binding.toolbarChoseweight);
         getSupportActionBar().setTitle("");
         binding.textChoseweight.setText(R.string.chooseweight_write);
