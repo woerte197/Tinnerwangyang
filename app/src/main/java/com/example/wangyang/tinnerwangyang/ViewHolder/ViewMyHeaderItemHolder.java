@@ -1,24 +1,32 @@
 package com.example.wangyang.tinnerwangyang.ViewHolder;
 
+import android.content.Context;
 import android.view.View;
 
+import com.example.wangyang.tinnerwangyang.Activity.BaseUiListener;
 import com.example.wangyang.tinnerwangyang.Adapter.BaseRecyclerAdapter;
 import com.example.wangyang.tinnerwangyang.Bean.MyBean;
 import com.example.wangyang.tinnerwangyang.ViewUtils;
 import com.example.wangyang.tinnerwangyang.common.SharePrefUtils;
 import com.example.wangyang.tinnerwangyang.databinding.LayoutMyBinding;
 import com.lib.Intent.Intentclass;
+import com.lib.Manager.TecentManager;
 import com.squareup.picasso.Picasso;
+import com.tencent.connect.UserInfo;
+import com.tencent.tauth.IUiListener;
+import com.tencent.tauth.Tencent;
+
+import org.json.JSONObject;
 
 /**
  * Created by wangyang on 23/1/18.
  */
 
 public class ViewMyHeaderItemHolder extends BaseRecyclerHolder<MyBean, LayoutMyBinding> {
+    private static Tencent tencent;
     public ViewMyHeaderItemHolder(View itemView) {
         super(itemView);
     }
-
     @Override
     public void setUpView(MyBean model, int position, BaseRecyclerAdapter adapter) {
         if (SharePrefUtils.getInstance().isLogin()) {
@@ -32,5 +40,10 @@ public class ViewMyHeaderItemHolder extends BaseRecyclerHolder<MyBean, LayoutMyB
                 Intentclass.IntentLoginActivity(context);
             });
         }
+
+
     }
+
+
+
 }

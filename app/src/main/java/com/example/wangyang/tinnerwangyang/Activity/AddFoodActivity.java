@@ -16,25 +16,34 @@ import com.lib.Intent.Intentclass;
 public class AddFoodActivity extends BaseActivity {
     ActivityAddFoodBinding binding;
     private FoodTitle foodTitle;
+    private int type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_food);
+        initpage();
+        initEvent();
+
+    }
+
+    private void initpage() {
         setSupportActionBar(binding.toolbarAddFood);
         getSupportActionBar().setTitle("");
-        foodTitle=FoodTitle.getFoodTitle();
-        int type = getIntent().getIntExtra("type", 0);
+        foodTitle = FoodTitle.getFoodTitle();
+        type = getIntent().getIntExtra("type", 0);
         if (type == 1) {
-//            foodTitle.setMorningshow(true);
             binding.textAddfood.setText("添加早餐");
         } else if (type == 2) {
-//            foodTitle.setNoonshow(true);
             binding.textAddfood.setText("添加午餐");
         }
         if (type == 3) {
-//            foodTitle.setNightshow(true);
             binding.textAddfood.setText("添加晚餐");
         }
+    }
+
+    private void initEvent() {
+
         binding.setP(() -> {
             String name = binding.editFoodName.getText().toString();
             String skaluli = binding.editFoodKaluli.getText().toString();
@@ -58,5 +67,6 @@ public class AddFoodActivity extends BaseActivity {
             DbHelperMode.insertFood(database, name, weight, kaluli, type);
             finish();
         });
+        binding.setPback(() -> finish());
     }
 }

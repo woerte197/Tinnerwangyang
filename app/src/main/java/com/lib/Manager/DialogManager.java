@@ -41,6 +41,7 @@ public class DialogManager {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
                         SharePrefUtils.getInstance().clear();
+                        TecentManager.getIns().Tecent().logout(context);
                         PageManager.getPageManager().pushLogout();
                     }
                 })
@@ -54,7 +55,7 @@ public class DialogManager {
         builder.show();
     }
 
-    public void addfooddialog(Context context,String table, int a) {
+    public void addfooddialog(Context context, String table, int a) {
         CustomDialog.Builder customBuilder = new CustomDialog.Builder(context);
         customBuilder.setTitle("删除食物记录")
                 .setMessage("你确定要删除此条食物记录吗？")
@@ -62,9 +63,9 @@ public class DialogManager {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
-                        DBhelper dBhelper= DBhelper.getDBhelper(context);
+                        DBhelper dBhelper = DBhelper.getDBhelper(context);
                         SQLiteDatabase database = dBhelper.getReadableDatabase();
-                        DbHelperMode.deleteById(database,table,a);
+                        DbHelperMode.deleteById(database, table, a);
                         PageManager.getPageManager().pushDelete();
                     }
                 })
@@ -77,7 +78,8 @@ public class DialogManager {
         CustomDialog builder = customBuilder.create();
         builder.show();
     }
-    public void deletesportdialog(Context context,String table,int a) {
+
+    public void deletesportdialog(Context context, String table, int a) {
         CustomDialog.Builder customBuilder = new CustomDialog.Builder(context);
         customBuilder.setTitle("删除运动记录")
                 .setMessage("你确定要删除此条运动记录吗？")
@@ -85,9 +87,9 @@ public class DialogManager {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
-                        DBhelper dBhelper= DBhelper.getDBhelper(context);
+                        DBhelper dBhelper = DBhelper.getDBhelper(context);
                         SQLiteDatabase database = dBhelper.getReadableDatabase();
-                        DbHelperMode.deleteById(database,table,a);
+                        DbHelperMode.deleteById(database, table, a);
                         PageManager.getPageManager().pushDelete();
                     }
                 })

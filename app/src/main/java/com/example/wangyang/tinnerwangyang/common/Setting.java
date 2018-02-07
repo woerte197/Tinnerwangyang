@@ -80,6 +80,7 @@ public class Setting {
 
 
     //数据库字段
+    public static final String LOGIN_TYPE = "logintype";
     public static final String DBFIELD_LOGINUSERID = "loginUserId";
     public static final String DBFIELD_USERID = "userId";
     public static final String DBFIELD_USERNAME = "username";
@@ -99,7 +100,7 @@ public class Setting {
     public static final String DBFIELD_UMTOKEN = "umtoken";
     public static final String DBFIELD_OTHER_NICK = "other_nick";
     public static final String DBFIELD_OTHER_IMG = "other_img";
-
+    public static final String MYBEAN = "mybean";
     public static final String DBFIELD_WEIGHT = "weight";
     public static final String DBFIELD_DOWNLOADPROCESS = "downloadprocess";
     public static final String DBFIELD_SHOW_CLOULD_DIALOG = "show_clould_dialog";
@@ -174,7 +175,7 @@ public class Setting {
     public static final String CONFIG_PARA_PHONE_NATION = "phoneNation";               // 国家信息
     public static final String CONFIG_PARA_SOS = "SOS";                                       // 老师信息
     public static final String CONFIG_PARA_HOT_TAGES = "hotSearchSchool";                           // 热门标签
-    public static final String CONFIG_PARA_HOT_SEARCH="hotSearch";                            //热门搜索
+    public static final String CONFIG_PARA_HOT_SEARCH = "hotSearch";                            //热门搜索
     public static final String CONFIG_PARA_UUID = "uuid";                              // uuid
 
     //软键盘默认高度
@@ -230,6 +231,6 @@ public class Setting {
     public static final String XIAOMI = "Xiaomi";
     public static final boolean isHuawei = Build.BRAND.toLowerCase().equals("huawei") || Build.BRAND.toLowerCase().equals("honor");
     public static boolean isPulling = false;
-    public static final String TABUSERFRAGMENT="TabUserFragment";
+    public static final String TABUSERFRAGMENT = "TabUserFragment";
 
 }

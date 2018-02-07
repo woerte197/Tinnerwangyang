@@ -17,6 +17,7 @@ import com.example.wangyang.tinnerwangyang.Activity.TodayStepActivity;
 import com.example.wangyang.tinnerwangyang.Activity.WebActivity;
 import com.example.wangyang.tinnerwangyang.Activity.WeightActivity;
 import com.example.wangyang.tinnerwangyang.Bean.FoodTitle;
+import com.example.wangyang.tinnerwangyang.Bean.MyBean;
 import com.example.wangyang.tinnerwangyang.common.Setting;
 
 /**
@@ -36,7 +37,8 @@ public class Intentclass {
         context.startActivity(intent);
     }
 
-    public static void IntentMainActivity(Context context, int value) {
+    public static void IntentMainActivity(Context context, int value, MyBean myBean) {
+        intent.putExtra("logintype", myBean);
         intent.putExtra(Setting.TABUSERFRAGMENT, value);
         intent.setClass(context, MainActivity.class);
         context.startActivity(intent);
@@ -94,7 +96,7 @@ public class Intentclass {
     }
 
     public static void IntentAddSportsActivity(Context context, int type) {
-        intent.putExtra("sporttype",type);
+        intent.putExtra("sporttype", type);
         intent.setClass(context, AddSportsActivity.class);
         context.startActivity(intent);
     }

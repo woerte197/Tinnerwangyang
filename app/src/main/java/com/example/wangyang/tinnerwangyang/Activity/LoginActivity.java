@@ -1,57 +1,53 @@
 package com.example.wangyang.tinnerwangyang.Activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.widget.ImageView;
 
+import com.example.wangyang.tinnerwangyang.Bean.MyBean;
 import com.example.wangyang.tinnerwangyang.DBhelper;
 import com.example.wangyang.tinnerwangyang.R;
 import com.example.wangyang.tinnerwangyang.ViewUtils;
 import com.example.wangyang.tinnerwangyang.common.SharePrefUtils;
 import com.example.wangyang.tinnerwangyang.databinding.ActivityLoginBinding;
+import com.google.gson.Gson;
 import com.lib.DbHelperMode.DbHelperMode;
 import com.lib.Intent.Intentclass;
+import com.lib.Manager.TecentManager;
+import com.tencent.connect.UserInfo;
 import com.tencent.connect.common.Constants;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
+import com.tencent.tauth.UiError;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginActivity extends BaseActivity {
     ActivityLoginBinding binding;
     private String name;
     private String pass;
-    private Tencent tencent;
+    private static Tencent tencent;
+    private static boolean isServerSideLogin = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
-        tencent = Tencent.createInstance("222222", this);
+        tencent = TecentManager.getIns().Tecent();
         initpage();
+
+
     }
 
-    IUiListener listener = new BaseUiListener() {
-
-        protected void doComplete(JSONObject values) {
-            try {
-                String token = values.getString(Constants.PARAM_ACCESS_TOKEN);
-                String expires = values.getString(Constants.PARAM_EXPIRES_IN);
-                String openId = values.getString(Constants.PARAM_OPEN_ID);
-                if (!TextUtils.isEmpty(token) && !TextUtils.isEmpty(expires)
-                        && !TextUtils.isEmpty(openId)) {
-                    tencent.setAccessToken(token, expires);
-                    tencent.setOpenId(openId);
-                }
-            } catch (Exception e) {
-            }
-        }
-    };
 
     private void initpage() {
         binding.setP(() -> {
@@ -71,9 +67,73 @@ public class LoginActivity extends BaseActivity {
             }
             binding.editPass.setSelection(cursorIndex);
         });
+
         binding.setPqq(() -> {
-              tencent.login(this,"all",listener);
+            onClickLogin();
+
         });
+
+
+    }
+
+    public static void initOpenidAndToken(JSONObject jsonObject) {
+        try {
+            String token = jsonObject.getString(Constants.PARAM_ACCESS_TOKEN);
+            String expires = jsonObject.getString(Constants.PARAM_EXPIRES_IN);
+            String openId = jsonObject.getString(Constants.PARAM_OPEN_ID);
+            if (!TextUtils.isEmpty(token) && !TextUtils.isEmpty(expires)
+                    && !TextUtils.isEmpty(openId)) {
+                tencent.setAccessToken(token, expires);
+                tencent.setOpenId(openId);
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    IUiListener listener = new BaseUiListener() {
+        @Override
+        protected void doComplete(JSONObject values) {
+            Log.i("values", String.valueOf(values));
+            Log.d("SDKQQAgentPref", "AuthorSwitch_SDK:" + SystemClock.elapsedRealtime());
+            initOpenidAndToken(values);
+            getUserInfo();
+        }
+    };
+
+    private void onClickLogin() {
+        if (!tencent.isSessionValid()) {
+            tencent.login(this, "all", listener);
+            isServerSideLogin = false;
+            Log.i("SDKQQAgentPref", "FirstLaunch_SDK:" + SystemClock.elapsedRealtime());
+        } else {
+            if (isServerSideLogin) { // Server-Side 模式的登陆, 先退出，再进行SSO登陆
+                tencent.logout(this);
+                tencent.login(this, "all", listener);
+                isServerSideLogin = false;
+                Log.i("SDKQQAgentPref", "FirstLaunch_SDK:" + SystemClock.elapsedRealtime());
+                return;
+            }
+            tencent.logout(this);
+            getUserInfo();
+        }
+    }
+
+    public void getUserInfo() {
+        if (tencent != null) {
+            IUiListener listener = new BaseUiListener() {
+                @Override
+                protected void doComplete(JSONObject values) {
+                    super.doComplete(values);
+                    SharePrefUtils.getInstance().setLoginUserName("name", 1);
+                    SharePrefUtils.getInstance().setMyBean(String.valueOf(values));
+                    //Intentclass.IntentMainActivity(LoginActivity.this, 3, null);
+                    finish();
+                }
+            };
+            UserInfo userInfo = new UserInfo(this, tencent.getQQToken());
+            userInfo.getUserInfo(listener);
+            Log.i("userinfo", String.valueOf(userInfo));
+        }
     }
 
     private void initlogin() {
@@ -99,11 +159,19 @@ public class LoginActivity extends BaseActivity {
         }
         if (a == 1) {
             ViewUtils.showMessage("登录成功");
-            SharePrefUtils.getInstance().setLoginUserName(name);
-            Intentclass.IntentMainActivity(this, 3);
+            SharePrefUtils.getInstance().setLoginUserName(name, 2);
+            Intentclass.IntentMainActivity(this, 3, null);
             finish();
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Constants.REQUEST_LOGIN || requestCode == Constants.REQUEST_APPBAR) {
+            Tencent.onActivityResultData(requestCode, resultCode, data, listener);
+        }
 
+
+    }
 }

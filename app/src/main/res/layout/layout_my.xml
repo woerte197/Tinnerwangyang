@@ -61,7 +61,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d15"
-                        android:text="@{my.name}"
+                        android:text="@{my.nickname}"
                         android:textColor="@color/white" />
 
                 </LinearLayout>

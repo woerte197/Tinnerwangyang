@@ -23,7 +23,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     ActivityRegisterBinding binding;
     private String name;
     private String pass;
-    private final int USER=1;
+    private final int USER = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,17 +31,16 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register);
         binding.registerButton.setOnClickListener(this);
         binding.setP(() -> {
-            int countindex=binding.editPassRegister.getSelectionStart();
-            if (binding.editPassRegister.getTransformationMethod()== PasswordTransformationMethod.getInstance()){
+            int countindex = binding.editPassRegister.getSelectionStart();
+            if (binding.editPassRegister.getTransformationMethod() == PasswordTransformationMethod.getInstance()) {
                 binding.editPassRegister.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                 binding.imgEyeRegister.setImageResource(R.drawable.icon_eye_show);
-            }else {
+            } else {
                 binding.editPassRegister.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 binding.imgEyeRegister.setImageResource(R.drawable.icon_eye_hide);
             }
         });
     }
-
 
 
     @Override
@@ -51,19 +50,19 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                 name = binding.editNameRegister.getText().toString();
                 pass = binding.editPassRegister.getText().toString();
                 if (TextUtils.isEmpty(name)) {
-                      ViewUtils.showMessage("手机号不可以为空");
+                    ViewUtils.showMessage("手机号不可以为空");
                     return;
                 } else if (TextUtils.isEmpty(pass)) {
                     ViewUtils.showMessage("密码不可以为空");
                     return;
                 }
-                DBhelper dBhelper=DBhelper.getDBhelper(RegisterActivity.this);
-                SQLiteDatabase database=dBhelper.getWritableDatabase();
-                DbHelperMode.insert(database,name,pass);
+                DBhelper dBhelper = DBhelper.getDBhelper(RegisterActivity.this);
+                SQLiteDatabase database = dBhelper.getWritableDatabase();
+                DbHelperMode.insert(database, name, pass);
                 ViewUtils.showMessage("注册成功");
                 PageManager.getPageManager().pushLogin();
-                SharePrefUtils.getInstance().setLoginUserName(name);
-                Intentclass.IntentMainActivity(RegisterActivity.this,1);
+                SharePrefUtils.getInstance().setLoginUserName(name, 2);
+                Intentclass.IntentMainActivity(RegisterActivity.this, 1, null);
                 finish();
                 break;
         }

@@ -16,7 +16,11 @@ public class MyApplication extends MultiDexApplication {
         super.onCreate();
         ECKit.onApplicationCreate(getApplicationContext());
         DrawUtil.resetDensity(this);
+        this.context = getApplicationContext();
 
+    }
+    public static Context getMct(){
+        return context;
     }
     public static MyApplication getApp(){
        return (MyApplication)context;

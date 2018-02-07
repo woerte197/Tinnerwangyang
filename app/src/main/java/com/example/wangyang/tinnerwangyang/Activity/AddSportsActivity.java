@@ -19,6 +19,11 @@ public class AddSportsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_sports);
+        initpage();
+        initEvent();
+    }
+
+    private void initpage() {
         setSupportActionBar(binding.toolbarAddSports);
         getSupportActionBar().setTitle("");
         type = getIntent().getIntExtra("sporttype", 0);
@@ -29,6 +34,9 @@ public class AddSportsActivity extends BaseActivity {
         } else if (type == 3) {
             binding.textAddsports.setText("添加拉伸运动");
         }
+    }
+
+    private void initEvent() {
         binding.setP(() -> {
             String name = binding.editSportName.getText().toString();
             String skaluli = binding.editSportWeight.getText().toString();
@@ -52,6 +60,7 @@ public class AddSportsActivity extends BaseActivity {
             DbHelperMode.insertSport(database, name, weight, kaluli, type);
             finish();
         });
+        binding.setPback(() -> finish());
     }
 
 }

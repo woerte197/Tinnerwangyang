@@ -31,22 +31,32 @@ public class SharePrefUtils {
         }
         return instance;
     }
-    public void setOtherNick(String userId, String nickName){
+
+    public void setOtherNick(String userId, String nickName) {
         editor.putString(Setting.DBFIELD_OTHER_NICK + userId, nickName);
         editor.commit();
 
     }
-    public String getOtherNick(String userId){
-        return share.getString(Setting.DBFIELD_OTHER_NICK + userId,"");
+    public void setMyBean(String values){
+        editor.putString(Setting.MYBEAN,values);
+        editor.commit();
+    }
+    public String getMyBean(){
+        return share.getString(Setting.MYBEAN,"");
+    }
+    public String getOtherNick(String userId) {
+        return share.getString(Setting.DBFIELD_OTHER_NICK + userId, "");
     }
 
-    public void setOtherImage(String userId,String imgUrl){
+    public void setOtherImage(String userId, String imgUrl) {
         editor.putString(Setting.DBFIELD_OTHER_IMG + userId, imgUrl);
         editor.commit();
     }
-    public String getOtherImg(String userId){
-        return share.getString(Setting.DBFIELD_OTHER_IMG + userId,"");
+
+    public String getOtherImg(String userId) {
+        return share.getString(Setting.DBFIELD_OTHER_IMG + userId, "");
     }
+
     public void setUmengToken(String umengToken) {
         editor.putString(Setting.DBFIELD_UMTOKEN, umengToken);
         editor.commit();
@@ -83,21 +93,25 @@ public class SharePrefUtils {
         int count = share.getInt(Setting.DBFIELD_XMUNREAD, 0);
         return count;
     }
-    public void setNewsUnRead(int count){
+
+    public void setNewsUnRead(int count) {
         editor.putInt(Setting.DBFIELD_NEWS, count);
         editor.commit();
 
     }
-    public int getNewsUnRead(){
+
+    public int getNewsUnRead() {
         int count = share.getInt(Setting.DBFIELD_NEWS, 0);
         return count;
     }
-    public void setActiveUnRead(int count){
+
+    public void setActiveUnRead(int count) {
         editor.putInt(Setting.DBFIELD_ACTIVE, count);
         editor.commit();
 
     }
-    public int getActiveUnRead(){
+
+    public int getActiveUnRead() {
         int count = share.getInt(Setting.DBFIELD_ACTIVE, 0);
         return count;
     }
@@ -106,12 +120,18 @@ public class SharePrefUtils {
         String userName = share.getString(Setting.DBFIELD_USERID, "");
         return userName;
     }
+    public int getLogintype(){
+        int logintype=share.getInt(Setting.LOGIN_TYPE,0);
+        return  logintype;
+    }
 
     /**
      * userId置为-1
+     *
      * @param username
      */
-    public void setLoginUserName(String username) {
+    public void setLoginUserName(String username, int type) {
+        editor.putInt(Setting.LOGIN_TYPE, type);
         editor.putString(Setting.DBFIELD_USERID, username);
         editor.commit();
     }
@@ -185,6 +205,7 @@ public class SharePrefUtils {
 
     /**
      * 设置用户名
+     *
      * @param pn
      */
     public void setUserPN(String pn) {
@@ -245,12 +266,14 @@ public class SharePrefUtils {
         editor.putInt(Setting.DBFIELD_DOWNLOADPROCESS, process);
         editor.commit();
     }
-    public void setweight(String s){
-        editor.putString(Setting.DBFIELD_WEIGHT,s);
+
+    public void setweight(String s) {
+        editor.putString(Setting.DBFIELD_WEIGHT, s);
         editor.commit();
     }
-    public String getWeight(){
-        return share.getString(Setting.DBFIELD_WEIGHT,"");
+
+    public String getWeight() {
+        return share.getString(Setting.DBFIELD_WEIGHT, "");
     }
 
 //    public void addLiveRoomGroupIds(String gId) {

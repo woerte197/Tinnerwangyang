@@ -92,6 +92,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
         initPedometer();
         startServiceForStrategy();
         FileUtils.getKnowledgesData();
+
     }
 
     private void startServiceForStrategy() {
@@ -218,7 +219,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
 
     @Override
     public void onBackPressed() {
-        moveTaskToBack(true);
+//        moveTaskToBack(true);
         super.onBackPressed();
     }
 
