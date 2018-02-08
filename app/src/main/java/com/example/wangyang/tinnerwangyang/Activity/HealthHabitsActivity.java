@@ -43,7 +43,6 @@ public class HealthHabitsActivity extends BaseActivity implements RefreshListLis
 
 
     }
-
     @Override
     public void top(List list) {
         if (list != null) {

@@ -26,7 +26,6 @@ public class TabHomeFragment extends BindFragment<FragmentTabHomeBinding> {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initpage();
-
     }
 
     private void initpage() {

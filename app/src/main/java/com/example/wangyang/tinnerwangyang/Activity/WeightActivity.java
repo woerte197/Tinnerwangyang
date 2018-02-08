@@ -75,8 +75,6 @@ public class WeightActivity extends BaseActivity {
                 .setSingleDate(date[0] + "." + date[1] + "." + date[2])
                 .setDisableStartEndDate("2000.1.1", date[0] + "." + date[1] + "." + date[2])
                 .init();
-
-
     }
 
     private void initp() {
@@ -103,6 +101,7 @@ public class WeightActivity extends BaseActivity {
         binding.setPreright(() -> binding.calendar.nextMonth());
         binding.setP(() -> finish());
     }
+
     @Override
     protected void onResume() {
         super.onResume();

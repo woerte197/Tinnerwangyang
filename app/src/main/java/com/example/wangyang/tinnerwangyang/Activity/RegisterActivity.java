@@ -62,7 +62,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                 ViewUtils.showMessage("注册成功");
                 PageManager.getPageManager().pushLogin();
                 SharePrefUtils.getInstance().setLoginUserName(name, 2);
-                Intentclass.IntentMainActivity(RegisterActivity.this, 1, null);
                 finish();
                 break;
         }

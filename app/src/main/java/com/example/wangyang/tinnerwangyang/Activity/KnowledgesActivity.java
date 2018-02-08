@@ -49,9 +49,6 @@ public class KnowledgesActivity extends BaseActivity implements RefreshListListe
         getSupportActionBar().setTitle("");
         binding.textKnowledges.setText(R.string.knowledges_tinner);
         binding.setP(()->{
-            Intent intent=new Intent();
-            intent.setClass(KnowledgesActivity.this,MainActivity.class);
-            startActivity(intent);
             finish();
         });
 

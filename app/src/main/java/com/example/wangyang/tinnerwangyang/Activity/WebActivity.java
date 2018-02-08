@@ -31,10 +31,6 @@ public class WebActivity extends BaseActivity {
 
     protected void reload() {
         String url = getUrl();
-//        if (url.equals("https://truck.boohee.com/health_task"))
-//        {
-//            url="https:\\/\\/truck.boohee.com\\/health_task";
-//        }
         webView.loadUrl(url);
 
     }

@@ -19,6 +19,11 @@ public class WelcomeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_welcome);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(binding.welcomeImage, "alpha", 0.1f, 1.0f);
         objectAnimator.setDuration(2000);
         objectAnimator.start();
@@ -30,5 +35,4 @@ public class WelcomeActivity extends BaseActivity {
             }
         });
     }
-
 }

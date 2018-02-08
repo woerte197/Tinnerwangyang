@@ -39,8 +39,6 @@ public class FootRecyclerAdapter extends BaseRecyclerAdapter {
         this.datas.addAll(list) ;
         this.datas.add(footerItem);
         notifyItemRangeChanged(0, this.datas.size());
-
-
     }
 
     public void addLoadData(List<Wachter> list) {

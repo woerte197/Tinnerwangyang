@@ -14,12 +14,15 @@ import java.util.List;
 
 public class PageAdapter extends FragmentPagerAdapter {
     List<OfferTitle> list;
+
     public PageAdapter(FragmentManager fm) {
         super(fm);
     }
-   public void addData(List<OfferTitle> list){
-        this.list=list;
-   }
+
+    public void addData(List<OfferTitle> list) {
+        this.list = list;
+    }
+
     @Override
     public Fragment getItem(int position) {
         return list.get(position).getFragment();
@@ -29,6 +32,7 @@ public class PageAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return list.size();
     }
+
     @Override
     public CharSequence getPageTitle(int position) {
         return list.get(position).getTitle();

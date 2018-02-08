@@ -23,7 +23,6 @@ import rx.Subscription;
  */
 
 
-
 /**
  * Created by nanchaodong on 2017/3/7.
  */
@@ -37,13 +36,13 @@ public class BaseRecyclerAdapter extends RecyclerView.Adapter<BaseRecyclerHolder
     public HashMap<Integer, Integer> positionMap = new HashMap<>();
     private Subscription mSubscription;
     private WeakHandler handler;
-   // private StatusItem statusItem;
+    // private StatusItem statusItem;
 
     public BaseRecyclerAdapter(Context context) {
         this.mCtx = context;
         typeFactoryList = new TypeFactoryList();
         datas = new ArrayList<Wachter>();
-       // statusItem = new StatusItem();
+        // statusItem = new StatusItem();
     }
 
     public BaseRecyclerAdapter initHandler() {
@@ -52,10 +51,10 @@ public class BaseRecyclerAdapter extends RecyclerView.Adapter<BaseRecyclerHolder
     }
 
     public void showErrorMsg() {
-      //  statusItem.setMsg(mCtx.getString(msg));
-     //   statusItem.setObj(obj);
+        //  statusItem.setMsg(mCtx.getString(msg));
+        //   statusItem.setObj(obj);
         datas.clear();
-    //    datas.add(statusItem);
+        //    datas.add(statusItem);
         notifyDataSetChanged();
     }
 
@@ -86,8 +85,6 @@ public class BaseRecyclerAdapter extends RecyclerView.Adapter<BaseRecyclerHolder
     public void setKeyWords(String keyWords) {
         this.keywords = keyWords;
     }
-
-
     public Wachter getBean(int position) {
         return datas.get(position);
     }
@@ -104,13 +101,10 @@ public class BaseRecyclerAdapter extends RecyclerView.Adapter<BaseRecyclerHolder
         return datas;
     }
 
-
     @Override
     public BaseRecyclerHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        View itemView = View.inflate(mCtx, viewType, null);
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(viewType,parent,false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false);
         return typeFactoryList.createViewHolder(viewType, itemView);
-
     }
 
     @Override
@@ -118,11 +112,8 @@ public class BaseRecyclerAdapter extends RecyclerView.Adapter<BaseRecyclerHolder
         try {
             holder.setKeyWords(this.keywords);
             holder.setUpView(datas.get(position), position, this);
-
         } catch (Exception e) {
-
         }
-
     }
 
     @Override

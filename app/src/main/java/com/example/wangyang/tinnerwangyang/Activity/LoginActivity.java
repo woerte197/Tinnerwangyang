@@ -35,14 +35,20 @@ public class LoginActivity extends BaseActivity {
     ActivityLoginBinding binding;
     private String name;
     private String pass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
-        initpage();
     }
 
-    private void initpage() {
+    @Override
+    protected void onStart() {
+        super.onStart();
+        initEvent();
+    }
+
+    private void initEvent() {
         binding.setP(() -> {
             Intentclass.IntentRegisterActivity(this);
         });
@@ -115,6 +121,7 @@ public class LoginActivity extends BaseActivity {
             finish();
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

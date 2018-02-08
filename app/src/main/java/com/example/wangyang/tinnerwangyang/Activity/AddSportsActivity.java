@@ -19,6 +19,12 @@ public class AddSportsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_sports);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         initpage();
         initEvent();
     }

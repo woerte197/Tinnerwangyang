@@ -29,6 +29,7 @@ import com.example.wangyang.tinnerwangyang.fragement.TabHomeFragment;
 import com.example.wangyang.tinnerwangyang.fragement.TabUserFragment;
 import com.example.wangyang.tinnerwangyang.fragement.TinnerSportsFragment;
 import com.lib.Manager.FileUtils;
+import com.lib.Manager.PedometerManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,8 +59,6 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
     private static int textstep;
 
     public boolean handleMessage(Message msg) {
-
-
         switch (msg.what) {
             case Constant.MSG_FROM_SERVER:
                 //    更新界面上的步数
@@ -75,7 +74,6 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
-
                 break;
         }
         return false;
@@ -90,25 +88,9 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
         value = getIntent().getIntExtra(Setting.TABUSERFRAGMENT, 1);
         initTab();
         initPedometer();
-        startServiceForStrategy();
+        PedometerManager.getPedometerManager().startServiceForStrategy(this, conn);
         FileUtils.getKnowledgesData();
 
-    }
-
-    private void startServiceForStrategy() {
-        if (!isServiceWork(this, StepService.class.getName())) {
-            setupService(true);
-        } else {
-            setupService(false);
-        }
-    }
-
-    private void setupService(boolean flag) {
-        Intent intent = new Intent(this, StepService.class);
-        bindService(intent, conn, Context.BIND_AUTO_CREATE);
-        if (flag) {
-            startService(intent);
-        }
     }
 
     ServiceConnection conn = new ServiceConnection() {
@@ -130,31 +112,6 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
         }
     };
 
-    /**
-     * 判断某个服务是否正在运行的方法
-     *
-     * @param mContext
-     * @param serviceName 是包名+服务的类名（例如：net.loonggg.testbackstage.TestService）
-     * @return true代表正在运行，false代表服务没有正在运行
-     */
-    public boolean isServiceWork(Context mContext, String serviceName) {
-        boolean isWork = false;
-        ActivityManager myAM = (ActivityManager) mContext
-                .getSystemService(Context.ACTIVITY_SERVICE);
-        List<ActivityManager.RunningServiceInfo> myList = myAM.getRunningServices(40);
-        if (myList.size() <= 0) {
-            return false;
-        }
-        for (int i = 0; i < myList.size(); i++) {
-            String mName = myList.get(i).service.getClassName().toString();
-            if (mName.equals(serviceName)) {
-                isWork = true;
-                break;
-            }
-        }
-        return isWork;
-    }
-
     private void initPedometer() {
         delayHandler = new Handler(this);
     }
@@ -167,18 +124,17 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
             addFragment(R.id.fragmentContainer, tab.getFragment(), false);
             tab.setTabListener(t -> resetFragment(t));
         }
-        if ("jlxapp".equals(getIntent().getScheme())) {
-            Uri uri = getIntent().getData();
-            if ("native_payment".equals(uri.getHost())) {
-                resetFragment(tab1);
-                return;
-            }
-        }
+//        if ("jlxapp".equals(getIntent().getScheme())) {
+//            Uri uri = getIntent().getData();
+//            if ("native_payment".equals(uri.getHost())) {
+//                resetFragment(tab1);
+//                return;
+//            }
+//        }
         if (value == 3) {
             resetFragment(tab2);
         }
         setCurrentFragment();//设置当前Fragement
-
     }
 
     public void resetFragment(TabBean t) {

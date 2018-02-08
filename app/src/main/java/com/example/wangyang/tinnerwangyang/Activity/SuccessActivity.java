@@ -41,9 +41,6 @@ public class SuccessActivity extends BaseActivity implements RefreshListListener
         getSupportActionBar().setTitle("");
         binding.textSuccess.setText(R.string.success_tinner);
         binding.setP(() -> {
-            Intent intent = new Intent();
-            intent.setClass(SuccessActivity.this, MainActivity.class);
-            startActivity(intent);
             finish();
         });
     }

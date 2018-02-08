@@ -27,6 +27,12 @@ public class ChooseWeightActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         d = getIntent().getStringExtra("time");
         binding = DataBindingUtil.setContentView(this, R.layout.activity_choose_weight);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         initpage();
         initp();
     }

@@ -37,9 +37,15 @@ public class BigImageActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_big_image);
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         inittoppage();
         initendpage();
-
     }
 
     private void inittoppage() {
