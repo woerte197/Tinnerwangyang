@@ -35,6 +35,9 @@ public class FoodActivity extends BaseActivity {
     private List<FoodBean> list;
     private BaseRecyclerAdapter adapter;
     private List<Wachter> listwatch;
+    FoodTitle foodTitlea = new FoodTitle("早餐记得吃哦", "建议：   439~536千卡", "及时记录哦");
+    FoodTitle foodTitleb = new FoodTitle("午餐你吃了吗", "建议：   585~715千卡", "及时记录哦");
+    FoodTitle foodTitlec = new FoodTitle("晚餐要少吃哦", "建议：   439~536千卡", "及时记录哦");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +54,9 @@ public class FoodActivity extends BaseActivity {
         binding.textFood.setText("饮食记录");
         DBhelper dBhelper = DBhelper.getDBhelper(this);
         SQLiteDatabase database = dBhelper.getReadableDatabase();
-        list = DbHelperMode.query(database,DBhelper.FOOD_TABLE);
+        list = DbHelperMode.query(database, DBhelper.FOOD_TABLE);
         listwatch = new ArrayList<>();
-        Background background = new Background();
+        Background background = new Background(1);
         listwatch.add(background);
         adapter = new BaseRecyclerAdapter(this);
         binding.recycleFood.setLayoutManager(new LinearLayoutManager(this));
@@ -74,38 +77,27 @@ public class FoodActivity extends BaseActivity {
     }
 
     private void initadd() {
-        FoodTitle foodTitlea = new FoodTitle("早餐记得吃哦", "建议：   439~536千卡", "及时记录哦");
-        FoodTitle foodTitleb = new FoodTitle("午餐你吃了吗", "建议：   585~715千卡", "及时记录哦");
-        FoodTitle foodTitlec = new FoodTitle("晚餐要少吃哦", "建议：   439~536千卡", "及时记录哦");
         if (list.size() > 0) {
             listwatch.add(foodTitlea);
-        }
-        for (FoodBean f : list) {
-            if (f.getfoodType() == 1) {
-                listwatch.add(f);
+            for (FoodBean f : list) {
+                if (f.getfoodType() == 1) {
+                    listwatch.add(f);
+                }
             }
-        }
-        if (list.size() > 0) {
             listwatch.add(foodTitleb);
-        }
-        for (FoodBean f : list) {
-            if (f.getfoodType() == 2) {
-                listwatch.add(f);
+            for (FoodBean f : list) {
+                if (f.getfoodType() == 2) {
+                    listwatch.add(f);
+                }
             }
-        }
-        if (list.size() > 0) {
             listwatch.add(foodTitlec);
-        }
-
-        for (FoodBean f : list) {
-            if (f.getfoodType() == 3) {
-                listwatch.add(f);
+            for (FoodBean f : list) {
+                if (f.getfoodType() == 3) {
+                    listwatch.add(f);
+                }
             }
         }
-        if (list.size() > 0) {
-            adapter.addData(listwatch);
-        }
-
+        adapter.addData(listwatch);
     }
 
     @Override

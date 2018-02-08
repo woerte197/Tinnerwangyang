@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.example.wangyang.tinnerwangyang.Adapter.BaseRecyclerAdapter;
+import com.example.wangyang.tinnerwangyang.Bean.Background;
 import com.example.wangyang.tinnerwangyang.Bean.FoodBean;
 import com.example.wangyang.tinnerwangyang.Bean.FoodTitle;
 import com.example.wangyang.tinnerwangyang.Bean.SportBean;
@@ -36,6 +37,7 @@ public class SportsActivity extends BaseActivity {
         initEvent();
         initadd();
     }
+
     private void initEvent() {
         binding.setPaerobic(() -> Intentclass.IntentAddSportsActivity(this, 1));
         binding.setPanaerobic(() -> Intentclass.IntentAddSportsActivity(this, 2));
@@ -50,44 +52,38 @@ public class SportsActivity extends BaseActivity {
         SQLiteDatabase database = dBhelper.getReadableDatabase();
         list = DbHelperMode.querysport(database, DBhelper.SPORT_TABLE);
         listwatch = new ArrayList<>();
+        Background background = new Background(2);
+        listwatch.add(background);
         adapter = new BaseRecyclerAdapter(this);
         binding.recycleSports.setLayoutManager(new LinearLayoutManager(this));
         binding.recycleSports.setAdapter(adapter);
     }
+
     private void initadd() {
         FoodTitle foodTitlea = new FoodTitle("有氧运动", "例如：   跑步  有氧", "及时记录哦");
         FoodTitle foodTitleb = new FoodTitle("无氧运动", "例如：   卧推  深蹲", "及时记录哦");
         FoodTitle foodTitlec = new FoodTitle("拉伸运动", "例如：   伟大的伸展", "及时记录哦");
         if (list.size() > 0) {
             listwatch.add(foodTitlea);
-        }
-        for (SportBean f : list) {
-            if (f.getSportType() == 1) {
-                listwatch.add(f);
+            for (SportBean f : list) {
+                if (f.getSportType() == 1) {
+                    listwatch.add(f);
+                }
             }
-        }
-        if (list.size() > 0) {
             listwatch.add(foodTitleb);
-        }
-        for (SportBean f : list) {
-            if (f.getSportType() == 2) {
-                listwatch.add(f);
+            for (SportBean f : list) {
+                if (f.getSportType() == 2) {
+                    listwatch.add(f);
+                }
             }
-        }
-        if (list.size() > 0) {
             listwatch.add(foodTitlec);
-        }
-
-        for (SportBean f : list) {
-            if (f.getSportType() == 3) {
-                listwatch.add(f);
+            for (SportBean f : list) {
+                if (f.getSportType() == 3) {
+                    listwatch.add(f);
+                }
             }
         }
-        if (list.size() > 0) {
-            adapter.addData(listwatch);
-        }
-
-
+        adapter.addData(listwatch);
     }
 
     @Override

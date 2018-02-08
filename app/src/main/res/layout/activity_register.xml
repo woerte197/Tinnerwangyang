@@ -4,82 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
- <variable
-     name="p"
-     type="com.example.wangyang.tinnerwangyang.PresenterNomal"/>
+
+        <variable
+            name="p"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
     </data>
-<android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d50"
+            android:src="@drawable/image_splash_bottoma"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            style="@style/style_edit_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <com.lib.view.FocusEditText
-                android:id="@+id/edit_name_register"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@null"
-                android:drawableLeft="@drawable/telephone_number"
-                android:hint="@string/msg_hint_input_phone"
-                android:textCursorDrawable="@drawable/color_edittext"
-                android:theme="@style/MyEditText" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/pass_layout"
-            style="@style/style_edit_layout"
-            android:gravity="center"
-            android:paddingRight="@dimen/d10">
-
-            <com.lib.view.FocusEditText
-                android:id="@+id/edit_pass_register"
+            <LinearLayout
+                style="@style/style_edit_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d20"
-                android:background="@null"
-                android:drawableLeft="@drawable/password_ico"
-                android:hint="@string/msg_hint_input_login_pass"
-                android:textCursorDrawable="@drawable/color_edittext"
-                android:theme="@style/login_password" />
+                android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imgEye_register"
-                android:layout_width="@dimen/d20"
-                android:layout_height="@dimen/d20"
-                android:layout_gravity="center"
-                android:layout_marginRight="@dimen/d20"
-                android:onClick="@{()->p.click()}"
-                android:src="@drawable/icon_eye_hide" />
+                <com.lib.view.FocusEditText
+                    android:id="@+id/edit_name_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/telephone_number"
+                    android:hint="@string/msg_hint_input_phone"
+                    android:textCursorDrawable="@drawable/color_edittext"
+                    android:theme="@style/MyEditText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/pass_layout"
+                style="@style/style_edit_layout"
+                android:gravity="center"
+                android:paddingRight="@dimen/d10">
+
+                <com.lib.view.FocusEditText
+                    android:id="@+id/edit_pass_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d20"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/password_ico"
+                    android:hint="@string/msg_hint_input_login_pass"
+                    android:textCursorDrawable="@drawable/color_edittext"
+                    android:theme="@style/login_password" />
+
+                <ImageView
+                    android:id="@+id/imgEye_register"
+                    android:layout_width="@dimen/d20"
+                    android:layout_height="@dimen/d20"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/d20"
+                    android:onClick="@{()->p.click()}"
+                    android:src="@drawable/icon_eye_hide" />
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/register_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d10"
+                android:layout_marginRight="@dimen/d10"
+                android:layout_marginTop="@dimen/d30"
+                android:background="@drawable/login_btn"
+                android:text="注册"
+                android:textColor="@color/color_login_btn"
+                android:textSize="20sp" />
+
         </LinearLayout>
-
-
-        <Button
-            android:layout_marginLeft="@dimen/d10"
-            android:layout_marginRight="@dimen/d10"
-            android:layout_marginTop="@dimen/d30"
-            android:id="@+id/register_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/login_btn"
-            android:text="注册"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
 </layout>

@@ -49,7 +49,7 @@ public class WeightActivity extends BaseActivity {
             stringmap = w.getMap();
         }
         map = new HashMap<>();
-        weight = getIntent().getStringExtra("weight");
+        weight = SharePrefUtils.getInstance().getWeightweight();
         setSupportActionBar(binding.toolbarWeight);
         getSupportActionBar().setTitle("");
         binding.textWeight.setText(R.string.weight_write);
@@ -60,7 +60,7 @@ public class WeightActivity extends BaseActivity {
             map.put("2000.1.1", "77kg");
         }
         if (weight != null) {
-            String d = getIntent().getStringExtra("timeback");
+            String d = SharePrefUtils.getInstance().getWeighttime();
             if (d != null) {
                 map.put(d, weight);
                 String a = g.toJson(map);
@@ -98,12 +98,15 @@ public class WeightActivity extends BaseActivity {
             DateBean dateBean = binding.calendar.getSingleDate();
             String d = dateBean.getSolar()[0] + "." + dateBean.getSolar()[1] + "." + dateBean.getSolar()[2];
             Intentclass.IntentChooseWeightActivity(WeightActivity.this, d);
-            finish();
         });
         binding.setPreleft(() -> binding.calendar.lastMonth());
         binding.setPreright(() -> binding.calendar.nextMonth());
         binding.setP(() -> finish());
     }
-
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initpage();
+        initp();
+    }
 }

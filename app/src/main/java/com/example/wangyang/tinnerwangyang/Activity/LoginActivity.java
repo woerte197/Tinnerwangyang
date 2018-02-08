@@ -35,19 +35,12 @@ public class LoginActivity extends BaseActivity {
     ActivityLoginBinding binding;
     private String name;
     private String pass;
-    private static Tencent tencent;
-    private static boolean isServerSideLogin = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
-        tencent = TecentManager.getIns().Tecent();
         initpage();
-
-
     }
-
 
     private void initpage() {
         binding.setP(() -> {
@@ -69,25 +62,9 @@ public class LoginActivity extends BaseActivity {
         });
 
         binding.setPqq(() -> {
-            onClickLogin();
+            TecentManager.getIns().onLogin(LoginActivity.this, listener);
 
         });
-
-
-    }
-
-    public static void initOpenidAndToken(JSONObject jsonObject) {
-        try {
-            String token = jsonObject.getString(Constants.PARAM_ACCESS_TOKEN);
-            String expires = jsonObject.getString(Constants.PARAM_EXPIRES_IN);
-            String openId = jsonObject.getString(Constants.PARAM_OPEN_ID);
-            if (!TextUtils.isEmpty(token) && !TextUtils.isEmpty(expires)
-                    && !TextUtils.isEmpty(openId)) {
-                tencent.setAccessToken(token, expires);
-                tencent.setOpenId(openId);
-            }
-        } catch (Exception e) {
-        }
     }
 
     IUiListener listener = new BaseUiListener() {
@@ -95,46 +72,21 @@ public class LoginActivity extends BaseActivity {
         protected void doComplete(JSONObject values) {
             Log.i("values", String.valueOf(values));
             Log.d("SDKQQAgentPref", "AuthorSwitch_SDK:" + SystemClock.elapsedRealtime());
-            initOpenidAndToken(values);
-            getUserInfo();
+            TecentManager.getIns().initOpenidAndToken(values);
+            TecentManager.getIns().getUserInfo(LoginActivity.this, listeneruserinfo);
         }
     };
 
-    private void onClickLogin() {
-        if (!tencent.isSessionValid()) {
-            tencent.login(this, "all", listener);
-            isServerSideLogin = false;
-            Log.i("SDKQQAgentPref", "FirstLaunch_SDK:" + SystemClock.elapsedRealtime());
-        } else {
-            if (isServerSideLogin) { // Server-Side 模式的登陆, 先退出，再进行SSO登陆
-                tencent.logout(this);
-                tencent.login(this, "all", listener);
-                isServerSideLogin = false;
-                Log.i("SDKQQAgentPref", "FirstLaunch_SDK:" + SystemClock.elapsedRealtime());
-                return;
-            }
-            tencent.logout(this);
-            getUserInfo();
-        }
-    }
 
-    public void getUserInfo() {
-        if (tencent != null) {
-            IUiListener listener = new BaseUiListener() {
-                @Override
-                protected void doComplete(JSONObject values) {
-                    super.doComplete(values);
-                    SharePrefUtils.getInstance().setLoginUserName("name", 1);
-                    SharePrefUtils.getInstance().setMyBean(String.valueOf(values));
-                    //Intentclass.IntentMainActivity(LoginActivity.this, 3, null);
-                    finish();
-                }
-            };
-            UserInfo userInfo = new UserInfo(this, tencent.getQQToken());
-            userInfo.getUserInfo(listener);
-            Log.i("userinfo", String.valueOf(userInfo));
+    IUiListener listeneruserinfo = new BaseUiListener() {
+        @Override
+        protected void doComplete(JSONObject values) {
+            super.doComplete(values);
+            SharePrefUtils.getInstance().setLoginUserName("name", 1);
+            SharePrefUtils.getInstance().setMyBean(String.valueOf(values));
+            finish();
         }
-    }
+    };
 
     private void initlogin() {
         name = binding.editName.getText().toString();
@@ -160,11 +112,9 @@ public class LoginActivity extends BaseActivity {
         if (a == 1) {
             ViewUtils.showMessage("登录成功");
             SharePrefUtils.getInstance().setLoginUserName(name, 2);
-            Intentclass.IntentMainActivity(this, 3, null);
             finish();
         }
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

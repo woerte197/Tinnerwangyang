@@ -11,6 +11,7 @@ import com.example.wangyang.tinnerwangyang.DBhelper;
 import com.example.wangyang.tinnerwangyang.R;
 import com.example.wangyang.tinnerwangyang.ScaleRuler.DecimalScaleRulerView;
 import com.example.wangyang.tinnerwangyang.ScaleRuler.DrawUtil;
+import com.example.wangyang.tinnerwangyang.common.SharePrefUtils;
 import com.example.wangyang.tinnerwangyang.databinding.ActivityChooseWeightBinding;
 import com.lib.DbHelperMode.DbHelperMode;
 import com.lib.Intent.Intentclass;
@@ -50,7 +51,7 @@ public class ChooseWeightActivity extends BaseActivity {
             }
         });
         binding.setP(() -> {
-            Intentclass.IntentWeightActivity(ChooseWeightActivity.this, String.valueOf(mWeight), d);
+            SharePrefUtils.getInstance().setWeight(String.valueOf(mWeight), d);
             finish();
         });
     }

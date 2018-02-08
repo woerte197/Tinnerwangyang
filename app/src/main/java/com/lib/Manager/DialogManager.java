@@ -33,7 +33,6 @@ public class DialogManager {
 
     public void logoutdialog(Context context) {
         CustomDialog.Builder customBuilder = new CustomDialog.Builder(context);
-//        builder.setIcon(R.drawable.welcome);
         customBuilder.setTitle("退出登录")
                 .setMessage("你确定要退出登录吗？")
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -41,7 +40,7 @@ public class DialogManager {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
                         SharePrefUtils.getInstance().clear();
-                        TecentManager.getIns().Tecent().logout(context);
+                        TecentManager.getIns().logout(context);
                         PageManager.getPageManager().pushLogout();
                     }
                 })

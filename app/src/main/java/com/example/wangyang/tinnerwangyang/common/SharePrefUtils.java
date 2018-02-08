@@ -37,13 +37,30 @@ public class SharePrefUtils {
         editor.commit();
 
     }
-    public void setMyBean(String values){
-        editor.putString(Setting.MYBEAN,values);
+
+    public void setWeight(String weight, String time) {
+        editor.putString("weight", weight);
+        editor.putString("time", time);
         editor.commit();
     }
-    public String getMyBean(){
-        return share.getString(Setting.MYBEAN,"");
+
+    public String getWeightweight() {
+        return share.getString("weight", "");
     }
+
+    public String getWeighttime() {
+        return share.getString("time", "");
+    }
+
+    public void setMyBean(String values) {
+        editor.putString(Setting.MYBEAN, values);
+        editor.commit();
+    }
+
+    public String getMyBean() {
+        return share.getString(Setting.MYBEAN, "");
+    }
+
     public String getOtherNick(String userId) {
         return share.getString(Setting.DBFIELD_OTHER_NICK + userId, "");
     }
@@ -120,9 +137,10 @@ public class SharePrefUtils {
         String userName = share.getString(Setting.DBFIELD_USERID, "");
         return userName;
     }
-    public int getLogintype(){
-        int logintype=share.getInt(Setting.LOGIN_TYPE,0);
-        return  logintype;
+
+    public int getLogintype() {
+        int logintype = share.getInt(Setting.LOGIN_TYPE, 0);
+        return logintype;
     }
 
     /**

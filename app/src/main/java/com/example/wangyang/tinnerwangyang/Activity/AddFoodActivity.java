@@ -24,7 +24,6 @@ public class AddFoodActivity extends BaseActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_food);
         initpage();
         initEvent();
-
     }
 
     private void initpage() {
@@ -43,7 +42,6 @@ public class AddFoodActivity extends BaseActivity {
     }
 
     private void initEvent() {
-
         binding.setP(() -> {
             String name = binding.editFoodName.getText().toString();
             String skaluli = binding.editFoodKaluli.getText().toString();
