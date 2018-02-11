@@ -8,13 +8,14 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by wangyang on 25/1/18.
  */
 public class DBhelper extends SQLiteOpenHelper {
-    private static final int DB_VERSION = 7;
+    private static final int DB_VERSION = 8;
     private static final String DB_NAME = "myTest.db";
     public static final String TABLE_NAME = "MyItem";
-    public static final String FOOD_TABLE = "Food";;
-    public static final String SPORT_TABLE="Sport";
+    public static final String FOOD_TABLE = "Food";
+    ;
+    public static final String SPORT_TABLE = "Sport";
     private static DBhelper dBhelper = null;
-    public static final String WEIGHT_TABLE="Weights";
+    public static final String WEIGHT_TABLE = "Weights";
 
 
     public static DBhelper getDBhelper(Context context) {
@@ -43,6 +44,11 @@ public class DBhelper extends SQLiteOpenHelper {
                 + " Anaerobic VARCHAR(20),"
                 + " Stretching VARCHAR(30),"
                 + "Type VARCHAR(20))";
+        String sql3 = "CREATE TABLE " + WEIGHT_TABLE
+                + "(_id INTEGER PRIMARY KEY,"
+                + " Map VARCHAR(30)  NOT NULL,"
+                + "Type VARCHAR(20))";
+        sqLiteDatabase.execSQL(sql3);
         sqLiteDatabase.execSQL(sql);
         sqLiteDatabase.execSQL(sql2);
         sqLiteDatabase.execSQL(sql1);

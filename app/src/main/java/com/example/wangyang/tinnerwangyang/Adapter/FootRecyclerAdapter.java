@@ -9,20 +9,6 @@ import com.example.wangyang.tinnerwangyang.Wachter;
 
 import java.util.List;
 
-/**
- * Created by nanchaodong on 2017/3/8.
- */
-
-/**
- * Created by nanchaodong on 2017/3/8.
- */
-
-
-
-/**
- * Created by nanchaodong on 2017/3/8.
- */
-
 public class FootRecyclerAdapter extends BaseRecyclerAdapter {
     protected FooterItem footerItem;
 

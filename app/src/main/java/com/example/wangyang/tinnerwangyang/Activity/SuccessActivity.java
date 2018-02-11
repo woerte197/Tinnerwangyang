@@ -51,7 +51,7 @@ public class SuccessActivity extends BaseActivity implements RefreshListListener
         itemslist.setLayoutManager(new GridLayoutManager(this, 1))
                 .addButtomListener()
                 .addTopListener()
-                .setOldVersion(true)
+                .setOldVersion(false)
                 .setRefreshListListener(this);
         itemslist.loadTop();
 //        request = new Request();

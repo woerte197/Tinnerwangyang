@@ -1,6 +1,8 @@
 package com.example.wangyang.tinnerwangyang.common;
 
 
+import android.util.Log;
+
 import com.example.wangyang.tinnerwangyang.Bean.PageRequest;
 import com.example.wangyang.tinnerwangyang.Exit.Constant;
 import com.example.wangyang.tinnerwangyang.Exit.MD5Util;
@@ -24,7 +26,7 @@ public class Request {
     private long id;
     private Type type;                                  //转换类型
     private Class cls;
-//        private G g = new G();                              //全局参数
+    //        private G g = new G();                              //全局参数
     private String baseUrl;                            //url前缀
     private FormFile[] files;
     private PageRequest pager;
@@ -35,16 +37,18 @@ public class Request {
     private Map<String, String> headers;
 
     private RequestMethod http_type = HTTP_POST;        //默认是post请求
-    public Request(){
+
+    public Request() {
         params = new HashMap<>();
         headers = new HashMap<>();
         pager = new PageRequest(0, Setting.SIZE_PAGE);
     }
+
     public Request(String u) {
-        this(u, null,null);
+        this(u, null, null);
     }
 
-    public Request(int id, String urlName, Type type,String url) {
+    public Request(int id, String urlName, Type type, String url) {
         this.id = id;
         requestName = urlName;
         this.type = type;
@@ -55,8 +59,8 @@ public class Request {
         pager = new PageRequest(0, Setting.SIZE_PAGE);
     }
 
-    public Request(String urlName, Type type,String baseurl) {
-        this(0, urlName, type,baseurl);
+    public Request(String urlName, Type type, String baseurl) {
+        this(0, urlName, type, baseurl);
     }
 
     public void setRequestName(String requestName) {
@@ -91,6 +95,7 @@ public class Request {
             pager.setStart(0);
         }
         updateRequestStart(pager.getStart(), data);
+        Log.i("ssssssssssssss", String.valueOf(pager.getStart()));
     }
 
     public void updateRequest(List data) {
@@ -203,13 +208,15 @@ public class Request {
     }
 
     public void addUserIdParam() {
-        if (SharePrefUtils.getInstance().isLogin()){
-            addParam("userId",SharePrefUtils.getInstance().getLoginUserId());
+        if (SharePrefUtils.getInstance().isLogin()) {
+            addParam("userId", SharePrefUtils.getInstance().getLoginUserId());
         }
     }
+
     public void addUserIdNoneParam(Object userId) {
-        addParam("userId",userId);
+        addParam("userId", userId);
     }
+
     public void addQSIdParam(Object qsId) {
         addParam("qsId", qsId);
     }
@@ -265,6 +272,7 @@ public class Request {
     public void addPictureCountParam(Object value) {
         addParam("pictureCount", value);
     }
+
     public void addPictureId(Object value) {
         addParam("pictureId", value);
     }
@@ -288,6 +296,7 @@ public class Request {
     public void addTypeParam(Object value) {
         addParam("type", value);
     }
+
     public void addRegisterActionParam(Object value) {
         addParam("fromPath", value);
     }
@@ -355,12 +364,15 @@ public class Request {
     public void addNationIdParam(Object value) {
         addParam("nationId", value);
     }
-    public void addCrmNationIdParam(Object value){
+
+    public void addCrmNationIdParam(Object value) {
         addParam("crmNationId", value);
     }
-    public void addRid(Object value){
+
+    public void addRid(Object value) {
         addParam("rid", value);
     }
+
     public void addSearchAnswerTypeParam() {
         addSearchTypeParam("2");
     }
@@ -409,14 +421,16 @@ public class Request {
         addParam("xmToken", regId);
 
     }
-    public void  addHWToken(String hWToken ){
+
+    public void addHWToken(String hWToken) {
         addParam("hWToken", hWToken);
     }
-    public void  addXMToken(String regId ){
+
+    public void addXMToken(String regId) {
         addParam("xmToken", regId);
     }
 
-//    public void addBindWechatParam(WechatUserDetail wechat) {
+    //    public void addBindWechatParam(WechatUserDetail wechat) {
 //        addParam("sex", wechat.getSex());
 //        addParam("nickName", wechat.getNickname());
 //        addParam("imageUrl", wechat.getHeadimgurl());
@@ -444,13 +458,13 @@ public class Request {
 //        g.setEtp(System.currentTimeMillis() + "");
 //        g.setUuid(ECKit.getApp().getConfigManager().getUUID());
 //        this.privateKey = MD5Util.MD5(Setting.PREFS_NAME + g.getEtp());
-        this.privateKey = MD5Util.MD5(Setting.PREFS_NAME );
-        if(SharePrefUtils.getInstance().isLogin()) {
+        this.privateKey = MD5Util.MD5(Setting.PREFS_NAME);
+        if (SharePrefUtils.getInstance().isLogin()) {
             //g.setToken(SharePrefUtils.getInstance().getToken());
         }
 //        g.setDdjm(EncryptUtils.encodeRsa(RSAUtils.getPublicKey(), privateKey));
 
-      //  addParam("G", g);
+        //  addParam("G", g);
     }
 
     public String getPrivateKey() {
@@ -547,9 +561,9 @@ public class Request {
     public Map<String, String> getJsonParams() {
         Map<String, String> params = new HashMap<String, String>();
         String jsonParams = getParams();
-      //  String sign = MD5Util.MD5(EncryptKey.getSecretKeyFromJni() + jsonParams);
+        //  String sign = MD5Util.MD5(EncryptKey.getSecretKeyFromJni() + jsonParams);
         params.put(Setting.JSON_PARAMS, jsonParams);
-      //  params.put(Setting.SIGN_PARAMS, sign);
+        //  params.put(Setting.SIGN_PARAMS, sign);
         return params;
     }
 

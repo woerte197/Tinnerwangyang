@@ -70,7 +70,6 @@ public class KnowledgesActivity extends BaseActivity implements RefreshListListe
         newslist.setLayoutManager(new GridLayoutManager(this, 1))
                 .addButtomListener()
                 .addTopListener()
-                .setOldVersion(false)
                 .setRefreshListListener(this);
         newslist.loadTop();
     }

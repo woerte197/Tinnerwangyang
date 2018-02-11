@@ -5,6 +5,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SimpleItemAnimator;
+import android.util.Log;
 
 
 import com.example.wangyang.tinnerwangyang.Activity.KnowledgesActivity;
@@ -82,6 +83,7 @@ public class RefreshNewsList<T> {
         }
         loading = false;
         hasMore = records != null && records.size() > 0;
+        Log.i("mRequest",String.valueOf(mRequest.isFirstPage()));
         if (mRequest.isFirstPage() && hasMore) {//如果是第一页并且返回数据
             //Todo 请求下一页 显示加载下一页 但不显示脚布局
             if (oldVersion) {
