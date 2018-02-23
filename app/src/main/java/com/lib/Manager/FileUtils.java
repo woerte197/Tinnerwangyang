@@ -18,9 +18,10 @@ import java.util.List;
  */
 
 public class FileUtils {
-    private static String TAG=FileUtils.class.getSimpleName();
+    private static String TAG = FileUtils.class.getSimpleName();
     private static RecommendBean recommendBean;
     private static Result result;
+
     public static RecommendBean getRecommendData() {
         StringBuffer sb = new StringBuffer();
         try {
@@ -40,6 +41,7 @@ public class FileUtils {
         return recommendBean;
 
     }
+
     public static Result getKnowledgesData() {
         StringBuffer sb = new StringBuffer();
         try {
@@ -60,6 +62,7 @@ public class FileUtils {
         return result;
 
     }
+
     public static Result getSuccessData() {
         StringBuffer sb = new StringBuffer();
         try {
@@ -80,6 +83,7 @@ public class FileUtils {
         return result;
 
     }
+
     public static Result getPostsData() {
         StringBuffer sb = new StringBuffer();
         try {
@@ -98,5 +102,42 @@ public class FileUtils {
         }
         return result;
 
+    }
+
+    public static Result getPrincipleData() {
+        StringBuffer stringBuffer = new StringBuffer();
+        try {
+            InputStream inputStream = ECKit.getApp().getAssets().open("principle.json");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                stringBuffer.append(line);
+            }
+            result = Constant.GSON.fromJson(stringBuffer.toString(), Constant.TYPE_RESULT_NEWBEAN);
+            reader.close();
+            inputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static Result getResultSportsData() {
+        StringBuffer stringBuffer = new StringBuffer();
+        try {
+            InputStream inputStream = ECKit.getApp().getAssets().open("sports.json");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                stringBuffer.append(line);
+            }
+            result = Constant.GSON.fromJson(stringBuffer.toString(), Constant.TYPE_RESULT_NEWBEAN);
+            reader.close();
+            inputStream.close();
+
+        } catch (Exception e) {
+
+        }
+        return result;
     }
 }

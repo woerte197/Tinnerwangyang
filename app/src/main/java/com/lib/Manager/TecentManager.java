@@ -1,16 +1,19 @@
 package com.lib.Manager;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.example.wangyang.tinnerwangyang.Activity.BaseActivity;
 import com.example.wangyang.tinnerwangyang.Activity.BaseUiListener;
+import com.example.wangyang.tinnerwangyang.Bean.ShareBean;
 import com.example.wangyang.tinnerwangyang.Exit.MyApplication;
 import com.example.wangyang.tinnerwangyang.ViewUtils;
 import com.tencent.connect.UserInfo;
 import com.tencent.connect.common.Constants;
+import com.tencent.connect.share.QQShare;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 
@@ -80,6 +83,15 @@ public class TecentManager {
 
     }
 
+    public void sharetoqq(BaseActivity context, ShareBean shareBean) {
+        final Bundle params = new Bundle();
+        params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
+        params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, shareBean.getUrl());
+        params.putString(QQShare.SHARE_TO_QQ_TITLE, shareBean.getTitle());
+        params.putString(QQShare.SHARE_TO_QQ_APP_NAME, "Tinner健康");
+        params.putString(QQShare.SHARE_TO_QQ_SUMMARY, shareBean.getContent());
+        tencent.shareToQQ(context, params, new BaseUiListener());
+    }
 
 }
 

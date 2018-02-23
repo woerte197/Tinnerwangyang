@@ -22,6 +22,7 @@ import com.google.gson.Gson;
 import com.lib.DbHelperMode.DbHelperMode;
 import com.lib.Intent.Intentclass;
 import com.lib.Manager.TecentManager;
+import com.lib.Manager.WechatManager;
 import com.tencent.connect.UserInfo;
 import com.tencent.connect.common.Constants;
 import com.tencent.tauth.IUiListener;
@@ -71,6 +72,7 @@ public class LoginActivity extends BaseActivity {
             TecentManager.getIns().onLogin(LoginActivity.this, listener);
 
         });
+        binding.setPwechat(() -> WechatManager.getWechatManger(this).loginWechat());
     }
 
     IUiListener listener = new BaseUiListener() {

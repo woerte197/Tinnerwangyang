@@ -5,40 +5,37 @@ import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.util.Log;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
+import com.example.wangyang.tinnerwangyang.Bean.ShareBean;
 import com.example.wangyang.tinnerwangyang.R;
+import com.example.wangyang.tinnerwangyang.Wachter;
 import com.example.wangyang.tinnerwangyang.databinding.ActivityWebBinding;
+import com.lib.Manager.DialogManager;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.example.wangyang.tinnerwangyang.R.layout.activity_web;
 
 public class WebActivity extends BaseActivity {
     WebView webView;
     ActivityWebBinding binding;
+    String title;
+    String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(WebActivity.this, activity_web);
+        binding = DataBindingUtil.setContentView(WebActivity.this, R.layout.activity_web);
         webView = binding.webview;
+        ShareBean shareBean = (ShareBean)getIntent().getSerializableExtra("url");
+        url = shareBean.getUrl();
+        setSupportActionBar(binding.toolbarWebView);
+        getSupportActionBar().setTitle("");
         initWebView(webView);
-        reload();
-    }
-
-    protected void reload() {
-        String url = getUrl();
-        webView.loadUrl(url);
-
-    }
-
-    private String getUrl() {
-        Intent intent = getIntent();
-        return intent.getStringExtra("url");
-
+        binding.setPshare(() -> DialogManager.getDialogManager().sharedialog(this, shareBean));
     }
 
     private void initWebView(WebView webView) {
@@ -54,6 +51,23 @@ public class WebActivity extends BaseActivity {
         webseting.setAppCacheEnabled(false);
         String dbPath = webView.getContext().getApplicationContext().getDir("database", Context.MODE_PRIVATE).getPath();
         webseting.setDatabasePath(dbPath);
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                return false;
+            }
+        });
+        WebChromeClient webChromeClient = new WebChromeClient() {
+            @Override
+            public void onReceivedTitle(WebView view, String title) {
+                super.onReceivedTitle(view, title);
+                Log.i("ssssss", title);
+                binding.textWebView.setText(title);
+            }
+        };
+        webView.setWebChromeClient(webChromeClient);
 
+          webView.loadUrl(url);
     }
+
 }

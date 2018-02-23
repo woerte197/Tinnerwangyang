@@ -18,11 +18,12 @@ public class FootRecyclerAdapter extends BaseRecyclerAdapter {
         footerItem = new FooterItem();
     }
 
+
     @Override
-    public<T extends Wachter> void addData(List<T> list) {
+    public <T extends Wachter> void addData(List<T> list) {
         this.datas.clear();
         notifyDataSetChanged();
-        this.datas.addAll(list) ;
+        this.datas.addAll(list);
         this.datas.add(footerItem);
         notifyItemRangeChanged(0, this.datas.size());
     }
@@ -47,7 +48,7 @@ public class FootRecyclerAdapter extends BaseRecyclerAdapter {
     public void setFooterMsgId(int msgId) {
         footerItem.setShowFooter(true);
         footerItem.setMsgId(msgId);
-        if (!datas.contains(footerItem)){
+        if (!datas.contains(footerItem)) {
             datas.add(footerItem);
         }
 

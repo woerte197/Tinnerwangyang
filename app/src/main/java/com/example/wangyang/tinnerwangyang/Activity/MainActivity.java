@@ -124,13 +124,6 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
             addFragment(R.id.fragmentContainer, tab.getFragment(), false);
             tab.setTabListener(t -> resetFragment(t));
         }
-//        if ("jlxapp".equals(getIntent().getScheme())) {
-//            Uri uri = getIntent().getData();
-//            if ("native_payment".equals(uri.getHost())) {
-//                resetFragment(tab1);
-//                return;
-//            }
-//        }
         if (value == 3) {
             resetFragment(tab2);
         }
@@ -171,6 +164,12 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
                 }
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 
     @Override

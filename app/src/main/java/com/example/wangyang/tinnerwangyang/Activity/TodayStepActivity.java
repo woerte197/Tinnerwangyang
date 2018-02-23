@@ -15,7 +15,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TodayStepActivity extends Activity {
+public class TodayStepActivity extends BaseActivity {
     ActivityTodayStepBinding binding;
     BaseRecyclerAdapter adapter;
 
@@ -23,6 +23,11 @@ public class TodayStepActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_today_step);
+        //  binding.
+        setSupportActionBar(binding.toolbarTodaystep);
+        getSupportActionBar().setTitle("");
+        binding.textTodaystep.setText("近日步数");
+
         initpage();
     }
 
@@ -42,5 +47,6 @@ public class TodayStepActivity extends Activity {
         binding.textGasoline.setText("相当于节省了  " + e + "  升汽油");
         binding.stepTextkk.setText("消耗了  " + g + "  千卡");
         binding.textFeat.setText("相当于燃烧了  " + i + "  克脂肪");
+        binding.setP(() -> finish());
     }
 }

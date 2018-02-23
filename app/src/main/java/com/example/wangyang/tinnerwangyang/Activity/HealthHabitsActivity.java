@@ -11,6 +11,7 @@ import com.example.wangyang.tinnerwangyang.Exit.Constant;
 import com.example.wangyang.tinnerwangyang.R;
 import com.example.wangyang.tinnerwangyang.URLSetting;
 import com.example.wangyang.tinnerwangyang.common.RefreshListListener;
+import com.example.wangyang.tinnerwangyang.common.RefreshNewsList;
 import com.example.wangyang.tinnerwangyang.common.RefreshRecyList;
 import com.example.wangyang.tinnerwangyang.common.Request;
 import com.example.wangyang.tinnerwangyang.databinding.ActivityHealthHabitsBinding;
@@ -20,7 +21,7 @@ import java.util.List;
 public class HealthHabitsActivity extends BaseActivity implements RefreshListListener {
     ActivityHealthHabitsBinding binding;
     private Request request;
-    private RefreshRecyList<Knowledges> recyList;
+    private RefreshNewsList<Knowledges> recyList;
     FootRecyclerAdapter adapter;
 
     @Override
@@ -32,17 +33,26 @@ public class HealthHabitsActivity extends BaseActivity implements RefreshListLis
         binding.textHealth.setText("健康习惯");
         adapter = new FootRecyclerAdapter(this);
         binding.setP(() -> finish());
-        request = new Request(URLSetting.GET_JIANFEIYUANLI, Constant.TYPE_RESULT_NEWBEAN, URLSetting.URL_BASE);
-        recyList = new RefreshRecyList<>(adapter, binding.recycleYuanli, binding.refreshYuanli, request);
-        recyList.setLayoutManager(new GridLayoutManager(this, 1))
-                .setOldVersion(false)
+//        request = new Request(URLSetting.GET_JIANFEIYUANLI, Constant.TYPE_RESULT_NEWBEAN, URLSetting.URL_BASE);
+//        recyList = new RefreshRecyList<>(adapter, binding.recycleYuanli, binding.refreshYuanli, request);
+//        recyList.setLayoutManager(new GridLayoutManager(this, 1))
+//                .setOldVersion(false)
+//                .setRefreshListListener(this)
+//                .addButtomListener()
+//                .addTopListener();
+//        recyList.loadTop();
+        request = new Request();
+        recyList = new RefreshNewsList<>(adapter, binding.recycleYuanli, binding.refreshYuanli, request, 4);
+        recyList.setOldVersion(false)
                 .setRefreshListListener(this)
-                .addButtomListener()
-                .addTopListener();
+                .setLayoutManager(new GridLayoutManager(this, 1))
+                .addTopListener()
+                .addButtomListener();
         recyList.loadTop();
 
 
     }
+
     @Override
     public void top(List list) {
         if (list != null) {

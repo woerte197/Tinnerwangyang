@@ -29,6 +29,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import static android.app.PendingIntent.FLAG_ONE_SHOT;
+
 @TargetApi(Build.VERSION_CODES.CUPCAKE)
 public class StepService extends Service implements /*SensorEventListener,*/ StepCallBack {
     private static final long SCREEN_OFF_RECEIVER_DELAY = 500l;
@@ -205,6 +207,7 @@ public class StepService extends Service implements /*SensorEventListener,*/ Ste
     private void updateNotification(String content) {
         builder = new NotificationCompat.Builder(this);
         builder.setPriority(Notification.PRIORITY_MIN);
+
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
                 new Intent(this, MainActivity.class), 0);
         builder.setContentIntent(contentIntent);

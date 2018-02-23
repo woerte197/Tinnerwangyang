@@ -41,8 +41,8 @@ public class RecommendFragment extends BindFragment<FragmentSuccessStoryBinding>
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initpage();
-        // success(FileUtils.getRecommendData());
-        initdata();
+        success(FileUtils.getRecommendData());
+        // initdata();
     }
 
     private void initpage() {
@@ -52,21 +52,21 @@ public class RecommendFragment extends BindFragment<FragmentSuccessStoryBinding>
         bindView.refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                initdata();
+                //  initdata();
                 bindView.refreshLayout.setRefreshing(false);
             }
         });
-    }
+    }  
 
-    public void initdata() {
-        subscription = ApiFactory.ins().getNewslist("UYPxayY3SxmRRhtfoG6N",
-                "b3f61884-b31c-4320-85aa-56253204918e",
-                "6.1.1", "Android",
-                "7.0", "VTR-AL00", "boohee", "one")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe((RecommendBean) -> success(RecommendBean), throwable -> showMsg("请检查网络重试"));
-    }
+//    public void initdata() {
+//        subscription = ApiFactory.ins().getNewslist("UYPxayY3SxmRRhtfoG6N",
+//                "b3f61884-b31c-4320-85aa-56253204918e",
+//                "6.1.1", "Android",
+//                "7.0", "VTR-AL00", "boohee", "one")
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe((RecommendBean) -> success(RecommendBean), throwable -> showMsg("请检查网络重试"));
+//    }
 
     private void success(RecommendBean r) {
         List<Wachter> list = new ArrayList<>();

@@ -1,103 +1,125 @@
 {
-	"sliders": [{
-		"title": "美美回家",
-		"url": "https://one.boohee.com/store/pages/mmhj?share=true",
-		"pic_url": "http://up.boohee.cn/house/u/shop/ad_page/20180112/250banner_v1.jpg"
-	}, {
-		"title": "神了！KTV唱歌竟然能减肥！",
-		"url": "boohee://comments/43743298",
-		"pic_url": "http://up.boohee.cn/house/u/one/slider/20180117/guide_vol74_banner.jpg"
-	}, {
-		"title": "NICE成功故事：",
-		"url": "https://status.boohee.com/story/20180103",
-		"pic_url": "http://up.boohee.cn/house/u/shop/ad_page/20171228/5.jpg"
-	}, {
-		"title": "NICE5分钟瘦身",
-		"url": "https://nice.boohee.com/webapp/audio/courses.html",
-		"pic_url": "http://up.boohee.cn/house/u/shop/ad_page/20180103/250banner.jpg"
-	}, {
-		"title": "NICE pmr",
-		"url": "boohee://goods/2284",
-		"pic_url": "http://up.boohee.cn/house/u/nice/pmr/250banner.jpg"
-	}, {
-		"title": "台湾营养师小姐姐教你4招告别暴食",
-		"url": "boohee://comments/43762552",
-		"pic_url": "http://up.boohee.cn/house/u/one/slider/20180118/guide_vol75_banner.jpg"
-	}, {
-		"title": "NICE运动营第十期",
-		"url": "https://one.boohee.com/store/pages/ydy10",
-		"pic_url": "http://up.boohee.cn/house/u/shop/ad_page/20171225/banner1.jpg"
-	}],
-	"grasses": [{
-		"id": 8,
-		"name": "薄荷健身视频",
-		"title": "带你健身带你飞",
-		"avatar_url": "http://up.boohee.cn/house/u/one/health_column/fitness.png",
-		"unread_count": 0
-	}, {
-		"id": 4,
-		"name": "健康美食",
-		"title": "实用美食短视频",
-		"avatar_url": "http://up.boohee.cn/house/u/one/health_column/food.png",
-		"unread_count": 12
-	}, {
-		"id": 10,
-		"name": "我问NICE",
-		"title": "国家高级营养师团队等你来问",
-		"avatar_url": "http://up.boohee.cn/house/u/one/health_column/nice.png",
-		"unread_count": 130
-	}, {
-		"id": 7,
-		"name": "薄荷健康指南",
-		"title": "健康减肥 天天向上",
-		"avatar_url": "http://up.boohee.cn/house/u/one/health_column/lose_weight.png",
-		"unread_count": 12
-	}, {
-		"id": 9,
-		"name": "硬糖视频",
-		"title": "少男少女两性知识百科",
-		"avatar_url": "http://up.boohee.cn/house/u/one/health_column/sex.png",
-		"unread_count": 61
-	}],
-	"hot_events": [{
-		"id": 49,
-		"title": "12月壁纸精选",
-		"banner_url": "http://up.boohee.cn/house/u/one/slider/20180102/banner.jpg",
-		"start_at": "2018-01-02",
-		"end_at": "2018-01-08",
-		"priority": 100,
-		"link_url": "https://one.boohee.com/store/pages/wallpaper_december_2017"
-	}, {
-		"id": 50,
-		"title": "上周精选动态·第二十期",
-		"banner_url": "http://up.boohee.cn/house/u/one/slider/20170918/20170918jxbanner.jpg",
-		"start_at": "2018-01-08",
-		"end_at": "2018-01-15",
-		"priority": 100,
-		"link_url": "boohee://channel_posts/best_of_week_w20"
-	}, {
-		"id": 21,
-		"title": "上秤吧！有钱",
-		"banner_url": "http://up.boohee.cn/house/u/one/slider/20170905/banner1.png",
-		"start_at": "2017-09-05",
-		"end_at": "2018-09-05",
-		"priority": 0,
-		"link_url": "https://truck.boohee.com/health_task"
-	}],
-	"show_users": [{
-		"id": 15892055,
-		"nickname": "鱼鱼为伴",
-		"avatar_url": "http://one.boohee.cn/t/2018/1/1/A5AA7FA9-C037-4A63-93C7-AE2DC1902762.jpg?imageView2/1/w/90/h/90",
-		"following": false
-	}, {
-		"id": 16973498,
-		"nickname": "我要默默地塑形",
-		"avatar_url": "http://one.boohee.cn/one/2016/12/21/62bd7bbb-3cb3-49ad-92e5-e851908d83d0?imageView2/1/w/90/h/90",
-		"following": false
-	}, {
-		"id": 17054469,
-		"nickname": "Interesting樱",
-		"avatar_url": "http://one.boohee.cn/t/2017/9/19/CF98FA75-37A8-4245-8223-30EF7AEB3B12.jpg?imageView2/1/w/90/h/90",
-		"following": false
-	}]
+  "sliders": [
+    {
+      "title": "美美回家",
+      "url": "https://one.boohee.com/store/pages/mmhj?share=true",
+      "pic_url": "http://up.boohee.cn/house/u/shop/ad_page/20180112/250banner_v1.jpg"
+    },
+    {
+      "title": "神了！KTV唱歌竟然能减肥！",
+      "url": "boohee://comments/43743298",
+      "pic_url": "http://up.boohee.cn/house/u/one/slider/20180117/guide_vol74_banner.jpg"
+    },
+    {
+      "title": "NICE成功故事：",
+      "url": "https://status.boohee.com/story/20180103",
+      "pic_url": "http://up.boohee.cn/house/u/shop/ad_page/20171228/5.jpg"
+    },
+    {
+      "title": "NICE5分钟瘦身",
+      "url": "https://nice.boohee.com/webapp/audio/courses.html",
+      "pic_url": "http://up.boohee.cn/house/u/shop/ad_page/20180103/250banner.jpg"
+    },
+    {
+      "title": "NICE pmr",
+      "url": "boohee://goods/2284",
+      "pic_url": "http://up.boohee.cn/house/u/nice/pmr/250banner.jpg"
+    },
+    {
+      "title": "台湾营养师小姐姐教你4招告别暴食",
+      "url": "boohee://comments/43762552",
+      "pic_url": "http://up.boohee.cn/house/u/one/slider/20180118/guide_vol75_banner.jpg"
+    },
+    {
+      "title": "NICE运动营第十期",
+      "url": "https://one.boohee.com/store/pages/ydy10",
+      "pic_url": "http://up.boohee.cn/house/u/shop/ad_page/20171225/banner1.jpg"
+    }
+  ],
+  "grasses": [
+    {
+      "id": 8,
+      "name": "薄荷健身视频",
+      "title": "带你健身带你飞",
+      "avatar_url": "http://up.boohee.cn/house/u/one/health_column/fitness.png",
+      "unread_count": 0
+    },
+    {
+      "id": 4,
+      "name": "健康美食",
+      "title": "实用美食短视频",
+      "avatar_url": "http://up.boohee.cn/house/u/one/health_column/food.png",
+      "unread_count": 12
+    },
+    {
+      "id": 10,
+      "name": "我问NICE",
+      "title": "国家高级营养师团队等你来问",
+      "avatar_url": "http://up.boohee.cn/house/u/one/health_column/nice.png",
+      "unread_count": 130
+    },
+    {
+      "id": 7,
+      "name": "薄荷健康指南",
+      "title": "健康减肥 天天向上",
+      "avatar_url": "http://up.boohee.cn/house/u/one/health_column/lose_weight.png",
+      "unread_count": 12
+    },
+    {
+      "id": 9,
+      "name": "硬糖视频",
+      "title": "少男少女两性知识百科",
+      "avatar_url": "http://up.boohee.cn/house/u/one/health_column/sex.png",
+      "unread_count": 61
+    }
+  ],
+  "hot_events": [
+    {
+      "id": 49,
+      "title": "6月壁纸精选",
+      "banner_url": "http://up.boohee.cn/house/u/one/slider/20180102/banner.jpg",
+      "start_at": "2018-01-02",
+      "end_at": "2018-01-08",
+      "priority": 100,
+      "link_url": "https://one.boohee.com/store/pages/wallpaper_december_2017"
+    },
+    {
+      "id": 50,
+      "title": "上周精选动态·第二十期",
+      "banner_url": "http://up.boohee.cn/house/u/one/slider/20170918/20170918jxbanner.jpg",
+      "start_at": "2018-01-08",
+      "end_at": "2018-01-15",
+      "priority": 100,
+      "link_url": "boohee://channel_posts/best_of_week_w20"
+    },
+    {
+      "id": 21,
+      "title": "上秤吧！有钱",
+      "banner_url": "http://up.boohee.cn/house/u/one/slider/20170905/banner1.png",
+      "start_at": "2017-09-05",
+      "end_at": "2018-09-05",
+      "priority": 0,
+      "link_url": "https://truck.boohee.com/health_task"
+    }
+  ],
+  "show_users": [
+    {
+      "id": 15892055,
+      "nickname": "鱼鱼为伴",
+      "avatar_url": "http://one.boohee.cn/t/2018/1/1/A5AA7FA9-C037-4A63-93C7-AE2DC1902762.jpg?imageView2/1/w/90/h/90",
+      "following": false
+    },
+    {
+      "id": 16973498,
+      "nickname": "我要默默地塑形",
+      "avatar_url": "http://one.boohee.cn/one/2016/12/21/62bd7bbb-3cb3-49ad-92e5-e851908d83d0?imageView2/1/w/90/h/90",
+      "following": false
+    },
+    {
+      "id": 17054469,
+      "nickname": "Interesting樱",
+      "avatar_url": "http://one.boohee.cn/t/2017/9/19/CF98FA75-37A8-4245-8223-30EF7AEB3B12.jpg?imageView2/1/w/90/h/90",
+      "following": false
+    }
+  ]
 }

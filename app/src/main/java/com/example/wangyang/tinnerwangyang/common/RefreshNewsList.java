@@ -14,6 +14,7 @@ import com.example.wangyang.tinnerwangyang.Http.HttpString;
 import com.example.wangyang.tinnerwangyang.Wachter;
 import com.lib.Manager.FileUtils;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -80,10 +81,16 @@ public class RefreshNewsList<T> {
         } else if (a == 3) {
             result = FileUtils.getPostsData();
             records = result.getPosts();
+        } else if (a == 4) {
+            result = FileUtils.getPrincipleData();
+            records = result.getArticles();
+        } else if (a == 5) {
+            result = FileUtils.getResultSportsData();
+            records = result.getArticles();
         }
         loading = false;
         hasMore = records != null && records.size() > 0;
-        Log.i("mRequest",String.valueOf(mRequest.isFirstPage()));
+        Log.i("mRequest", String.valueOf(mRequest.isFirstPage()));
         if (mRequest.isFirstPage() && hasMore) {//如果是第一页并且返回数据
             //Todo 请求下一页 显示加载下一页 但不显示脚布局
             if (oldVersion) {

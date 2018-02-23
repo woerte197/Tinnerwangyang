@@ -20,17 +20,21 @@
         <variable
             name="pqq"
             type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+
+        <variable
+            name="pwechat"
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
     </data>
 
     <android.support.constraint.ConstraintLayout
-        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <ImageView
-            android:layout_marginTop="@dimen/d50"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d50"
             android:src="@drawable/image_splash_bottoma"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -39,6 +43,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d50"
 
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -91,13 +96,13 @@
             </LinearLayout>
 
             <TextView
-                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d50"
                 android:layout_marginLeft="@dimen/d10"
                 android:layout_marginRight="@dimen/d10"
                 android:layout_marginTop="@dimen/d10"
                 android:background="@drawable/login_btn"
+                android:gravity="center"
                 android:onClick="@{()->pre.click()}"
                 android:text="@string/msg_label_login_text"
                 android:textColor="@color/color_login_btn"
@@ -115,19 +120,56 @@
                     android:layout_marginTop="@dimen/d10"
                     android:text="------------------------第三方账号登录------------------------" />
 
-                <ImageView
-                    android:onClick="@{()->pqq.click()}"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d20"
-                    android:src="@drawable/selector_teacher_qq" />
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:onClick="@{()->pqq.click()}"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="QQ"
-                    android:textSize="25sp" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d20"
+                            android:onClick="@{()->pqq.click()}"
+                            android:src="@drawable/ic_qq" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{()->pqq.click()}"
+                            android:text="QQ"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d20"
+                            android:onClick="@{()->pwechat.click()}"
+                            android:src="@drawable/ic_weixin" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{()->pwechat.click()}"
+                            android:text="微信"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </LinearLayout>
 
             </LinearLayout>
 

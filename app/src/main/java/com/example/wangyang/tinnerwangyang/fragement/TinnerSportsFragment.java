@@ -17,6 +17,7 @@ import com.example.wangyang.tinnerwangyang.R;
 import com.example.wangyang.tinnerwangyang.URLSetting;
 import com.example.wangyang.tinnerwangyang.Wachter;
 import com.example.wangyang.tinnerwangyang.common.RefreshListListener;
+import com.example.wangyang.tinnerwangyang.common.RefreshNewsList;
 import com.example.wangyang.tinnerwangyang.common.RefreshRecyList;
 import com.example.wangyang.tinnerwangyang.common.Request;
 import com.example.wangyang.tinnerwangyang.databinding.FragmentTabNewsBinding;
@@ -29,22 +30,31 @@ import java.util.List;
 public class TinnerSportsFragment extends BindFragment<FragmentTabNewsBinding> implements RefreshListListener {
     FootRecyclerAdapter adapter;
     RecyclerView recyclerView;
-    private RefreshRecyList<Knowledges> newslist;
+    private RefreshNewsList<Knowledges> newslist;
     public Request request;
     Toolbar toolbar;
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initpage();
         adapter = new FootRecyclerAdapter(getActivity());
         recyclerView = bindView.recycleNews;
-        request = new Request(URLSetting.GET_SPORTS, Constant.TYPE_RESULT_NEWBEAN,URLSetting.URL_BASE);
-        newslist = new RefreshRecyList<Knowledges>(adapter, recyclerView, bindView.newsRefreshlayout, request);
+//        request = new Request(URLSetting.GET_SPORTS, Constant.TYPE_RESULT_NEWBEAN,URLSetting.URL_BASE);
+//        newslist = new RefreshRecyList<Knowledges>(adapter, recyclerView, bindView.newsRefreshlayout, request);
+//        newslist.setLayoutManager(new GridLayoutManager(getActivity(), 1))
+//                .addButtomListener()
+//                .addTopListener()
+//                .setOldVersion(false)
+//                .setRefreshListListener(this);
+//        newslist.loadTop();
+        request = new Request();
+        newslist = new RefreshNewsList<>(adapter, recyclerView, bindView.newsRefreshlayout, request, 5);
         newslist.setLayoutManager(new GridLayoutManager(getActivity(), 1))
-                .addButtomListener()
-                .addTopListener()
+                .setRefreshListListener(this)
                 .setOldVersion(false)
-                .setRefreshListListener(this);
+                .addButtomListener()
+                .addTopListener();
         newslist.loadTop();
     }
 

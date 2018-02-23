@@ -33,7 +33,7 @@ import java.util.List;
 public class ChoiceFragment extends BindFragment<FragmentWeightKnowledgeBinding> implements RefreshListListener {
     FootRecyclerAdapter adapter;
     Request request;
-    RefreshRecyList<PostsBean> refreshRecyList;
+    RefreshNewsList<PostsBean> refreshRecyList;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -43,23 +43,23 @@ public class ChoiceFragment extends BindFragment<FragmentWeightKnowledgeBinding>
 
     private void initdata() {
         adapter=new FootRecyclerAdapter(getBaseActivity());
-        request=new Request(URLSetting.URL_newSelect, Constant.TYPE_RESULT_POSTSBEANS,URLSetting.URL_NewRecommend);
-        refreshRecyList=new RefreshRecyList<PostsBean>(adapter,bindView.recycleKnowledges,bindView.refreshKnowledges,request);
-        refreshRecyList.setLayoutManager(new GridLayoutManager((BaseActivity)getActivity(), 1))
-                .addButtomListener()
-                .addTopListener()
-                .setOldVersion(false)
-                .setRefreshListListener(this);
-        refreshRecyList.loadTop();
-//        adapter=new FootRecyclerAdapter(getBaseActivity());
-//        request=new Request();
-//        refreshRecyList=new RefreshNewsList<>(adapter,bindView.recycleKnowledges,bindView.refreshKnowledges,request,3);
+//        request=new Request(URLSetting.URL_newSelect, Constant.TYPE_RESULT_POSTSBEANS,URLSetting.URL_NewRecommend);
+//        refreshRecyList=new RefreshRecyList<PostsBean>(adapter,bindView.recycleKnowledges,bindView.refreshKnowledges,request);
 //        refreshRecyList.setLayoutManager(new GridLayoutManager((BaseActivity)getActivity(), 1))
 //                .addButtomListener()
 //                .addTopListener()
 //                .setOldVersion(false)
 //                .setRefreshListListener(this);
 //        refreshRecyList.loadTop();
+//        adapter=new FootRecyclerAdapter(getBaseActivity());
+        request=new Request();
+        refreshRecyList=new RefreshNewsList<PostsBean>(adapter,bindView.recycleKnowledges,bindView.refreshKnowledges,request,3);
+        refreshRecyList.setLayoutManager(new GridLayoutManager((BaseActivity)getActivity(), 1))
+                .addButtomListener()
+                .addTopListener()
+                .setOldVersion(false)
+                .setRefreshListListener(this);
+        refreshRecyList.loadTop();
 
 
     }

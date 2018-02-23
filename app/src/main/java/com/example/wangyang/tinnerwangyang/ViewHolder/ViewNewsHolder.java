@@ -7,9 +7,11 @@ import com.example.wangyang.tinnerwangyang.Activity.BaseActivity;
 import com.example.wangyang.tinnerwangyang.Activity.WebActivity;
 import com.example.wangyang.tinnerwangyang.Adapter.BaseRecyclerAdapter;
 import com.example.wangyang.tinnerwangyang.Bean.Knowledges;
+import com.example.wangyang.tinnerwangyang.Bean.ShareBean;
 import com.example.wangyang.tinnerwangyang.URLSetting;
 import com.example.wangyang.tinnerwangyang.Wachter;
 import com.example.wangyang.tinnerwangyang.databinding.LayoutNewsBinding;
+import com.lib.Intent.Intentclass;
 import com.lib.view.RoundImageview;
 
 /**
@@ -26,11 +28,11 @@ public class ViewNewsHolder extends BaseRecyclerHolder<Knowledges, LayoutNewsBin
     public void setUpView(Knowledges model, int position, BaseRecyclerAdapter adapter) {
         bindView.setKnowledges(model);
         bindView.setPersenet(Knowledges->{
-            String url=model.getLink_url();
-            Intent intent=new Intent();
-            intent.putExtra("url",url);
-            intent.setClass((BaseActivity)context, WebActivity.class);
-            context.startActivity(intent);
+            ShareBean shareBean=new ShareBean();
+            shareBean.setTitle(model.getTitle());
+            shareBean.setImageurl(model.getPic_url());
+            shareBean.setUrl(model.getLink_url());
+             Intentclass.IntentWebActivity(context,shareBean);
         });
 
     }

@@ -60,6 +60,7 @@ public class BigImageActivity extends BaseActivity {
     }
 
     private void initendpage() {
+        //点击底部图标
         for (int i = 0; i < adapter.getCount(); i++) {
             View tabView1 = ViewUtils.getInflater(BigImageActivity.this).inflate(R.layout.item_ind_bg, null);
             binding.imageLinearout.addView(tabView1);

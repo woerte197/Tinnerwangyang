@@ -42,6 +42,7 @@ public class SportsActivity extends BaseActivity {
         binding.setPaerobic(() -> Intentclass.IntentAddSportsActivity(this, 1));
         binding.setPanaerobic(() -> Intentclass.IntentAddSportsActivity(this, 2));
         binding.setPstretching(() -> Intentclass.IntentAddSportsActivity(this, 3));
+        binding.setP(() -> finish());
     }
 
     private void initpage() {

@@ -7,8 +7,10 @@ import com.example.wangyang.tinnerwangyang.Activity.BaseActivity;
 import com.example.wangyang.tinnerwangyang.Activity.WebActivity;
 import com.example.wangyang.tinnerwangyang.Adapter.BaseRecyclerAdapter;
 import com.example.wangyang.tinnerwangyang.Bean.GrassesBean;
+import com.example.wangyang.tinnerwangyang.Bean.ShareBean;
 import com.example.wangyang.tinnerwangyang.Bean.SlidersBean;
 import com.example.wangyang.tinnerwangyang.databinding.LayoutHealthChannelBinding;
+import com.lib.Intent.Intentclass;
 
 import java.util.List;
 
@@ -16,7 +18,7 @@ import java.util.List;
  * Created by wangyang on 5/1/18.
  */
 
-public class RecommendHealthChannelHolder extends BaseRecyclerHolder<GrassesBean,LayoutHealthChannelBinding> {
+public class RecommendHealthChannelHolder extends BaseRecyclerHolder<GrassesBean, LayoutHealthChannelBinding> {
     public RecommendHealthChannelHolder(View itemView) {
         super(itemView);
     }
@@ -24,12 +26,11 @@ public class RecommendHealthChannelHolder extends BaseRecyclerHolder<GrassesBean
     @Override
     public void setUpView(GrassesBean model, int position, BaseRecyclerAdapter adapter) {
         bindView.setGrassesbean(model);
-        bindView.setP(()->{
-            String url=model.getAvatar_url();
-            Intent intent=new Intent();
-            intent.putExtra("url",url);
-            intent.setClass((BaseActivity)context, WebActivity.class);
-            context.startActivity(intent);
+        bindView.setP(() -> {
+            ShareBean shareBean = new ShareBean();
+            shareBean.setImageurl(model.getAvatar_url());
+            shareBean.setTitle(model.getTitle());
+            Intentclass.IntentWebActivity(context, shareBean);
         });
 
 

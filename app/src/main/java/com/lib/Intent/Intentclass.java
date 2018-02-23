@@ -18,6 +18,8 @@ import com.example.wangyang.tinnerwangyang.Activity.WebActivity;
 import com.example.wangyang.tinnerwangyang.Activity.WeightActivity;
 import com.example.wangyang.tinnerwangyang.Bean.FoodTitle;
 import com.example.wangyang.tinnerwangyang.Bean.MyBean;
+import com.example.wangyang.tinnerwangyang.Bean.ShareBean;
+import com.example.wangyang.tinnerwangyang.Wachter;
 import com.example.wangyang.tinnerwangyang.common.Setting;
 
 /**
@@ -59,8 +61,8 @@ public class Intentclass {
         context.startActivity(intent);
     }
 
-    public static void IntentWebActivity(Context context, String url) {
-        intent.putExtra("url", url);
+    public static void IntentWebActivity(Context context, ShareBean model) {
+        intent.putExtra("url",model);
         intent.setClass(context, WebActivity.class);
         context.startActivity(intent);
     }
