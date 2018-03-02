@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.example.wangyang.tinnerwangyang"
         minSdkVersion 21
@@ -68,5 +69,6 @@ dependencies {
     compile files('libs/lite-orm-1.7.0.jar')
     compile project(path: ':LibMarsdaemon')
     compile files('libs/open_sdk_r5990_lite.jar')
+    compile project(':vitamio')
 
 }

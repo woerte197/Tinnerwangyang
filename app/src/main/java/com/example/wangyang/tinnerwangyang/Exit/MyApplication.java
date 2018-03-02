@@ -5,6 +5,8 @@ import android.support.multidex.MultiDexApplication;
 
 import com.example.wangyang.tinnerwangyang.ScaleRuler.DrawUtil;
 
+import io.vov.vitamio.Vitamio;
+
 /**
  * Created by wangyang on 28/12/17.
  */
@@ -17,6 +19,7 @@ public class MyApplication extends MultiDexApplication {
         ECKit.onApplicationCreate(getApplicationContext());
         DrawUtil.resetDensity(this);
         this.context = getApplicationContext();
+
 
     }
     public static Context getMct(){

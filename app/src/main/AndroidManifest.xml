@@ -4,13 +4,18 @@
     package="com.example.wangyang.tinnerwangyang">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <uses-feature android:name="android.hardware.sensor.accelerometer" />
     <!-- SDK2.1新增获取用户位置信息 -->
@@ -27,7 +32,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.WelcomeActivity">
+        <activity android:name=".Activity.VideoActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,6 +49,12 @@
             android:launchMode="singleTask" />
         <activity android:name=".Pedometer.PedometerActivity" />
         <activity
+            android:name="io.vov.vitamio.activity.InitActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
             android:noHistory="true">
@@ -53,7 +65,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data android:scheme="tencent222222" />
-                <!--例如 ：  <data android:scheme="tencent123123123" />-->
+                <!-- 例如 ：  <data android:scheme="tencent123123123" /> -->
             </intent-filter>
         </activity>
         <activity
@@ -113,7 +125,8 @@
         <activity android:name=".Activity.FoodActivity" />
         <activity android:name=".Activity.SportsActivity" />
         <activity android:name=".Activity.AddFoodActivity" />
-        <activity android:name=".Activity.AddSportsActivity"></activity>
+        <activity android:name=".Activity.AddSportsActivity" />
+        <activity android:name=".Activity.WelcomeActivity"></activity>
     </application>
 
 </manifest>

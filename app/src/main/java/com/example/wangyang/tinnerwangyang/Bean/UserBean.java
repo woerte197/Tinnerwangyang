@@ -13,11 +13,33 @@ public class UserBean {
      * light : false
      */
 
+
     private int id;
     private String nickname;
     private String avatar_url;
     private String title;
     private boolean light;
+    private Object description;
+
+    @Override
+    public String toString() {
+        return "UserBean{" +
+                "id=" + id +
+                ", nickname='" + nickname + '\'' +
+                ", avatar_url='" + avatar_url + '\'' +
+                ", title='" + title + '\'' +
+                ", light=" + light +
+                ", description=" + description +
+                '}';
+    }
+
+    public Object getDescription() {
+        return description;
+    }
+
+    public void setDescription(Object description) {
+        this.description = description;
+    }
 
     public int getId() {
         return id;

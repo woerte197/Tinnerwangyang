@@ -29,26 +29,74 @@ public class Result<T> {
     private List<T> sliders;
     private List<T> items;
     private List<T> tags;
-    private Channel channel;
-    private List<PostsBean> posts;
+    private T channel;
+    private List<T> posts;
+    private T user;
+    private List<T> banners;
+    private List<T> hot_posts;
 
+    @Override
+    public String toString() {
+        return "Result{" +
+                "result=" + result +
+                ", errorcode=" + errorcode +
+                ", message='" + message + '\'' +
+                ", timestamp=" + timestamp +
+                ", data=" + data +
+                ", articles=" + articles +
+                ", isEncrypt=" + isEncrypt +
+                ", total_pages=" + total_pages +
+                ", page=" + page +
+                ", sliders=" + sliders +
+                ", items=" + items +
+                ", tags=" + tags +
+                ", channel=" + channel +
+                ", posts=" + posts +
+                ", user=" + user +
+                ", banners=" + banners +
+                ", hot_posts=" + hot_posts +
+                '}';
+    }
 
-    public Channel getChannel() {
+    public T getUser() {
+        return user;
+    }
+
+    public void setUser(T user) {
+        this.user = user;
+    }
+
+    public List<T> getBanners() {
+        return banners;
+    }
+
+    public void setBanners(List<T> banners) {
+        this.banners = banners;
+    }
+
+    public List<T> getHot_posts() {
+        return hot_posts;
+    }
+
+    public void setHot_posts(List<T> hot_posts) {
+        this.hot_posts = hot_posts;
+    }
+
+    public T getChannel() {
         return channel;
     }
 
-    public void setChannel(Channel channel) {
+    public void setChannel(T channel) {
         this.channel = channel;
     }
 
-    public List<PostsBean> getPosts() {
+    public List<T> getPosts() {
         return posts;
     }
 
-    public void setPosts(List<PostsBean> posts) {
+    public void setPosts(List<T> posts) {
         this.posts = posts;
     }
-
 
 
     public List<T> getSliders() {
@@ -83,26 +131,6 @@ public class Result<T> {
 
     public void setTotal_pages(int total_pages) {
         this.total_pages = total_pages;
-    }
-
-    @Override
-    public String toString() {
-        return "Result{" +
-                "result=" + result +
-                ", errorcode=" + errorcode +
-                ", message='" + message + '\'' +
-                ", timestamp=" + timestamp +
-                ", data=" + data +
-                ", articles=" + articles +
-                ", isEncrypt=" + isEncrypt +
-                ", total_pages=" + total_pages +
-                ", page=" + page +
-                ", sliders=" + sliders +
-                ", items=" + items +
-                ", tags=" + tags +
-                ", channel=" + channel +
-                ", posts=" + posts +
-                '}';
     }
 
     public int getPage() {

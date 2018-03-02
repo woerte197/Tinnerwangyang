@@ -50,20 +50,6 @@ public class PostsBean implements Wachter {
     private boolean privateX;
     private boolean own;
 
-    private List<Photos> photos;
-    private UserBean user;
-    private boolean cut;
-
-    private String share_url;
-    private boolean favorite;
-    private AttachmentsBean attachments;
-    private Object feedback;
-    private int envious_count;
-    private int comment_count;
-    private boolean reposted;
-    private int fav_count;
-
-
     @Override
     public String toString() {
         return "PostsBean{" +
@@ -85,8 +71,30 @@ public class PostsBean implements Wachter {
                 ", comment_count=" + comment_count +
                 ", reposted=" + reposted +
                 ", fav_count=" + fav_count +
+                ", disabled=" + disabled +
                 '}';
     }
+
+    public boolean isDisabled() {
+        return disabled;
+    }
+
+    public void setDisabled(boolean disabled) {
+        this.disabled = disabled;
+    }
+
+    private List<Photos> photos;
+    private UserBean user;
+    private boolean cut;
+    private String share_url;
+    private boolean favorite;
+    private AttachmentsBean attachments;
+    private Object feedback;
+    private int envious_count;
+    private int comment_count;
+    private boolean reposted;
+    private int fav_count;
+    private boolean disabled;
 
 
     public int getId() {
@@ -234,6 +242,7 @@ public class PostsBean implements Wachter {
     public void setPhotos(List<Photos> photos) {
         this.photos = photos;
     }
+
     public int getFav_count() {
         return fav_count;
     }

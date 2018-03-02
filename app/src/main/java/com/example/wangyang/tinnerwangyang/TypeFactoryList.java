@@ -39,6 +39,7 @@ import com.example.wangyang.tinnerwangyang.ViewHolder.ViewNewsHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewPostsBeansItemHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewSportItemSportHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewTodayItemHolder;
+import com.example.wangyang.tinnerwangyang.ViewHolder.ViewVideoItemHolder;
 
 
 /**
@@ -64,7 +65,7 @@ public class TypeFactoryList implements TypeFactory {
     private static final int LAYOUT_FOOD_TITLE = R.layout.layout_foodtitle;
     private static final int LAYOUT_BACKGROUND = R.layout.layout_background;
     private static final int LAYOUT_SPORT = R.layout.layout_sports;
-
+    private static final int LAYOUT_VIDEO = R.layout.layout_video;
 
     @Override
     public int type(Knowledges knowledges) {
@@ -132,7 +133,16 @@ public class TypeFactoryList implements TypeFactory {
 
     @Override
     public int type(PostsBean postsBean) {
+        if (postsBean.getAttachments() != null) {
+            if (postsBean.getAttachments().getType().equals("video")) {
+                return LAYOUT_VIDEO;
+            }
+
+        } else {
+            return LAYOUT_POSTSBEANS;
+        }
         return LAYOUT_POSTSBEANS;
+
     }
 
     @Override
@@ -142,7 +152,7 @@ public class TypeFactoryList implements TypeFactory {
 
     @Override
     public int type(MyBean myBean) {
-            return LAYOUT_MY;
+        return LAYOUT_MY;
 
     }
 
@@ -214,6 +224,8 @@ public class TypeFactoryList implements TypeFactory {
                 return new ViewBackGroundItemHolder(itemView);
             case LAYOUT_SPORT:
                 return new ViewSportItemSportHolder(itemView);
+            case LAYOUT_VIDEO:
+                return new ViewVideoItemHolder(itemView);
             default:
 
                 return null;
