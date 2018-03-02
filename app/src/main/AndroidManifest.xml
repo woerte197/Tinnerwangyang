@@ -32,7 +32,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.VideoActivity">
+        <activity android:name=".Activity.WelcomeActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -126,7 +126,7 @@
         <activity android:name=".Activity.SportsActivity" />
         <activity android:name=".Activity.AddFoodActivity" />
         <activity android:name=".Activity.AddSportsActivity" />
-        <activity android:name=".Activity.WelcomeActivity"></activity>
+        <activity android:name=".Activity.VideoActivity"></activity>
     </application>
 
 </manifest>
