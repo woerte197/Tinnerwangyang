@@ -56,7 +56,7 @@ public class RecommendFragment extends BindFragment<FragmentSuccessStoryBinding>
                 bindView.refreshLayout.setRefreshing(false);
             }
         });
-    }  
+    }
 
 //    public void initdata() {
 //        subscription = ApiFactory.ins().getNewslist("UYPxayY3SxmRRhtfoG6N",

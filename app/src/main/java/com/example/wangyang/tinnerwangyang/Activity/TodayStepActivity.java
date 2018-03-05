@@ -23,15 +23,13 @@ public class TodayStepActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_today_step);
-        //  binding.
-        setSupportActionBar(binding.toolbarTodaystep);
-        getSupportActionBar().setTitle("");
-        binding.textTodaystep.setText("近日步数");
-
         initpage();
     }
 
     private void initpage() {
+        setSupportActionBar(binding.toolbarTodaystep);
+        getSupportActionBar().setTitle("");
+        binding.textTodaystep.setText("近日步数");
         int a = MainActivity.getTextstep();
         binding.textStep.setText(String.format("" + a));
         double b = (a * 0.7) / 1000;

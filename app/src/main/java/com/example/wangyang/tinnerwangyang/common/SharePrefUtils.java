@@ -249,29 +249,6 @@ public class SharePrefUtils {
         editor.commit();
     }
 
-//    public void setChoiceSelectNation(Block block) {
-//        String g = Constant.GSON.toJson(block);
-//        editor.putString(Setting.DBFIELD_CHOCIE_BLOCKID, g);
-//        editor.commit();
-//    }
-//
-//    public Block getChoiceSelectNation() {
-//        String g = share.getString(Setting.DBFIELD_CHOCIE_BLOCKID, "");
-//        return Constant.GSON.fromJson(g, Block.class);
-//
-//    }
-//
-//    public void setSelectNation(Nation nation) {
-//        String g = Constant.GSON.toJson(nation);
-//        editor.putString(Setting.DBFIELD_DEFAULT_SELECT_NATION, g);
-//        editor.commit();
-//    }
-//
-//    public Nation getSelectNation() {
-//        String g = share.getString(Setting.DBFIELD_DEFAULT_SELECT_NATION, "");
-//        return Constant.GSON.fromJson(g, Nation.class);
-//    }
-
     public boolean getHasShowClouldDialog() {
         return share.getBoolean(Setting.DBFIELD_SHOW_CLOULD_DIALOG, false);
     }
@@ -294,61 +271,12 @@ public class SharePrefUtils {
         return share.getString(Setting.DBFIELD_WEIGHT, "");
     }
 
-//    public void addLiveRoomGroupIds(String gId) {
-//        List<String> data = getLiveRoomGroupIds();
-//        if (data == null) {
-//            data = new ArrayList<String>();
-//        }
-//        if (!TextUtils.isEmpty(gId)) {
-//            data.add(gId);
-//        }
-//        editor.putString(Setting.DBFIELD_LIVE_ROOM_GROUPID_SET, Constant.GSON.toJson(data));
-//        editor.commit();
-//    }
+    public void setlocaltime(long l) {
+        editor.putLong(Setting.LOCAL_TIME, l);
+        editor.commit();
+    }
 
-//    public List<String> getLiveRoomGroupIds() {
-//        String values = share.getString(Setting.DBFIELD_LIVE_ROOM_GROUPID_SET, "");
-//        return Constant.GSON.fromJson(values, Constant.TYPE_LIST_STRING);
-//    }
-//
-//    public void setCrmMenuQQ(String json) {
-//        editor.putString(Setting.CONFIG_PARA_CRM_MENU_QQ, json);
-//        editor.commit();
-//    }
-//
-//    public void setSearchKeywords(List<SearchItem> items) {
-//        editor.putString("searchKeywords", Constant.GSON.toJson(items));
-//        editor.commit();
-//    }
-//
-//    public List<SearchItem> getSearchKeywords() {
-//        String json = share.getString("searchKeywords", Constant.GSON.toJson(new ArrayList<>()));
-//        return Constant.GSON.fromJson(json, Constant.TYPE_LIST_SEARCH_ITEM);
-//    }
-//
-//    public void setMainPage(String keys, List<Article> articles) {
-//        try {
-//            editor.putString(keys, Constant.GSON.toJson(articles)).commit();
-//        } catch (Exception e) {
-//            System.out.print("");
-//        }
-//
-//    }
-//
-//    public List<Article> getMianPage(String keys) {
-//        String json = share.getString(keys, Constant.GSON.toJson(new ArrayList<>()));
-//        Log.i(TAG, "getMianPage: " + json);
-//        return Constant.GSON.fromJson(json, Constant.TYPE_LIST_ARTICLE_ITEM);
-//    }
-//
-//    public CrmMenu getCrmMenuQQ() {
-//        try {
-//            String data = share.getString(Setting.CONFIG_PARA_CRM_MENU_QQ, "");
-//            Result<CrmMenu> result = Constant.GSON.fromJson(data, Constant.TYPE_RESULT_CRMMENU);
-//            return result.getData();
-//        } catch (JsonSyntaxException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
+    public long getlocaltime() {
+        return share.getLong(Setting.LOCAL_TIME, 1);
+    }
 }

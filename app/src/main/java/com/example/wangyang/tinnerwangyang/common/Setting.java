@@ -102,6 +102,7 @@ public class Setting {
     public static final String DBFIELD_OTHER_IMG = "other_img";
     public static final String MYBEAN = "mybean";
     public static final String DBFIELD_WEIGHT = "weight";
+    public static final String LOCAL_TIME = "localtime";
     public static final String DBFIELD_DOWNLOADPROCESS = "downloadprocess";
     public static final String DBFIELD_SHOW_CLOULD_DIALOG = "show_clould_dialog";
     public static final String DBFIELD_CHOCIE_BLOCKID = "choice_blockid";
