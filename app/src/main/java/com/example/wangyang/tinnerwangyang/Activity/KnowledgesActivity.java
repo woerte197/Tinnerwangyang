@@ -27,7 +27,8 @@ import java.util.List;
 
 public class KnowledgesActivity extends BaseActivity implements RefreshListListener {
     ActivityKnowledgesBinding binding;
-    FootRecyclerAdapter adapter=new FootRecyclerAdapter(this);;
+    FootRecyclerAdapter adapter = new FootRecyclerAdapter(this);
+    ;
     RecyclerView recyclerView;
     private RefreshNewsList<Knowledges> newslist;
     public Request request;
@@ -38,20 +39,22 @@ public class KnowledgesActivity extends BaseActivity implements RefreshListListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=DataBindingUtil.setContentView(this,R.layout.activity_knowledges);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_knowledges);
         initpage();
         initData();
+        initEvent();
     }
 
+    private void initEvent() {
+        binding.setP(() -> {
+            finish();
+        });
+    }
     private void initpage() {
         recyclerView = binding.recycleNews;
         setSupportActionBar(binding.toolbarKnowledges);
         getSupportActionBar().setTitle("");
         binding.textKnowledges.setText(R.string.knowledges_tinner);
-        binding.setP(()->{
-            finish();
-        });
-
     }
 
 
@@ -66,7 +69,7 @@ public class KnowledgesActivity extends BaseActivity implements RefreshListListe
 //                .setRefreshListListener(this);
 
         request = new Request();
-        newslist = new RefreshNewsList<Knowledges>(adapter, recyclerView, binding.newsRefreshlayout, request,1);
+        newslist = new RefreshNewsList<Knowledges>(adapter, recyclerView, binding.newsRefreshlayout, request, 1);
         newslist.setLayoutManager(new GridLayoutManager(this, 1))
                 .addButtomListener()
                 .addTopListener()

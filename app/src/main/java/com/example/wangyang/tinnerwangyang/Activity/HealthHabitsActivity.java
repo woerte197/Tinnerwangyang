@@ -28,11 +28,19 @@ public class HealthHabitsActivity extends BaseActivity implements RefreshListLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_health_habits);
+        initpage();
+        initdata();
+        initEvent();
+    }
+
+    private void initpage() {
         setSupportActionBar(binding.toolbarHealth);
         getSupportActionBar().setTitle("");
         binding.textHealth.setText("健康习惯");
+    }
+
+    private void initdata() {
         adapter = new FootRecyclerAdapter(this);
-        binding.setP(() -> finish());
 //        request = new Request(URLSetting.GET_JIANFEIYUANLI, Constant.TYPE_RESULT_NEWBEAN, URLSetting.URL_BASE);
 //        recyList = new RefreshRecyList<>(adapter, binding.recycleYuanli, binding.refreshYuanli, request);
 //        recyList.setLayoutManager(new GridLayoutManager(this, 1))
@@ -49,8 +57,11 @@ public class HealthHabitsActivity extends BaseActivity implements RefreshListLis
                 .addTopListener()
                 .addButtomListener();
         recyList.loadTop();
+    }
 
 
+    private void initEvent() {
+        binding.setP(() -> finish());
     }
 
     @Override

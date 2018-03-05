@@ -14,9 +14,13 @@ import com.example.wangyang.tinnerwangyang.Activity.QueryActivity;
 import com.example.wangyang.tinnerwangyang.Activity.RegisterActivity;
 import com.example.wangyang.tinnerwangyang.Activity.SportsActivity;
 import com.example.wangyang.tinnerwangyang.Activity.TodayStepActivity;
+import com.example.wangyang.tinnerwangyang.Activity.VideoActivity;
+import com.example.wangyang.tinnerwangyang.Activity.VideoPlayerActivity;
 import com.example.wangyang.tinnerwangyang.Activity.WebActivity;
 import com.example.wangyang.tinnerwangyang.Activity.WeightActivity;
+import com.example.wangyang.tinnerwangyang.Bean.AttachmentsBean;
 import com.example.wangyang.tinnerwangyang.Bean.FoodTitle;
+import com.example.wangyang.tinnerwangyang.Bean.GrassesBean;
 import com.example.wangyang.tinnerwangyang.Bean.MyBean;
 import com.example.wangyang.tinnerwangyang.Bean.ShareBean;
 import com.example.wangyang.tinnerwangyang.Wachter;
@@ -62,7 +66,7 @@ public class Intentclass {
     }
 
     public static void IntentWebActivity(Context context, ShareBean model) {
-        intent.putExtra("url",model);
+        intent.putExtra("url", model);
         intent.setClass(context, WebActivity.class);
         context.startActivity(intent);
     }
@@ -100,6 +104,18 @@ public class Intentclass {
     public static void IntentAddSportsActivity(Context context, int type) {
         intent.putExtra("sporttype", type);
         intent.setClass(context, AddSportsActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void IntentVideoActivity(Context context, GrassesBean grassesBean) {
+        intent.setClass(context, VideoActivity.class);
+        intent.putExtra("grassesBean", grassesBean);
+        context.startActivity(intent);
+    }
+
+    public static void IntentVideoPlayerActivity(Context context, AttachmentsBean attachmentsBean) {
+        intent.setClass(context, VideoPlayerActivity.class);
+        intent.putExtra("attachmentsBean", attachmentsBean);
         context.startActivity(intent);
     }
 

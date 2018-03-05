@@ -1,7 +1,6 @@
 package com.example.wangyang.tinnerwangyang.Http.Internet;
 
 
-
 import com.example.wangyang.tinnerwangyang.Bean.NewsBean;
 import com.example.wangyang.tinnerwangyang.Bean.PostsBean;
 import com.example.wangyang.tinnerwangyang.Bean.RecommendBean;
@@ -29,28 +28,31 @@ public interface ApiService {
     Call<NewsBean> getNews(@Url String url);
 
     @GET(URLSetting.RECOMMEND_NEWS)
-    Observable<RecommendBean> getNewslist(@Query("token") String tooken,
-                                          @Query("user_key") String user_key,
-                                          @Query("app_version") String app_version,
-                                          @Query("app_device") String app_device,
-                                          @Query("os_version") String os_version,
-                                          @Query("phone_model") String phone_model,
-                                          @Query("channel") String channel,
-                                          @Query("app_key") String app_key
+    Call<RecommendBean> getNewslist(@Query("token") String tooken,
+                                    @Query("user_key") String user_key,
+                                    @Query("app_version") String app_version,
+                                    @Query("app_device") String app_device,
+                                    @Query("os_version") String os_version,
+                                    @Query("phone_model") String phone_model,
+                                    @Query("channel") String channel,
+                                    @Query("app_key") String app_key
     );
+
     @GET(URLSetting.SUCCESS_NEWS)
     Call<Success> getSuccessLisr(@Query("page") int page,
                                  @Query("token") String token);
+
     @GET(URLSetting.URL_QUERY)
-    Observable<Result<PostsBean>> getQueryList(@Query("body")String body,
-                                        @Query("page")int page,
-                                        @Query("token") String token,
-                                        @Query("user_key") String user_key,
-                                        @Query("app_version") String app_version,
-                                        @Query("app_device") String app_device,
-                                        @Query("os_version") String os_version,
-                                        @Query("phone_model") String phone_model,
-                                        @Query("channel") String channel,
-                                        @Query("app_key") String app_key);
-    
+    Observable<Result<PostsBean>> getQueryList(@Query("body") String body,
+                                               @Query("page") int page,
+                                               @Query("token") String token,
+                                               @Query("user_key") String user_key,
+                                               @Query("app_version") String app_version,
+                                               @Query("app_device") String app_device,
+                                               @Query("os_version") String os_version,
+                                               @Query("phone_model") String phone_model,
+                                               @Query("channel") String channel,
+                                               @Query("app_key") String app_key);
+    //  @GET(URLSetting.URL_VIDEO)
+
 }

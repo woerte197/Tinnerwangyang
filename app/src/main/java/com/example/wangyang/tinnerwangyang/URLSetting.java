@@ -23,4 +23,8 @@ public class URLSetting {
     public static final String GET_SPORTS = "categories/a3a35819c43f?token=UYPxayY3SxmRRhtfoG6N&user_key=b3f61884-b31c-4320-85aa-56253204918e&app_version=6.1.1&app_device=Android&os_version=7.0&phone_model=VTR-AL00&channel=boohee&app_key=one";
     public static final String GET_JIANFEIYUANLI = "categories/e46e9e206419?token=UYPxayY3SxmRRhtfoG6N&user_key=b3f61884-b31c-4320-85aa-56253204918e&app_version=6.1.1&app_device=Android&os_version=7.0&phone_model=VTR-AL00&channel=boohee&app_key=one";
     public static final String URL_VIDEO = "/grasses/8?token=x4sSJQcNjSXpxwYKbZsYff26uTgK8ZTz&user_key=b3f61884-b31c-4320-85aa-56253204918e&app_version=6.1.2.1&app_device=Android&os_version=7.0&phone_model=VTR-AL00&channel=huawei&app_key=one";
+    public static final String URL_VIDEO_FOOD = "grasses/4?token=x4sSJQcNjSXpxwYKbZsYff26uTgK8ZTz&user_key=b3f61884-b31c-4320-85aa-56253204918e&app_version=6.1.2.1&app_device=Android&os_version=7.0&phone_model=VTR-AL00&channel=huawei&app_key=one";
+    public static final String URL_VIDEO_NICE = "grasses/10?token=x4sSJQcNjSXpxwYKbZsYff26uTgK8ZTz&user_key=b3f61884-b31c-4320-85aa-56253204918e&app_version=6.1.2.1&app_device=Android&os_version=7.0&phone_model=VTR-AL00&channel=huawei&app_key=one";
+    public static final String URL_VIDEO_HEALTH = "grasses/7?token=x4sSJQcNjSXpxwYKbZsYff26uTgK8ZTz&user_key=b3f61884-b31c-4320-85aa-56253204918e&app_version=6.1.2.1&app_device=Android&os_version=7.0&phone_model=VTR-AL00&channel=huawei&app_key=one";
+    public static final String URL_VIDEO_HARDCANDY = "grasses/9?token=x4sSJQcNjSXpxwYKbZsYff26uTgK8ZTz&user_key=b3f61884-b31c-4320-85aa-56253204918e&app_version=6.1.2.1&app_device=Android&os_version=7.0&phone_model=VTR-AL00&channel=huawei&app_key=one";
 }

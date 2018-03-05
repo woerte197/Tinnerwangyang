@@ -24,6 +24,11 @@ public class WelcomeActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        initpage();
+
+    }
+
+    private void initpage() {
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(binding.welcomeImage, "alpha", 0.1f, 1.0f);
         objectAnimator.setDuration(2000);
         objectAnimator.start();

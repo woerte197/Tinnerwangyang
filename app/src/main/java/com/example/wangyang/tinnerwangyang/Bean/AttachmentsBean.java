@@ -1,10 +1,13 @@
 package com.example.wangyang.tinnerwangyang.Bean;
 
+import com.example.wangyang.tinnerwangyang.TypeFactory;
+import com.example.wangyang.tinnerwangyang.Wachter;
+
 /**
  * Created by wangyang on 18/1/18.
  */
 
-public class AttachmentsBean {
+public class AttachmentsBean implements Wachter{
     /**
      * type : video
      * title : #太阳猫美食TV# 佛系养生粥底火锅，连锅都舔干净了！
@@ -18,6 +21,11 @@ public class AttachmentsBean {
     private String pic;
     private String url;
     private String cover;
+
+    @Override
+    public int type(TypeFactory typeFactory) {
+        return 0;
+    }
 
     public String getType() {
         return type;

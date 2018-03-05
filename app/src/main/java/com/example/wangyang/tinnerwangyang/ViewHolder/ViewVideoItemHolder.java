@@ -1,12 +1,16 @@
 package com.example.wangyang.tinnerwangyang.ViewHolder;
 
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.view.SurfaceView;
 import android.view.View;
 
 import com.example.wangyang.tinnerwangyang.Adapter.BaseRecyclerAdapter;
+import com.example.wangyang.tinnerwangyang.Bean.AttachmentsBean;
 import com.example.wangyang.tinnerwangyang.Bean.PostsBean;
+import com.example.wangyang.tinnerwangyang.R;
 import com.example.wangyang.tinnerwangyang.databinding.LayoutVideoBinding;
+import com.lib.Intent.Intentclass;
 
 import java.net.URI;
 import java.text.DateFormat;
@@ -30,9 +34,8 @@ public class ViewVideoItemHolder extends BaseRecyclerHolder<PostsBean, LayoutVid
         super(itemView);
     }
 
-    private SurfaceView surfaceView;
-    private VideoView videoView;
     private Uri uri;
+    private boolean first = true;
 
     @Override
     public void setUpView(PostsBean model, int position, BaseRecyclerAdapter adapter) {
@@ -40,16 +43,16 @@ public class ViewVideoItemHolder extends BaseRecyclerHolder<PostsBean, LayoutVid
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         String s = model.getCreated_at().substring(0, 10);
         bindView.videoTime.setText(s);
-        bindView.setP(() -> {
-            if (bindView.videoPlayer.isPlaying()) {
-                bindView.videoPlayer.pause();
-            } else {
-                PostsBean postsBean = (PostsBean) adapter.getBean(position);
-                uri = Uri.parse(postsBean.getAttachments().getUrl());
-                bindView.videoPlayer.setVideoURI(uri);
-            }
-
+        AttachmentsBean attachmentsBean = model.getAttachments();
+        bindView.setAttachments(attachmentsBean);
+        bindView.imageVideo.setColorFilter(R.color.tab_unselected_color, PorterDuff.Mode.LIGHTEN);//
+        bindView.setPre(wachter -> {
+            AttachmentsBean bean = (AttachmentsBean) wachter;
+            Intentclass.IntentVideoPlayerActivity(context, bean);
+            Log.i("ViewVideoitemHoldet", String.valueOf(wachter));
         });
+
     }
+
 
 }

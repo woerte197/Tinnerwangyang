@@ -36,12 +36,12 @@ public class WeightActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_weight);
-        binding.title.setText(date[0] + "年" + date[1] + "月");
         initpage();
-        initp();
+        initEvent();
     }
 
     private void initpage() {
+        binding.title.setText(date[0] + "年" + date[1] + "月");
         DBhelper dBhelper = DBhelper.getDBhelper(this);
         SQLiteDatabase database = dBhelper.getReadableDatabase();
         list = DbHelperMode.queryweight(database, DBhelper.WEIGHT_TABLE);
@@ -77,7 +77,7 @@ public class WeightActivity extends BaseActivity {
                 .init();
     }
 
-    private void initp() {
+    private void initEvent() {
         binding.calendar.setOnPagerChangeListener(new OnPagerChangeListener() {
             @Override
             public void onPagerChanged(int[] date) {
@@ -106,6 +106,6 @@ public class WeightActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         initpage();
-        initp();
+        initEvent();
     }
 }

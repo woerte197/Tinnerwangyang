@@ -29,6 +29,10 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register);
+        initEvent();
+    }
+
+    private void initEvent() {
         binding.registerButton.setOnClickListener(this);
         binding.setP(() -> {
             int countindex = binding.editPassRegister.getSelectionStart();
@@ -40,6 +44,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                 binding.imgEyeRegister.setImageResource(R.drawable.icon_eye_hide);
             }
         });
+
     }
 
 

@@ -27,10 +27,7 @@ public class RecommendHealthChannelHolder extends BaseRecyclerHolder<GrassesBean
     public void setUpView(GrassesBean model, int position, BaseRecyclerAdapter adapter) {
         bindView.setGrassesbean(model);
         bindView.setP(() -> {
-            ShareBean shareBean = new ShareBean();
-            shareBean.setImageurl(model.getAvatar_url());
-            shareBean.setTitle(model.getTitle());
-            Intentclass.IntentWebActivity(context, shareBean);
+            Intentclass.IntentVideoActivity(context,model);
         });
 
 
