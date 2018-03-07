@@ -35,10 +35,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.WelcomeActivity">
-<<<<<<< HEAD
 
-=======
->>>>>>> wangyang
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -131,14 +130,14 @@
         <activity android:name=".Activity.SportsActivity" />
         <activity android:name=".Activity.AddFoodActivity" />
         <activity android:name=".Activity.AddSportsActivity" />
-<<<<<<< HEAD
+
         <activity android:name=".Activity.VideoActivity"></activity>
-=======
+
         <activity android:name=".Activity.VideoActivity" />
         <activity
             android:name=".Activity.VideoPlayerActivity"
             android:configChanges="orientation|screenSize" />
->>>>>>> wangyang
+
     </application>
 
 </manifest>
