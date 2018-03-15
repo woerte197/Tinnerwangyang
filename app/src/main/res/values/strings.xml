@@ -539,4 +539,5 @@
     <string name="pelese_add_morningfood">请添加早餐</string>
     <string name="pelese_add_noonfood">请添加午餐</string>
     <string name="pelese_add_nightfood">请添加晚餐</string>
+    <string name="intent_no">网络错误</string>
 </resources>

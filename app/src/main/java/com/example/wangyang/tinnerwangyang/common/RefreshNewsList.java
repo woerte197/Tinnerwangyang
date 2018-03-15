@@ -87,6 +87,15 @@ public class RefreshNewsList<T> {
         } else if (a == 5) {
             result = FileUtils.getResultSportsData();
             records = result.getArticles();
+        } else if (a == 6) {
+            result = FileUtils.getResultVideoFitnessData();
+            records = result.getPosts();
+        } else if (a == 7) {
+            result = FileUtils.getResultVideoFoodData();
+            records = result.getPosts();
+        } else if (a == 8) {
+            result = FileUtils.getResultVideoNiceData();
+            records = result.getPosts();
         }
         loading = false;
         hasMore = records != null && records.size() > 0;

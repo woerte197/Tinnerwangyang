@@ -26,9 +26,9 @@ public class RecommendHealthChannelHolder extends BaseRecyclerHolder<GrassesBean
     @Override
     public void setUpView(GrassesBean model, int position, BaseRecyclerAdapter adapter) {
         bindView.setGrassesbean(model);
-        bindView.setP(() -> {
-            Intentclass.IntentVideoActivity(context,model);
-        });
+        bindView.setP(() ->
+                Intentclass.IntentVideoActivity(context, model)
+        );
 
 
     }

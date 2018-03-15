@@ -12,6 +12,7 @@ import com.example.wangyang.tinnerwangyang.Exit.Constant;
 import com.example.wangyang.tinnerwangyang.Http.Internet.ApiFactory;
 import com.example.wangyang.tinnerwangyang.R;
 import com.example.wangyang.tinnerwangyang.URLSetting;
+import com.example.wangyang.tinnerwangyang.ViewUtils;
 import com.example.wangyang.tinnerwangyang.Wachter;
 import com.example.wangyang.tinnerwangyang.common.RefreshListListener;
 import com.example.wangyang.tinnerwangyang.common.RefreshNewsList;
@@ -29,14 +30,17 @@ public class VideoActivity extends BaseActivity implements RefreshListListener {
     ActivityVideoBinding binding;
     private Request request;
     private FootRecyclerAdapter adapter;
-    private RefreshRecyList<Result> recyList;
-    private GrassesBean grassesBean = (GrassesBean) getIntent().getSerializableExtra("grassesBean");
+    //  private RefreshRecyList<Result> recyList;
+    private RefreshNewsList<Result> recyList;
+    private GrassesBean grassesBean;
     private String url;
+    private int a;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_video);
+        grassesBean = (GrassesBean) getIntent().getSerializableExtra("grassesBean");
         initpage();
         initEvent();
         initdata();
@@ -46,8 +50,10 @@ public class VideoActivity extends BaseActivity implements RefreshListListener {
         adapter = new FootRecyclerAdapter(this);
         binding.recycleVideo.setAdapter(adapter);
         chooseUrl(grassesBean);
-        request = new Request(url, Constant.TYPE_RESULT_POSTSBEANS, URLSetting.URL_Recommend);
-        recyList = new RefreshRecyList<Result>(adapter, binding.recycleVideo, binding.refreshVideo, request);
+//        request = new Request(url, Constant.TYPE_RESULT_POSTSBEANS, URLSetting.URL_Recommend);
+        request = new Request();
+//        recyList = new RefreshRecyList<Result>(adapter, binding.recycleVideo, binding.refreshVideo, request);
+        recyList = new RefreshNewsList<Result>(adapter, binding.recycleVideo, binding.refreshVideo, request, a);
         recyList.setRefreshListListener(this)
                 .setLayoutManager(new GridLayoutManager(this, 1))
                 .setOldVersion(false)
@@ -67,25 +73,30 @@ public class VideoActivity extends BaseActivity implements RefreshListListener {
         binding.textVideo.setText(grassesBean.getName());
     }
 
-    private String chooseUrl(GrassesBean grassesBean) {
+    private int chooseUrl(GrassesBean grassesBean) {
         switch (grassesBean.getId()) {
             case 8:
-                url = URLSetting.URL_VIDEO;
+                a = 6;
+                //url = URLSetting.URL_VIDEO;
                 break;
             case 4:
-                url = URLSetting.URL_VIDEO_FOOD;
+                a = 7;
+                // url = URLSetting.URL_VIDEO_FOOD;
                 break;
             case 10:
-                url = URLSetting.URL_VIDEO_NICE;
+                a = 8;
+                //  url = URLSetting.URL_VIDEO_NICE;
                 break;
             case 7:
-                url = URLSetting.URL_VIDEO_HEALTH;
+                a = 9;
+                // url = URLSetting.URL_VIDEO_HEALTH;
                 break;
             case 9:
-                url = URLSetting.URL_VIDEO_HARDCANDY;
+                a = 10;
+                //  url = URLSetting.URL_VIDEO_HARDCANDY;
                 break;
         }
-        return url;
+        return a;
 
     }
 
@@ -99,7 +110,9 @@ public class VideoActivity extends BaseActivity implements RefreshListListener {
 
     @Override
     public void topError(int error) {
-
+        if (error == 0) {
+            ViewUtils.showMessage(getString(R.string.intent_no));
+        }
     }
 
     @Override

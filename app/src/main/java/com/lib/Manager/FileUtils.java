@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.List;
 
 /**
@@ -137,6 +138,61 @@ public class FileUtils {
 
         } catch (Exception e) {
 
+        }
+        return result;
+    }
+
+    public static Result getResultVideoFitnessData() {
+        StringBuffer stringBuffer = new StringBuffer();
+        try {
+            InputStream inputStream = ECKit.getApp().getAssets().open("video_Fitness.json");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                stringBuffer.append(line);
+            }
+            result = Constant.GSON.fromJson(stringBuffer.toString(), Constant.TYPE_RESULT_POSTSBEANS);
+            reader.close();
+            inputStream.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static Result getResultVideoFoodData() {
+        StringBuffer stringBuffer = new StringBuffer();
+        try {
+            InputStream inputStream = ECKit.getApp().getAssets().open("video_Food.json");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String stringline = "";
+            while ((stringline = reader.readLine()) != null) {
+                stringBuffer.append(stringline);
+            }
+            result = Constant.GSON.fromJson(stringBuffer.toString(), Constant.TYPE_RESULT_POSTSBEANS);
+            reader.close();
+            inputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static Result getResultVideoNiceData(){
+        StringBuffer stringBuffer=new StringBuffer();
+        try {
+            InputStream inputStream=ECKit.getApp().getAssets().open("Video_Nice.json");
+            BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(inputStream));
+            String line="";
+            while ((line= bufferedReader.readLine())!=null){
+                stringBuffer.append(line);
+            }
+            result=Constant.GSON.fromJson(stringBuffer.toString(),Constant.TYPE_RESULT_POSTSBEANS);
+            bufferedReader.close();
+            inputStream.close();
+        }catch (Exception e){
+        e.printStackTrace();
         }
         return result;
     }
