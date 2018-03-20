@@ -15,6 +15,8 @@ import com.example.wangyang.tinnerwangyang.Adapter.BaseRecyclerAdapter;
 import com.example.wangyang.tinnerwangyang.Bean.PostsBean;
 import com.example.wangyang.tinnerwangyang.Http.Internet.ApiFactory;
 import com.example.wangyang.tinnerwangyang.R;
+import com.example.wangyang.tinnerwangyang.ViewModel.DataPersent;
+import com.example.wangyang.tinnerwangyang.ViewModel.InterNetDataClass;
 import com.example.wangyang.tinnerwangyang.ViewUtils;
 import com.example.wangyang.tinnerwangyang.Wachter;
 import com.example.wangyang.tinnerwangyang.common.Result;
@@ -29,7 +31,7 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class QueryActivity extends BaseActivity implements TextWatcher {
+public class QueryActivity extends BaseActivity implements TextWatcher, DataPersent {
     ActivityQueryBinding binding;
     private BaseRecyclerAdapter adapter;
     private ObservableField<Boolean> observableResult = new ObservableField<>();
@@ -45,25 +47,9 @@ public class QueryActivity extends BaseActivity implements TextWatcher {
 
     private void initData() {
         String body = binding.exitQuery.getText().toString();
-        ApiFactory.ins().getQueryList(body, 1, "UYPxayY3SxmRRhtfoG6N",
-                "b3f61884-b31c-4320-85aa-56253204918e",
-                "6.1.0.1", "Android",
-                "7.0", "VTR-AL00", "huawei", "one")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe((postsBeanResult) ->
-                        Success(postsBeanResult), throwable -> {
-                    ViewUtils.showMessage("cuowu");
-                });
-
+        InterNetDataClass.getInterNetDataClass(this).getQueryActivityData(body);
     }
 
-    private void Success(Result result) {
-        List<Wachter> list = new ArrayList<>();
-        List<PostsBean> postsBean = result.getPosts();
-        list.addAll(postsBean);
-        adapter.addData(list);
-    }
 
     private void initpage() {
         adapter = new BaseRecyclerAdapter(this);
@@ -107,9 +93,7 @@ public class QueryActivity extends BaseActivity implements TextWatcher {
                 .subscribe(aLong -> {
                     initData();
                 }, e -> {
-
                 });
-
     }
 
     @Override
@@ -118,5 +102,18 @@ public class QueryActivity extends BaseActivity implements TextWatcher {
         if (subscribe != null && subscribe.isUnsubscribed()) {
             subscribe.unsubscribe();
         }
+    }
+
+    @Override
+    public void success(Result result) {
+        List<Wachter> list = new ArrayList<>();
+        List<PostsBean> postsBean = result.getPosts();
+        list.addAll(postsBean);
+        adapter.addData(list);
+    }
+
+    @Override
+    public void ennor(String s) {
+        ViewUtils.showMessage(s);
     }
 }

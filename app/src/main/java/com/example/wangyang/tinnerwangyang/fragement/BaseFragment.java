@@ -13,13 +13,14 @@ import com.example.wangyang.tinnerwangyang.Exit.SubsManager;
 import com.example.wangyang.tinnerwangyang.ViewUtils;
 import com.lib.Manager.EventBusManager;
 import com.lib.Manager.EventMessage;
+import com.lib.Manager.MessageListener;
 
 import rx.Subscription;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment implements MessageListener{
     protected String title;
     protected MyApplication mApp;
     private BaseActivity context;
@@ -74,7 +75,9 @@ public abstract class BaseFragment extends Fragment {
 
     }
 
+    @Override
     public void update(int msg, Object args) {
+
     }
 
     /**

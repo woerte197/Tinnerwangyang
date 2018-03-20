@@ -81,9 +81,8 @@ public class TinnerSportsFragment extends BindFragment<FragmentTabNewsBinding> i
     @Override
     public void topError(int error) {
         if (error == 1) {
-            // showEmptyView(getString(R.string.msg_empty_block));
+
         } else if (error == 0) {
-            //  showErrorView();
 
         }
     }

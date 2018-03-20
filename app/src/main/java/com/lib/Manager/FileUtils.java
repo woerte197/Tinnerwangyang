@@ -179,20 +179,39 @@ public class FileUtils {
         return result;
     }
 
-    public static Result getResultVideoNiceData(){
-        StringBuffer stringBuffer=new StringBuffer();
+    public static Result getResultVideoNiceData() {
+        StringBuffer stringBuffer = new StringBuffer();
         try {
-            InputStream inputStream=ECKit.getApp().getAssets().open("Video_Nice.json");
-            BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(inputStream));
-            String line="";
-            while ((line= bufferedReader.readLine())!=null){
+            InputStream inputStream = ECKit.getApp().getAssets().open("Video_Nice.json");
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            String line = "";
+            while ((line = bufferedReader.readLine()) != null) {
                 stringBuffer.append(line);
             }
-            result=Constant.GSON.fromJson(stringBuffer.toString(),Constant.TYPE_RESULT_POSTSBEANS);
+            result = Constant.GSON.fromJson(stringBuffer.toString(), Constant.TYPE_RESULT_POSTSBEANS);
             bufferedReader.close();
             inputStream.close();
-        }catch (Exception e){
-        e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static Result getResultHealthGuideData() {
+        StringBuffer stringBuffer = new StringBuffer();
+        try {
+            InputStream inputStream = ECKit.getApp().getAssets().open("health_guide.json");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                stringBuffer.append(line);
+            }
+            result = Constant.GSON.fromJson(stringBuffer.toString(), Constant.TYPE_RESULT_POSTSBEANS);
+            inputStream.close();
+            reader.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return result;
     }

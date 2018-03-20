@@ -40,6 +40,7 @@ import com.example.wangyang.tinnerwangyang.ViewHolder.ViewPostsBeansItemHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewSportItemSportHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewTodayItemHolder;
 import com.example.wangyang.tinnerwangyang.ViewHolder.ViewVideoItemHolder;
+import com.example.wangyang.tinnerwangyang.common.Result;
 
 
 /**
@@ -86,6 +87,12 @@ public class TypeFactoryList implements TypeFactory {
     public int type(SlidersBean slidersBean) {
         return RECOMMEND_BINNER;
     }
+
+    @Override
+    public int type(Result result) {
+        return RECOMMEND_BINNER;
+    }
+
 
     @Override
     public int type(GrassesBean grassesBean) {

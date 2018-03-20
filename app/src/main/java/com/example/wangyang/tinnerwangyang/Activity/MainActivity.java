@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.wangyang.tinnerwangyang.Pedometer.Constant;
-import com.example.wangyang.tinnerwangyang.Pedometer.StepService;
 import com.example.wangyang.tinnerwangyang.R;
 import com.example.wangyang.tinnerwangyang.TabBean;
 import com.example.wangyang.tinnerwangyang.ViewUtils;

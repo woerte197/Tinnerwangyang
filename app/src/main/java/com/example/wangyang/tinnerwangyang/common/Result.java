@@ -1,7 +1,13 @@
 package com.example.wangyang.tinnerwangyang.common;
 
 import com.example.wangyang.tinnerwangyang.Bean.Channel;
+import com.example.wangyang.tinnerwangyang.Bean.GrassesBean;
+import com.example.wangyang.tinnerwangyang.Bean.HotEventsBean;
 import com.example.wangyang.tinnerwangyang.Bean.PostsBean;
+import com.example.wangyang.tinnerwangyang.Bean.ShowUsersBean;
+import com.example.wangyang.tinnerwangyang.Bean.SlidersBean;
+import com.example.wangyang.tinnerwangyang.TypeFactory;
+import com.example.wangyang.tinnerwangyang.Wachter;
 
 import java.util.List;
 
@@ -10,7 +16,7 @@ import java.util.List;
  * @author James Su
  *         从服务器返回的结果集
  */
-public class Result<T> {
+public class Result<T> implements Wachter{
     //返回状态值
     private int result;
     //调试码
@@ -34,8 +40,36 @@ public class Result<T> {
     private T user;
     private List<T> banners;
     private List<T> hot_posts;
+    private List<T> grasses;
+    private List<T> hot_events;
+    private List<T> show_users;
+
+    public List<T> getGrasses() {
+        return grasses;
+    }
+
+    public void setGrasses(List<T> grasses) {
+        this.grasses = grasses;
+    }
+
+    public List<T> getHot_events() {
+        return hot_events;
+    }
+
+    public void setHot_events(List<T> hot_events) {
+        this.hot_events = hot_events;
+    }
+
+    public List<T> getShow_users() {
+        return show_users;
+    }
+
+    public void setShow_users(List<T> show_users) {
+        this.show_users = show_users;
+    }
 
     @Override
+
     public String toString() {
         return "Result{" +
                 "result=" + result +
@@ -212,4 +246,13 @@ public class Result<T> {
         this.errorcode = errorcode;
     }
 
+    @Override
+    public int type(TypeFactory typeFactory) {
+        return typeFactory.type(this);
+    }
+
+    @Override
+    public String getType() {
+        return null;
+    }
 }

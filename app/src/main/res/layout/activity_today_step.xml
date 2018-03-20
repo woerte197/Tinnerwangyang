@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-  >
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <data>
 
         <variable
             name="p"
-            type="com.example.wangyang.tinnerwangyang.PresenterNomal" />
+            type="com.example.wangyang.tinnerwangyang.PresenterNomal"/>
     </data>
 
     <LinearLayout
@@ -19,14 +19,14 @@
             android:id="@+id/toolbar_todaystep"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/dialog_title_textcolor">
+            android:background="@color/color_login_btn">
 
             <ImageView
                 android:id="@+id/image_back_todaystep"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="@{()->p.click()}"
-                android:src="@drawable/btn_back" />
+                android:src="@drawable/btn_back"/>
 
             <TextView
                 android:id="@+id/text_todaystep"
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/d120"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="18sp"/>
 
         </android.support.v7.widget.Toolbar>
 
@@ -42,6 +42,7 @@
             android:id="@+id/linear_today"
             android:layout_width="match_parent"
             android:layout_height="@dimen/d220"
+            android:layout_gravity="center"
             android:background="@color/color_login_btn"
             android:orientation="vertical">
 
@@ -49,19 +50,19 @@
                 android:id="@+id/text_step"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d5"
+                android:layout_marginTop="@dimen/d30"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:textSize="40sp" />
+                android:textSize="40sp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d20"
+                android:layout_marginTop="@dimen/d30"
                 android:gravity="center"
                 android:text="目标10000"
                 android:textColor="@color/white"
-                android:textSize="17sp" />
+                android:textSize="17sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -78,7 +79,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d10"
-                    android:background="@color/news_line_color" />
+                    android:background="@color/news_line_color"/>
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -94,7 +95,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginLeft="@dimen/d10"
-                            android:src="@drawable/here_today" />
+                            android:src="@drawable/here_today"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -112,7 +113,7 @@
                                     android:layout_marginLeft="@dimen/d20"
                                     android:layout_marginTop="@dimen/d20"
                                     android:textColor="@color/blacka"
-                                    android:textSize="15sp" />
+                                    android:textSize="15sp"/>
                             </LinearLayout>
 
 
@@ -123,7 +124,7 @@
                                 android:layout_marginLeft="@dimen/d20"
                                 android:layout_marginTop="@dimen/d10"
                                 android:textColor="@color/setting_row_title_color"
-                                android:textSize="13sp" />
+                                android:textSize="13sp"/>
                         </LinearLayout>
 
 
@@ -135,13 +136,13 @@
                         android:layout_marginRight="@dimen/d20"
                         android:src="@drawable/ic_big_arrow"
                         android:visibility="gone"
-                        app:layout_constraintRight_toRightOf="parent" />
+                        app:layout_constraintRight_toRightOf="parent"/>
                 </android.support.constraint.ConstraintLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d1"
-                    android:background="@color/news_line_color" />
+                    android:background="@color/news_line_color"/>
 
             </LinearLayout>
 
@@ -155,7 +156,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d10"
                     android:background="@color/news_line_color"
-                    android:visibility="gone" />
+                    android:visibility="gone"/>
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -171,7 +172,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginLeft="@dimen/d10"
-                            android:src="@drawable/today_fire" />
+                            android:src="@drawable/today_fire"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -189,7 +190,7 @@
                                     android:layout_marginLeft="@dimen/d20"
                                     android:layout_marginTop="@dimen/d20"
                                     android:textColor="@color/blacka"
-                                    android:textSize="15sp" />
+                                    android:textSize="15sp"/>
                             </LinearLayout>
 
 
@@ -200,7 +201,7 @@
                                 android:layout_marginLeft="@dimen/d20"
                                 android:layout_marginTop="@dimen/d10"
                                 android:textColor="@color/setting_row_title_color"
-                                android:textSize="13sp" />
+                                android:textSize="13sp"/>
                         </LinearLayout>
 
 
@@ -211,7 +212,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d1"
-                    android:background="@color/news_line_color" />
+                    android:background="@color/news_line_color"/>
 
             </LinearLayout>
 
@@ -224,7 +225,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d10"
-                    android:background="@color/news_line_color" />
+                    android:background="@color/news_line_color"/>
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -241,7 +242,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginLeft="@dimen/d10"
-                            android:src="@drawable/today_target" />
+                            android:src="@drawable/today_target"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -260,7 +261,7 @@
                                     android:layout_marginTop="@dimen/d20"
                                     android:text="我的目标"
                                     android:textColor="@color/blacka"
-                                    android:textSize="15sp" />
+                                    android:textSize="15sp"/>
                             </LinearLayout>
 
 
@@ -272,7 +273,7 @@
                                 android:layout_marginTop="@dimen/d10"
                                 android:text="10000步"
                                 android:textColor="@color/setting_row_title_color"
-                                android:textSize="13sp" />
+                                android:textSize="13sp"/>
                         </LinearLayout>
 
 
@@ -283,13 +284,13 @@
                         android:layout_height="@dimen/d70"
                         android:layout_marginRight="@dimen/d10"
                         android:src="@drawable/ic_big_arrow"
-                        app:layout_constraintRight_toRightOf="parent" />
+                        app:layout_constraintRight_toRightOf="parent"/>
                 </android.support.constraint.ConstraintLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d1"
-                    android:background="@color/news_line_color" />
+                    android:background="@color/news_line_color"/>
 
             </LinearLayout>
 
@@ -302,7 +303,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d10"
-                    android:background="@color/news_line_color" />
+                    android:background="@color/news_line_color"/>
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -318,7 +319,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginLeft="@dimen/d10"
-                            android:src="@drawable/text_target" />
+                            android:src="@drawable/text_target"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -337,7 +338,7 @@
                                     android:layout_marginTop="@dimen/d20"
                                     android:text="数据来源"
                                     android:textColor="@color/blacka"
-                                    android:textSize="15sp" />
+                                    android:textSize="15sp"/>
                             </LinearLayout>
 
 
@@ -349,7 +350,7 @@
                                 android:layout_marginTop="@dimen/d10"
                                 android:text="手机"
                                 android:textColor="@color/setting_row_title_color"
-                                android:textSize="13sp" />
+                                android:textSize="13sp"/>
                         </LinearLayout>
 
 
@@ -361,7 +362,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d1"
-                    android:background="@color/news_line_color" />
+                    android:background="@color/news_line_color"/>
 
             </LinearLayout>
         </LinearLayout>

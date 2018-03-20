@@ -4,7 +4,7 @@ import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
 import com.example.wangyang.tinnerwangyang.fragement.BaseFragment;
-
+import com.example.wangyang.tinnerwangyang.BR;
 
 /**
  * Created by nanchaodong on 2017/12/1.

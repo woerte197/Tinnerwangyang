@@ -23,6 +23,7 @@ import com.example.wangyang.tinnerwangyang.Bean.Success;
 import com.example.wangyang.tinnerwangyang.Bean.TagsBean;
 import com.example.wangyang.tinnerwangyang.Bean.TodayItem;
 import com.example.wangyang.tinnerwangyang.ViewHolder.BaseRecyclerHolder;
+import com.example.wangyang.tinnerwangyang.common.Result;
 
 
 /**
@@ -35,6 +36,7 @@ public interface TypeFactory {
     int type(FooterItem footerItem);
     int type(News news);
     int type(SlidersBean slidersBean);
+    int type (Result result);
     int type(GrassesBean grassesBean);
     int type(HotEventsBean hotEventsBean);
     int type(ShowUsersBean showUsersBean);

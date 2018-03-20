@@ -15,7 +15,11 @@ import com.example.wangyang.tinnerwangyang.Bean.NewsTitle;
 import com.example.wangyang.tinnerwangyang.Bean.RecommendBean;
 import com.example.wangyang.tinnerwangyang.Http.Internet.ApiFactory;
 import com.example.wangyang.tinnerwangyang.R;
+import com.example.wangyang.tinnerwangyang.ViewModel.DataPersent;
+import com.example.wangyang.tinnerwangyang.ViewModel.InterNetDataClass;
+import com.example.wangyang.tinnerwangyang.ViewUtils;
 import com.example.wangyang.tinnerwangyang.Wachter;
+import com.example.wangyang.tinnerwangyang.common.Result;
 import com.example.wangyang.tinnerwangyang.databinding.FragmentSuccessStoryBinding;
 import com.lib.Manager.FileUtils;
 
@@ -31,7 +35,7 @@ import rx.schedulers.Schedulers;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecommendFragment extends BindFragment<FragmentSuccessStoryBinding> {
+public class RecommendFragment extends BindFragment<FragmentSuccessStoryBinding> implements DataPersent {
     private static final String TAG = RecommendFragment.class.getSimpleName();
     BaseRecyclerAdapter adapter;
     RecommendBean recommendBean;
@@ -41,8 +45,9 @@ public class RecommendFragment extends BindFragment<FragmentSuccessStoryBinding>
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initpage();
-        success(FileUtils.getRecommendData());
-        // initdata();
+
+        initdata();
+
     }
 
     private void initpage() {
@@ -52,21 +57,16 @@ public class RecommendFragment extends BindFragment<FragmentSuccessStoryBinding>
         bindView.refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                //  initdata();
+                initdata();
                 bindView.refreshLayout.setRefreshing(false);
             }
         });
     }
 
-//    public void initdata() {
-//        subscription = ApiFactory.ins().getNewslist("UYPxayY3SxmRRhtfoG6N",
-//                "b3f61884-b31c-4320-85aa-56253204918e",
-//                "6.1.1", "Android",
-//                "7.0", "VTR-AL00", "boohee", "one")
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe((RecommendBean) -> success(RecommendBean), throwable -> showMsg("请检查网络重试"));
-//    }
+    public void initdata() {
+        //InterNetDataClass.getInterNetDataClass(this).getRecommendFragementData();
+        success(FileUtils.getRecommendData());
+    }
 
     private void success(RecommendBean r) {
         List<Wachter> list = new ArrayList<>();
@@ -97,5 +97,27 @@ public class RecommendFragment extends BindFragment<FragmentSuccessStoryBinding>
         if (subscription != null && subscription.isUnsubscribed()) {
             subscription.unsubscribe();
         }
+    }
+
+    @Override
+    public void success(Result result) {
+        List<Wachter> list = new ArrayList<>();
+        list.add(result);
+        NewsTitle newsTitle = new NewsTitle();
+        List<GrassesBean> grassesBeans = recommendBean.getGrasses();
+        Log.i(TAG, String.format("grassbeans" + grassesBeans));
+        list.addAll(grassesBeans);
+        newsTitle.setName("精彩活动");
+        newsTitle.setMore("更多 >");
+        list.add(newsTitle);
+        List<HotEventsBean> hotEventsBeans = recommendBean.getHot_events();
+        list.addAll(hotEventsBeans);
+        adapter.addData(list);
+        Log.i(TAG, String.format("SlidersBean" + recommendBean));
+    }
+
+    @Override
+    public void ennor(String s) {
+        ViewUtils.showMessage(s);
     }
 }

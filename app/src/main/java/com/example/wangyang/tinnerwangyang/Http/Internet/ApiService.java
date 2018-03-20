@@ -28,7 +28,7 @@ public interface ApiService {
     Call<NewsBean> getNews(@Url String url);
 
     @GET(URLSetting.RECOMMEND_NEWS)
-    Call<RecommendBean> getNewslist(@Query("token") String tooken,
+    Observable<Result> getNewslist(@Query("token") String tooken,
                                     @Query("user_key") String user_key,
                                     @Query("app_version") String app_version,
                                     @Query("app_device") String app_device,

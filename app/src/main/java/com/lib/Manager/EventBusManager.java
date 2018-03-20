@@ -9,20 +9,27 @@ import de.greenrobot.event.EventBus;
 public class EventBusManager {
     private static EventBusManager busManager;
     private EventBus eventBus;
-    private EventMessage Message=new EventMessage() ;
-    private EventBusManager(){
-        eventBus=EventBus.getDefault();
+    private EventMessage Message = new EventMessage();
+
+    private EventBusManager() {
+        eventBus = EventBus.getDefault();
     }
+
     public static EventBusManager getEventBus() {
         if (busManager == null) {
-            busManager = new EventBusManager();
+            synchronized (EventBusManager.class) {
+                busManager = new EventBusManager();
+            }
+
         }
         return busManager;
     }
-    public void register(Object object){
+
+    public void register(Object object) {
         eventBus.register(object);
     }
-    public void unregister(Object object){
+
+    public void unregister(Object object) {
         eventBus.unregister(object);
     }
 

@@ -23,7 +23,7 @@ import io.vov.vitamio.widget.VideoView;
 
 public class VideoPlayerActivity extends BaseActivity implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnInfoListener {
     ActivityVideoPlayerBinding binding;
-    private AttachmentsBean attachmentsBean = (AttachmentsBean) getIntent().getSerializableExtra("attachmentsBean");
+    private AttachmentsBean attachmentsBean;
     private Uri uri;
     private CustomMediaController customMediaController;
 
@@ -31,8 +31,11 @@ public class VideoPlayerActivity extends BaseActivity implements MediaPlayer.OnP
     protected void onCreate(Bundle savedInstanceState) {
         Vitamio.isInitialized(this);
         super.onCreate(savedInstanceState);
+
         initWindow();
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_video_player);
+        attachmentsBean = (AttachmentsBean) getIntent().getSerializableExtra("attachmentsBean");
         initpage();
     }
 

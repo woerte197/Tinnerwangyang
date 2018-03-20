@@ -112,6 +112,8 @@ public class VideoActivity extends BaseActivity implements RefreshListListener {
     public void topError(int error) {
         if (error == 0) {
             ViewUtils.showMessage(getString(R.string.intent_no));
+        }else if (error==1){
+            ViewUtils.showMessage(getString(R.string.no));
         }
     }
 
