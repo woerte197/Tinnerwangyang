@@ -30,12 +30,13 @@ public class WebActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(WebActivity.this, R.layout.activity_web);
         webView = binding.webview;
-        ShareBean shareBean = (ShareBean)getIntent().getSerializableExtra("url");
+        ShareBean shareBean = (ShareBean) getIntent().getSerializableExtra("url");
         url = shareBean.getUrl();
         setSupportActionBar(binding.toolbarWebView);
         getSupportActionBar().setTitle("");
         initWebView(webView);
         binding.setPshare(() -> DialogManager.getDialogManager().sharedialog(this, shareBean));
+        binding.setP(() -> finish());
     }
 
     private void initWebView(WebView webView) {
@@ -67,7 +68,7 @@ public class WebActivity extends BaseActivity {
         };
         webView.setWebChromeClient(webChromeClient);
 
-          webView.loadUrl(url);
+        webView.loadUrl(url);
     }
 
 }

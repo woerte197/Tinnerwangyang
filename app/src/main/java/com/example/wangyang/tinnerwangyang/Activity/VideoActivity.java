@@ -30,8 +30,8 @@ public class VideoActivity extends BaseActivity implements RefreshListListener {
     ActivityVideoBinding binding;
     private Request request;
     private FootRecyclerAdapter adapter;
-    //  private RefreshRecyList<Result> recyList;
-    private RefreshNewsList<Result> recyList;
+    private RefreshRecyList<Result> recyList;
+    // private RefreshNewsList<Result> recyList;
     private GrassesBean grassesBean;
     private String url;
     private int a;
@@ -50,10 +50,10 @@ public class VideoActivity extends BaseActivity implements RefreshListListener {
         adapter = new FootRecyclerAdapter(this);
         binding.recycleVideo.setAdapter(adapter);
         chooseUrl(grassesBean);
-//        request = new Request(url, Constant.TYPE_RESULT_POSTSBEANS, URLSetting.URL_Recommend);
-        request = new Request();
-//        recyList = new RefreshRecyList<Result>(adapter, binding.recycleVideo, binding.refreshVideo, request);
-        recyList = new RefreshNewsList<Result>(adapter, binding.recycleVideo, binding.refreshVideo, request, a);
+        request = new Request(url, Constant.TYPE_RESULT_POSTSBEANS, URLSetting.URL_Recommend);
+        //   request = new Request();
+        recyList = new RefreshRecyList<Result>(adapter, binding.recycleVideo, binding.refreshVideo, request);
+        //   recyList = new RefreshNewsList<Result>(adapter, binding.recycleVideo, binding.refreshVideo, request, a);
         recyList.setRefreshListListener(this)
                 .setLayoutManager(new GridLayoutManager(this, 1))
                 .setOldVersion(false)
@@ -77,23 +77,23 @@ public class VideoActivity extends BaseActivity implements RefreshListListener {
         switch (grassesBean.getId()) {
             case 8:
                 a = 6;
-                //url = URLSetting.URL_VIDEO;
+                url = URLSetting.URL_VIDEO;
                 break;
             case 4:
                 a = 7;
-                // url = URLSetting.URL_VIDEO_FOOD;
+                url = URLSetting.URL_VIDEO_FOOD;
                 break;
             case 10:
                 a = 8;
-                //  url = URLSetting.URL_VIDEO_NICE;
+                url = URLSetting.URL_VIDEO_NICE;
                 break;
             case 7:
                 a = 9;
-                // url = URLSetting.URL_VIDEO_HEALTH;
+                url = URLSetting.URL_VIDEO_HEALTH;
                 break;
             case 9:
                 a = 10;
-                //  url = URLSetting.URL_VIDEO_HARDCANDY;
+                url = URLSetting.URL_VIDEO_HARDCANDY;
                 break;
         }
         return a;
@@ -112,7 +112,7 @@ public class VideoActivity extends BaseActivity implements RefreshListListener {
     public void topError(int error) {
         if (error == 0) {
             ViewUtils.showMessage(getString(R.string.intent_no));
-        }else if (error==1){
+        } else if (error == 1) {
             ViewUtils.showMessage(getString(R.string.no));
         }
     }

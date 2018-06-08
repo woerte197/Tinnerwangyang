@@ -29,11 +29,11 @@ public class TodayStepActivity extends BaseActivity {
     private void initpage() {
         setSupportActionBar(binding.toolbarTodaystep);
         getSupportActionBar().setTitle("");
-        binding.textTodaystep.setText("近日步数");
-        int a = MainActivity.getTextstep();
+        binding.textTodaystep.setText("今日步数");
+        int a = MainActivity.textstep;
         binding.textStep.setText(String.format("" + a));
         double b = (a * 0.7) / 1000;
-        DecimalFormat df = new DecimalFormat("#.##");
+        DecimalFormat df = new DecimalFormat("#.##");//四舍五入保留两位小数
         String c = df.format(b);
         double d = (b / 100) * 10;
         String e = df.format(d);

@@ -22,7 +22,7 @@ public class ViewTodayItemHolder extends BaseRecyclerHolder<TodayItem, LayoutTod
     public void setUpView(TodayItem model, int position, BaseRecyclerAdapter adapter) {
         bindView.setContext(context);
         bindView.setToday(model);
-        int a = MainActivity.getTextstep();
+        int a = MainActivity.textstep;
 
 
     }

@@ -84,24 +84,21 @@ public class FoodActivity extends BaseActivity {
 
     private void initadd() {
         if (list.size() > 0) {
-            listwatch.add(foodTitlea);
             for (FoodBean f : list) {
                 if (f.getfoodType() == 1) {
+                    listwatch.add(foodTitlea);
                     listwatch.add(f);
                 }
-            }
-            listwatch.add(foodTitleb);
-            for (FoodBean f : list) {
                 if (f.getfoodType() == 2) {
+                    listwatch.add(foodTitleb);
                     listwatch.add(f);
                 }
-            }
-            listwatch.add(foodTitlec);
-            for (FoodBean f : list) {
                 if (f.getfoodType() == 3) {
+                    listwatch.add(foodTitlec);
                     listwatch.add(f);
                 }
             }
+
         }
         adapter.addData(listwatch);
     }

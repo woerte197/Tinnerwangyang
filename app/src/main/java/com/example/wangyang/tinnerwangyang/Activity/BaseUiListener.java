@@ -26,7 +26,7 @@ public class BaseUiListener implements IUiListener {
             return;
         }
 
-        doComplete((JSONObject) response);
+        doComplete(jsonResponse);
     }
 
     protected void doComplete(JSONObject values) {

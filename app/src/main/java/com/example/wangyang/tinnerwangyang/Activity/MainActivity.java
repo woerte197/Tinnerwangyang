@@ -46,16 +46,12 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
     private Messenger mGetReplyMessenger = new Messenger(new Handler(this));
     private int value;
 
-    public static int getTextstep() {
-        return textstep;
-    }
-
     public static void setTextstep(int textstep) {
         MainActivity.textstep = textstep;
     }
 
     private Handler delayHandler;
-    private static int textstep;
+    public static int textstep;
 
     public boolean handleMessage(Message msg) {
         switch (msg.what) {
@@ -68,8 +64,8 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
             case Constant.REQUEST_SERVER:
                 try {
                     Message msg1 = Message.obtain(null, Constant.MSG_FROM_CLIENT);
-                    msg1.replyTo = mGetReplyMessenger;
-                    messenger.send(msg1);
+                    msg1.replyTo = mGetReplyMessenger;//再次将客户端的Messenger传递到服务端
+                    messenger.send(msg1);//服务端的Messenger发送消息
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
@@ -96,9 +92,9 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             try {
-                messenger = new Messenger(service);
+                messenger = new Messenger(service);//服务器的Messenger
                 Message msg = Message.obtain(null, Constant.MSG_FROM_CLIENT);
-                msg.replyTo = mGetReplyMessenger;
+                msg.replyTo = mGetReplyMessenger;//把客户端的Messenger传递过去
                 messenger.send(msg);
             } catch (RemoteException e) {
                 e.printStackTrace();

@@ -96,7 +96,7 @@ public class LoginActivity extends BaseActivity {
         }
     };
 
-    private void initlogin() {
+        private void initlogin() {
         name = binding.editName.getText().toString();
         pass = binding.editPass.getText().toString();
         if (TextUtils.isEmpty(name)) {
@@ -125,7 +125,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Constants.REQUEST_LOGIN || requestCode == Constants.REQUEST_APPBAR) {
             Tencent.onActivityResultData(requestCode, resultCode, data, listener);

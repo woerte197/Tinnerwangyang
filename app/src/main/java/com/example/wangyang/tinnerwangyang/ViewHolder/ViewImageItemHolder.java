@@ -31,6 +31,7 @@ public class ViewImageItemHolder extends BaseRecyclerHolder<Photos, LayoutImageB
             Intent intent = new Intent();
             intent.putExtra("imageList", (Serializable) adapter.getDatas());
             intent.putExtra("imageid", position);
+            intent.putExtra("imageurl",model.getBig_url());
             intent.setClass(context, BigImageActivity.class);
             context.startActivity(intent);
         });

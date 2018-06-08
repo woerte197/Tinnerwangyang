@@ -5,7 +5,7 @@ package com.lib.view;
  */
 public class BannerBean {
 
-    public BannerBean(String title, String url){
+    public BannerBean(String title, String url) {
         this.title = title;
         this.url = url;
     }

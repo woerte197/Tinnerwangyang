@@ -101,7 +101,7 @@ public class RecommendFragment extends BindFragment<FragmentSuccessStoryBinding>
 
     @Override
     public void success(Result result) {
-        List<Wachter> list = new ArrayList<>();
+        List<Wachter> list = new ArrayList<>(); 
         list.add(result);
         NewsTitle newsTitle = new NewsTitle();
         List<GrassesBean> grassesBeans = recommendBean.getGrasses();

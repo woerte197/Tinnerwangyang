@@ -19,8 +19,8 @@ public class FooterItem extends BaseObservable implements Wachter {
 
     public void setMsgId(int msgId) {
         this.msgId = msgId;
-        notifyPropertyChanged(BR.msg);
-        notifyPropertyChanged(BR.msgId);
+        notifyPropertyChanged(com.example.wangyang.tinnerwangyang.BR.msg);
+        notifyPropertyChanged(com.example.wangyang.tinnerwangyang.BR.msgId);
     }
     @Bindable
     public int getMsgId() {
@@ -49,7 +49,7 @@ public class FooterItem extends BaseObservable implements Wachter {
 
     public void setShowFooter(boolean showFooter) {
         this.showFooter = showFooter;
-        notifyPropertyChanged(BR.showFooter);
+        notifyPropertyChanged(com.example.wangyang.tinnerwangyang.BR.showFooter);
     }
 
     @Override

@@ -54,12 +54,12 @@ public class StepService extends Service implements /*SensorEventListener,*/ Ste
             switch (msg.what) {
                 case Constant.MSG_FROM_CLIENT:
                     try {
-                        Messenger messenger = msg.replyTo;
+                        Messenger messenger = msg.replyTo;//收到客户端的Messenger
                         Message replyMsg = Message.obtain(null, Constant.MSG_FROM_SERVER);
                         Bundle bundle = new Bundle();
                         bundle.putInt("step", StepMode.CURRENT_SETP);
                         replyMsg.setData(bundle);
-                        messenger.send(replyMsg);
+                        messenger.send(replyMsg);//客户端的Messenger 发送到客户端
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }

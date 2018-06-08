@@ -56,7 +56,6 @@ public class FileUtils {
             result = Constant.GSON.fromJson(sb.toString(), Constant.TYPE_RESULT_NEWBEAN);
             br.close();
             in.close();
-            Log.i(TAG, String.valueOf(result));
         } catch (IOException e) {
             e.printStackTrace();
         }

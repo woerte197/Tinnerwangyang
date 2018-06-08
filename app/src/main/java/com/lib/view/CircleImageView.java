@@ -1,6 +1,7 @@
 package com.lib.view;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -13,6 +14,8 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+
+import com.example.wangyang.tinnerwangyang.R;
 
 /**
  * Created by wangyang on 18/1/18.
@@ -52,13 +55,10 @@ public class CircleImageView extends ImageView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-
         Drawable drawable = getDrawable();
-
         if (drawable == null) {
             return;
         }
-
         if (getWidth() == 0 || getHeight() == 0) {
             return;
         }
@@ -72,28 +72,14 @@ public class CircleImageView extends ImageView {
         if (b == null) {
             return;
         }
-//        Bitmap bitmap = b.copy(Config.ARGB_8888, true);
-
         int w = getWidth(), h = getHeight();
 
         int radius = (w < h ? w : h) / 2;
-//        int radius = (w < h ? w : h) / 2 - mBorderThickness;
         Bitmap roundBitmap = getCroppedBitmap(b, radius);
-        // roundBitmap=ImageUtils.setCircularInnerGlow(roundBitmap, 0xFFBAB399,
-        // 4, 1);
-        // canvas.drawBitmap(roundBitmap, w / 2 - radius, 8, null);
-
         final Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setFilterBitmap(true);
         paint.setDither(true);
-
-//        paint.setColor(getResources().getColor(R.color.circle_bg_color));
-//        canvas.drawCircle(w / 2,
-//                h / 2, radius + mBorderThickness, paint);
-//        paint.setColor(mBorderColor);
-//        canvas.drawCircle(w / 2,
-//        		h/ 2, radius + mBorderThickness -1, paint);
         canvas.drawBitmap(roundBitmap, w / 2 - radius, h / 2 - radius, null);
 
 
@@ -108,7 +94,6 @@ public class CircleImageView extends ImageView {
             scaledSrcBmp = bmp;
         Bitmap output = Bitmap.createBitmap(scaledSrcBmp.getWidth(), scaledSrcBmp.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(output);
-
         final Paint paint = new Paint();
         final Rect rect = new Rect(0, 0, scaledSrcBmp.getWidth(), scaledSrcBmp.getHeight());
 
@@ -120,8 +105,6 @@ public class CircleImageView extends ImageView {
         canvas.drawCircle(scaledSrcBmp.getWidth() / 2, scaledSrcBmp.getHeight() / 2, scaledSrcBmp.getWidth() / 2, paint);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(scaledSrcBmp, rect, rect, paint);
-
-
         return output;
     }
 

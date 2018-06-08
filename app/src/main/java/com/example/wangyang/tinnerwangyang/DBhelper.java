@@ -12,11 +12,9 @@ public class DBhelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "myTest.db";
     public static final String TABLE_NAME = "MyItem";
     public static final String FOOD_TABLE = "Food";
-    ;
     public static final String SPORT_TABLE = "Sport";
     private static DBhelper dBhelper = null;
     public static final String WEIGHT_TABLE = "Weights";
-
 
     public static DBhelper getDBhelper(Context context) {
         if (dBhelper == null) {

@@ -65,21 +65,17 @@ public class SportsActivity extends BaseActivity {
         FoodTitle foodTitleb = new FoodTitle("无氧运动", "例如：   卧推  深蹲", "及时记录哦");
         FoodTitle foodTitlec = new FoodTitle("拉伸运动", "例如：   伟大的伸展", "及时记录哦");
         if (list.size() > 0) {
-            listwatch.add(foodTitlea);
             for (SportBean f : list) {
                 if (f.getSportType() == 1) {
+                    listwatch.add(foodTitlea);
                     listwatch.add(f);
                 }
-            }
-            listwatch.add(foodTitleb);
-            for (SportBean f : list) {
                 if (f.getSportType() == 2) {
+                    listwatch.add(foodTitleb);
                     listwatch.add(f);
                 }
-            }
-            listwatch.add(foodTitlec);
-            for (SportBean f : list) {
                 if (f.getSportType() == 3) {
+                    listwatch.add(foodTitlec);
                     listwatch.add(f);
                 }
             }

@@ -19,7 +19,7 @@ public class FooterHold extends BaseRecyclerHolder<FooterItem, RecyclerFooterIte
 
     @Override
     public void setUpView(FooterItem model, int position, BaseRecyclerAdapter adapter) {
-        bindView.setVariable(BR.footItem, model);
+        bindView.setVariable(com.example.wangyang.tinnerwangyang.BR.footItem, model);
         bindView.executePendingBindings();
     }
 

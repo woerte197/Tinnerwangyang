@@ -27,7 +27,6 @@ public class TecentManager {
     private static TecentManager tecentManager;
     private static Tencent tencent;
     private static Context context = MyApplication.getMct();
-
     public static TecentManager getIns() {
         if (tecentManager == null) {
             synchronized (TecentManager.class) {

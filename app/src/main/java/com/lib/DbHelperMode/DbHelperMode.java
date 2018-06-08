@@ -1,14 +1,13 @@
 package com.lib.DbHelperMode;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import com.example.wangyang.tinnerwangyang.Bean.FoodBean;
 import com.example.wangyang.tinnerwangyang.Bean.SportBean;
 import com.example.wangyang.tinnerwangyang.Bean.WeightBean;
 import com.example.wangyang.tinnerwangyang.DBhelper;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,7 +17,15 @@ import java.util.List;
  */
 
 public class DbHelperMode {
-
+    private static  DbHelperMode dbHelperMode;
+    public static DbHelperMode getDBhelperMode(Context context) {
+        if (dbHelperMode == null) {
+            synchronized (DbHelperMode.class){
+                dbHelperMode = new DbHelperMode();
+            }
+        }
+        return dbHelperMode;
+    }
     public static void insert(SQLiteDatabase db, String name, String pass) {
         ContentValues cValue = new ContentValues();
         cValue.put("Name", name);
@@ -145,26 +152,5 @@ public class DbHelperMode {
         }
     }
 
-    private void delete(SQLiteDatabase db) {
-//删除条件
-        String whereClause = "id=?";
-//删除条件参数
-        String[] whereArgs = {String.valueOf(2)};
-//执行删除
-        db.delete("stu_table", whereClause, whereArgs);
-    }
-
-    private void update(SQLiteDatabase db) {
-//实例化内容值
-        ContentValues values = new ContentValues();
-//在values中添加内容
-        values.put("snumber", "101003");
-//修改条件
-        String whereClause = "id=?";
-//修改添加参数
-        String[] whereArgs = {String.valueOf(1)};
-//修改
-        db.update("usertable", values, whereClause, whereArgs);
-    }
 
 }

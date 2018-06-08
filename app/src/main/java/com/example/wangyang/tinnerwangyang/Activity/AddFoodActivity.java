@@ -39,10 +39,11 @@ public class AddFoodActivity extends BaseActivity {
         type = getIntent().getIntExtra("type", 0);
         if (type == 1) {
             binding.textAddfood.setText("添加早餐");
-        } else if (type == 2) {
+        }
+        else if (type == 2) {
             binding.textAddfood.setText("添加午餐");
         }
-        if (type == 3) {
+        else if (type == 3) {
             binding.textAddfood.setText("添加晚餐");
         }
     }

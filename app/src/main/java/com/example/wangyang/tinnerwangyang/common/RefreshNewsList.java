@@ -117,7 +117,7 @@ public class RefreshNewsList<T> {
             } else {
                 mRequest.updateRequest(records);
             }
-            listener.topError(0);
+          //   listener.topError(0);
         } else if (!mRequest.isFirstPage() && hasMore) {//如果不是第一页并且有返回数据
             //Todo 请求下一页
             if (result.getPage() != 0) {

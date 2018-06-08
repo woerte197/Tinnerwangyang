@@ -22,6 +22,7 @@ import com.example.wangyang.tinnerwangyang.R;
 import com.example.wangyang.tinnerwangyang.ViewUtils;
 import com.example.wangyang.tinnerwangyang.databinding.ActivityBigImageBinding;
 
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class BigImageActivity extends BaseActivity {
     private ViewpageAdapter adapter;
     private List<Photos> photos;
     private int i;
-
+    private Thread thread;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +54,21 @@ public class BigImageActivity extends BaseActivity {
         adapter = new ViewpageAdapter(BigImageActivity.this);
         photos = (List<Photos>) getIntent().getSerializableExtra("imageList");
         i = getIntent().getIntExtra("imageid", 0);
+        String url=getIntent().getStringExtra("imageurl");
         viewPager.setAdapter(adapter);
         adapter.addData(photos);
         viewPager.addOnPageChangeListener(onPageChangeListener);
         viewPager.setCurrentItem(i);
+        binding.setP(() -> {
+            thread.start();
+        });
+      thread=new Thread(new Runnable() {
+          @Override
+          public void run() {
+//              HttpURLConnection connection=
+          }
+      });
+
     }
 
     private void initendpage() {

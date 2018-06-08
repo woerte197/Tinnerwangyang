@@ -87,7 +87,7 @@ public class Request {
         pager.setStart(start + (data == null ? 0 : data.size()));
         addStartIndexParam(pager.getStart());
         addPageSizeParam(pager.getPageSize());
-        addPage(pager.getStart() / pager.getPageSize());
+        addPage (pager.getStart() / pager.getPageSize());
     }
 
     public void updateRequestStart(List data) {
