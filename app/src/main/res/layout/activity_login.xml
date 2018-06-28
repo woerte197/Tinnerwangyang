@@ -90,6 +90,7 @@
                     android:layout_width="@dimen/d20"
                     android:layout_height="@dimen/d20"
                     android:layout_gravity="center"
+
                     android:layout_marginRight="@dimen/d20"
                     android:onClick="@{()->peye.click()}"
                     android:src="@drawable/icon_eye_hide" />
