@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/macmini/Documents/project/Tinnerwangyang/vitamio/src/main/assets"/><source path="/Users/macmini/Documents/project/Tinnerwangyang/vitamio/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/Users/macmini/Documents/project/Tinnerwangyang/vitamio/src/debug/assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\AndroidStudio3.0\Tinnerwangyang\vitamio\src\main\assets"/><source path="E:\AndroidStudio3.0\Tinnerwangyang\vitamio\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="E:\AndroidStudio3.0\Tinnerwangyang\vitamio\src\debug\assets"/></dataSet></merger>

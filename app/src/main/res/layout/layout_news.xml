@@ -59,8 +59,9 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
-                        android:text="@{`阅读量 ：`+knowledges.click_count + ``}"
+
                         android:textColor="@color/ablack" />
+                    <!--android:text="@{`阅读量 ：`+knowledges.click_count + ``}"-->
                 </RelativeLayout>
 
             </LinearLayout>

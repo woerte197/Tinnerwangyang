@@ -113,9 +113,10 @@
                 android:background="@drawable/circle_bg"
                 android:gravity="center"
                 android:onClick="@{()->pre.click()}"
-                android:text="添加体重"
+
                 android:textColor="@color/white"
                 android:textSize="20sp" />
+            <!--android:text="添加体重"-->
 
         </LinearLayout>
 

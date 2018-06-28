@@ -55,9 +55,10 @@
                 app:slantedBackgroundColor="@color/dialog_title_textcolor"
                 app:slantedLength="28dp"
                 app:slantedMode="left"
-                app:slantedText="体重"
+
                 app:slantedTextColor="#ffffff"
                 app:slantedTextSize="14sp" />
+            <!--app:slantedText="体重"-->
 
             <ImageView
                 android:layout_width="@dimen/d25"
@@ -98,9 +99,10 @@
                 android:background="@drawable/login_btn"
                 android:gravity="center"
                 android:onClick="@{()->p.click()}"
-                android:text="确认添加"
+
                 android:textColor="@color/color_login_btn"
                 android:textSize="20sp" />
+            <!--android:text="确认添加"-->
         </LinearLayout>
     </LinearLayout>
 </layout>

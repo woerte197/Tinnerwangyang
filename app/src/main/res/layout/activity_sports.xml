@@ -114,8 +114,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/d5"
                     android:layout_marginTop="@dimen/d5"
-                    android:text="+有氧运动"
+
                     android:textColor="@color/black_38" />
+                <!--android:text="+有氧运动"-->
             </LinearLayout>
 
             <LinearLayout
@@ -136,8 +137,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/d5"
                     android:layout_marginTop="@dimen/d5"
-                    android:text="+无氧运动"
+
                     android:textColor="@color/black_38" />
+                <!--android:text="+无氧运动"-->
             </LinearLayout>
 
             <LinearLayout
@@ -158,8 +160,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/d5"
                     android:layout_marginTop="@dimen/d5"
-                    android:text="+拉伸运动"
+
                     android:textColor="@color/black_38" />
+                <!--android:text="+拉伸运动"-->
             </LinearLayout>
         </LinearLayout>
 

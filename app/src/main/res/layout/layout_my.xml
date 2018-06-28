@@ -90,8 +90,9 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="@dimen/d5"
-                            android:text="动态"
                             android:textColor="@color/white" />
+                        <!--android:text="动态"-->
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -113,8 +114,9 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="@dimen/d5"
-                            android:text="关注"
                             android:textColor="@color/white" />
+                        <!--android:text="关注"-->
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -136,8 +138,9 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="@dimen/d5"
-                            android:text="粉丝"
                             android:textColor="@color/white" />
+                        <!--android:text="粉丝"-->
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -169,7 +172,8 @@
                 android:layout_marginLeft="@dimen/d50"
                 android:layout_marginRight="@dimen/d50"
                 android:gravity="center"
-                android:text="登录后,您的步数记录、运动记录、健康记录、饮食记录、将会显示在这里！" />
+              />
+            <!--android:text="登录后,您的步数记录、运动记录、健康记录、饮食记录、将会显示在这里！"-->
 
             <TextView
                 android:onClick="@{()->p.click()}"
@@ -178,8 +182,9 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/answer_reply_item_orange_shape_bg"
                 android:gravity="center"
-                android:text="登录"
+
                 android:textColor="@color/white" />
+            <!--android:text="登录"-->
         </LinearLayout>
     </LinearLayout>
 </layout>

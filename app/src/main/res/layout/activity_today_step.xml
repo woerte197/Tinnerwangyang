@@ -60,9 +60,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/d30"
                 android:gravity="center"
-                android:text="目标10000"
+
                 android:textColor="@color/white"
                 android:textSize="17sp"/>
+            <!--android:text="目标10000"-->
         </LinearLayout>
 
         <LinearLayout
@@ -259,9 +260,10 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d20"
                                     android:layout_marginTop="@dimen/d20"
-                                    android:text="我的目标"
+
                                     android:textColor="@color/blacka"
                                     android:textSize="15sp"/>
+                                <!--android:text="我的目标"-->
                             </LinearLayout>
 
 
@@ -271,9 +273,10 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="@dimen/d20"
                                 android:layout_marginTop="@dimen/d10"
-                                android:text="10000步"
+
                                 android:textColor="@color/setting_row_title_color"
                                 android:textSize="13sp"/>
+                            <!--android:text="10000步"-->
                         </LinearLayout>
 
 
@@ -336,9 +339,10 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d20"
                                     android:layout_marginTop="@dimen/d20"
-                                    android:text="数据来源"
+
                                     android:textColor="@color/blacka"
                                     android:textSize="15sp"/>
+                                <!--android:text="数据来源"-->
                             </LinearLayout>
 
 
@@ -348,9 +352,10 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="@dimen/d20"
                                 android:layout_marginTop="@dimen/d10"
-                                android:text="手机"
+
                                 android:textColor="@color/setting_row_title_color"
                                 android:textSize="13sp"/>
+                            <!--android:text="手机"-->
                         </LinearLayout>
 
 

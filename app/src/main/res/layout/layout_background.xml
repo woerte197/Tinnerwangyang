@@ -30,10 +30,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/d5"
-                android:text="1500"
+
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="40sp" />
+            <!--android:text="1500"-->
 
             <TextView
                 android:id="@+id/propaso"
@@ -41,17 +42,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/d20"
                 android:gravity="center"
-                android:text="建议总摄入量： 1500~1800"
+
                 android:textColor="@color/white"
                 android:textSize="14sp" />
+            <!--android:text="建议总摄入量： 1500~1800"-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/d10"
                 android:gravity="center"
-                android:text="单位（千卡）"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
+            <!--android:text="单位（千卡）"-->
+
         </LinearLayout>
     </LinearLayout>
 </layout>

@@ -86,9 +86,10 @@
                 android:layout_marginRight="@dimen/d10"
                 android:layout_marginTop="@dimen/d30"
                 android:background="@drawable/login_btn"
-                android:text="注册"
+
                 android:textColor="@color/color_login_btn"
                 android:textSize="20sp" />
+            <!--android:text="注册"-->
 
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>

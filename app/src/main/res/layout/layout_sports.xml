@@ -50,8 +50,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d10"
                         android:layout_marginTop="@dimen/d5"
-                        android:text="@{sport.Sporttime+`分钟`}"
                         android:textSize="13sp" />
+                    <!--android:text="@{sport.Sporttime+`分钟`}"-->
+
                 </LinearLayout>
 
                 <android.support.constraint.ConstraintLayout
@@ -63,10 +64,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginRight="@dimen/d10"
-                        android:text="@{sport.SportCalorie+`千卡`}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+                    <!--android:text="@{sport.SportCalorie+`千卡`}"-->
+
                 </android.support.constraint.ConstraintLayout>
             </LinearLayout>
 
